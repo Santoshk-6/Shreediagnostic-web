@@ -131,7 +131,7 @@ export const ReportLookupModal = () => {
           <ShieldCheck className="w-4 h-4 text-teal-600" />
           <span>256-Bit Encrypted Secure Health Records</span>
         </div>
-        <span>Support: care@apexpathlab.com</span>
+        <span>Support: care@shreediagnostic.com</span>
       </div>
 
     </div>

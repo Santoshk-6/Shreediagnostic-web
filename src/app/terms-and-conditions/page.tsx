@@ -18,7 +18,7 @@ export default function TermsAndConditionsPage() {
           Legal & Compliance
         </span>
         <h1 className="text-3xl font-black text-slate-900">Terms & Conditions</h1>
-        <p className="text-xs text-slate-500">Last updated: September 2026 • ApexPath Diagnostic Laboratory</p>
+        <p className="text-xs text-slate-500">Last updated: September 2026 • Shree Diagnostic Center</p>
       </div>
 
       <div className="bg-white rounded-3xl p-8 border border-slate-200 space-y-6 text-xs text-slate-700 leading-relaxed">
@@ -26,7 +26,7 @@ export default function TermsAndConditionsPage() {
         <section className="space-y-2">
           <h2 className="text-sm font-bold text-slate-900">1. Website & Service Usage</h2>
           <p>
-            By accessing or placing an order through the ApexPath Laboratory website, you agree to comply with these Terms and Conditions. All diagnostic services, pricing, and home sample schedules are subject to availability and service area coverage.
+            By accessing or placing an order through the Shree Diagnostic Center website, you agree to comply with these Terms and Conditions. All diagnostic services, pricing, and home sample schedules are subject to availability and service area coverage.
           </p>
         </section>
 

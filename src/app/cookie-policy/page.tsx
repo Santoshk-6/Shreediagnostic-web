@@ -18,7 +18,7 @@ export default function CookiePolicyPage() {
           Legal & Compliance
         </span>
         <h1 className="text-3xl font-black text-slate-900">Cookie Policy</h1>
-        <p className="text-xs text-slate-500">Last updated: September 2026 • ApexPath Diagnostic Laboratory</p>
+        <p className="text-xs text-slate-500">Last updated: September 2026 • Shree Diagnostic Center</p>
       </div>
 
       <div className="bg-white rounded-3xl p-8 border border-slate-200 space-y-6 text-xs text-slate-700 leading-relaxed">

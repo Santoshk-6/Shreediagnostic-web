@@ -108,7 +108,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900 text-sm">Official Email</h4>
-                    <a href="mailto:care@apexpathlab.com" className="text-slate-600 hover:underline">care@apexpathlab.com</a>
+                    <a href="mailto:care@shreediagnostic.com" className="text-slate-600 hover:underline">care@shreediagnostic.com</a>
                   </div>
                 </div>
 
@@ -156,7 +156,7 @@ export default function ContactPage() {
                 <div className="w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 flex items-center justify-center">
                   <MapPin className="w-6 h-6 animate-bounce" />
                 </div>
-                <span className="text-sm font-bold text-white">ApexPath Main Pathology Laboratory</span>
+                <span className="text-sm font-bold text-white">Shree Diagnostic Center Main Pathology Laboratory</span>
                 <span className="text-xs text-slate-400">124 Healthcare Boulevard, Medical Enclave</span>
                 <span className="text-[10px] font-mono text-teal-300 bg-teal-950/80 px-2 py-0.5 rounded border border-teal-800">
                   Lat: 28.6139° N, Long: 77.2090° E
@@ -265,7 +265,7 @@ export default function ContactPage() {
               </div>
               <h3 className="text-2xl font-bold text-slate-900">Message Received!</h3>
               <p className="text-xs text-slate-600">
-                Thank you for contacting ApexPath Laboratory. Our representative will get back to you shortly.
+                Thank you for contacting Shree Diagnostic Center. Our representative will get back to you shortly.
               </p>
               <button
                 onClick={() => setFormSubmitted(false)}

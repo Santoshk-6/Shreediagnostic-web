@@ -72,7 +72,7 @@ export default function AboutPage() {
             <Award className="w-4 h-4" />
             <span>Excellence in Medical Diagnostics Since 2012</span>
           </span>
-          <h1 className="text-4xl sm:text-5xl font-black text-white">About ApexPath Laboratory</h1>
+          <h1 className="text-4xl sm:text-5xl font-black text-white">About Shree Diagnostic Center</h1>
           <p className="text-slate-300 text-base max-w-2xl mx-auto leading-relaxed">
             Delivering gold-standard pathology report accuracy, advanced diagnostic equipment, and patient-centered healthcare across the region.
           </p>
@@ -91,7 +91,7 @@ export default function AboutPage() {
               Pioneering Accurate Diagnostics & Compassionate Care
             </h2>
             <p className="text-slate-600 text-sm leading-relaxed">
-              Founded in 2012 by a team of veteran clinical pathologists, ApexPath Laboratory was established with a singular vision: to eliminate diagnostic uncertainty through state-of-the-art laboratory automation and rigorous medical ethics.
+              Founded in 2012 by a team of veteran clinical pathologists, Shree Diagnostic Center was established with a singular vision: to eliminate diagnostic uncertainty through state-of-the-art laboratory automation and rigorous medical ethics.
             </p>
             <p className="text-slate-600 text-sm leading-relaxed">
               Over the past decade, we have grown into a premier NABL-accredited regional diagnostic hub processing over 250,000 samples annually. Our central reference laboratory houses fully automated Roche, Siemens, and Sysmex analyzers capable of executing over 500 distinct clinical parameters.

@@ -90,7 +90,7 @@ export default function HomePage() {
       name: "Dr. Priya Roy",
       location: "MD (Internal Medicine) • Clinical Partner",
       rating: 5,
-      review: "As a consultant physician, diagnostic precision is paramount for my clinical prescriptions. ApexPath Laboratory delivers consistent calibration accuracy, especially on HbA1c and thyroid panels.",
+      review: "As a consultant physician, diagnostic precision is paramount for my clinical prescriptions. Shree Diagnostic Center delivers consistent calibration accuracy, especially on HbA1c and thyroid panels.",
       date: "Consultant Physician • 1 week ago",
       initials: "PR",
       avatarBg: "bg-blue-700"
@@ -519,7 +519,7 @@ export default function HomePage() {
             Clinical Rigor & Reliability
           </span>
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            Why Patients & Doctors Choose ApexPath
+            Why Patients & Doctors Choose Shree Diagnostic Center
           </h2>
           <p className="text-slate-500 text-xs sm:text-sm">
             Setting the benchmark in clinical pathology through automated instrumentation and strict medical protocols.

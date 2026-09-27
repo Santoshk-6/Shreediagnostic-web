@@ -19,7 +19,7 @@ export const Footer = () => {
                 <Stethoscope className="w-5 h-5" />
               </div>
               <span className="text-xl font-black text-white tracking-tight">
-                ApexPath<span className="text-teal-400 font-light">Lab</span>
+                Shree<span className="text-teal-400 font-light"> Diagnostic</span>
               </span>
             </Link>
 
@@ -123,7 +123,7 @@ export const Footer = () => {
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-teal-400 flex-shrink-0" />
-                <a href="mailto:care@apexpathlab.com" className="hover:text-white transition-colors">care@apexpathlab.com</a>
+                <a href="mailto:care@shreediagnostic.com" className="hover:text-white transition-colors">care@shreediagnostic.com</a>
               </div>
               <div className="flex items-start gap-2">
                 <Clock className="w-4 h-4 text-teal-400 flex-shrink-0 mt-0.5" />
@@ -151,7 +151,7 @@ export const Footer = () => {
 
         {/* Bottom Copyright */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
-          <p>© 2026 ApexPath Pathology Laboratory. All Rights Reserved.</p>
+          <p>© 2026 Shree Diagnostic Center. All Rights Reserved.</p>
           <p className="flex items-center gap-1">
             <span>Delivering diagnostic precision with care</span>
             <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" />

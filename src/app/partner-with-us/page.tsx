@@ -87,7 +87,7 @@ export default function PartnerWithUsPage() {
             <HeartHandshake className="w-3.5 h-3.5" />
             <span>B2B Clinical & Corporate Alliances</span>
           </span>
-          <h1 className="text-4xl sm:text-5xl font-black text-white">Partner With ApexPath Laboratory</h1>
+          <h1 className="text-4xl sm:text-5xl font-black text-white">Partner With Shree Diagnostic Center</h1>
           <p className="text-slate-300 text-base max-w-2xl mx-auto leading-relaxed">
             Expand your diagnostic capabilities, elevate patient clinical outcomes, and grow your medical practice with our NABL-accredited diagnostic infrastructure.
           </p>
@@ -157,7 +157,7 @@ export default function PartnerWithUsPage() {
             <span className="text-xs font-bold uppercase tracking-wider text-teal-400 bg-teal-950 px-3 py-1 rounded-full border border-teal-800">
               Institutional Advantages
             </span>
-            <h2 className="text-3xl font-black text-white mt-2">Why Align With ApexPath?</h2>
+            <h2 className="text-3xl font-black text-white mt-2">Why Align With Shree Diagnostic Center?</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -301,7 +301,7 @@ export default function PartnerWithUsPage() {
               </div>
               <h3 className="text-2xl font-bold text-slate-900">Application Received!</h3>
               <p className="text-xs text-slate-600">
-                Thank you for your interest in partnering with ApexPath Laboratory. Our Institutional Head will contact {formData.contactPerson} within 24 business hours.
+                Thank you for your interest in partnering with Shree Diagnostic Center. Our Institutional Head will contact {formData.contactPerson} within 24 business hours.
               </p>
               <button
                 onClick={() => setFormSubmitted(false)}

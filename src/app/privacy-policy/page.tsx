@@ -18,7 +18,7 @@ export default function PrivacyPolicyPage() {
           Legal & Compliance
         </span>
         <h1 className="text-3xl font-black text-slate-900">Privacy Policy</h1>
-        <p className="text-xs text-slate-500">Last updated: September 2026 • ApexPath Diagnostic Laboratory</p>
+        <p className="text-xs text-slate-500">Last updated: September 2026 • Shree Diagnostic Center</p>
       </div>
 
       <div className="bg-white rounded-3xl p-8 border border-slate-200 space-y-6 text-xs text-slate-700 leading-relaxed">
@@ -26,7 +26,7 @@ export default function PrivacyPolicyPage() {
         <section className="space-y-2">
           <h2 className="text-sm font-bold text-slate-900">1. Information We Collect</h2>
           <p>
-            When you schedule a diagnostic test or home sample collection with ApexPath Laboratory, we collect personal details including your full name, mobile phone number, email address, residential pickup address, age, gender, and relevant medical history or physician prescriptions provided by you.
+            When you schedule a diagnostic test or home sample collection with Shree Diagnostic Center, we collect personal details including your full name, mobile phone number, email address, residential pickup address, age, gender, and relevant medical history or physician prescriptions provided by you.
           </p>
         </section>
 
@@ -47,14 +47,14 @@ export default function PrivacyPolicyPage() {
         <section className="space-y-2">
           <h2 className="text-sm font-bold text-slate-900">4. Third-Party Sharing</h2>
           <p>
-            ApexPath Laboratory does not sell, lease, or commercialize patient data. Information may only be shared with NABL partner laboratories or attending physicians explicitly designated by the patient.
+            Shree Diagnostic Center does not sell, lease, or commercialize patient data. Information may only be shared with NABL partner laboratories or attending physicians explicitly designated by the patient.
           </p>
         </section>
 
         <section className="space-y-2">
           <h2 className="text-sm font-bold text-slate-900">5. Contact Privacy Officer</h2>
           <p>
-            If you have questions regarding data privacy or wish to request report deletion, contact privacy@apexpathlab.com or +91 98765 43210.
+            If you have questions regarding data privacy or wish to request report deletion, contact privacy@shreediagnostic.com or +91 98765 43210.
           </p>
         </section>
 

@@ -41,7 +41,7 @@ export default function PartnersPage() {
           <span className="text-xs font-bold uppercase tracking-wider text-teal-400 bg-teal-950 px-3 py-1 rounded-full border border-teal-800">
             Clinical B2B & Corporate Partnerships
           </span>
-          <h1 className="text-4xl sm:text-5xl font-black text-white">Partner With ApexPath Laboratory</h1>
+          <h1 className="text-4xl sm:text-5xl font-black text-white">Partner With Shree Diagnostic Center</h1>
           <p className="text-slate-300 text-base max-w-2xl mx-auto leading-relaxed">
             Collaborating with hospitals, specialty clinics, corporate enterprises, and practicing physicians for high-accuracy diagnostic sample processing.
           </p>

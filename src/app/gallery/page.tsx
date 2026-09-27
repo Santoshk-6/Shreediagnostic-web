@@ -130,7 +130,7 @@ export default function GalleryPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
           <span className="text-xs font-bold uppercase tracking-wider text-teal-400 bg-teal-950 px-3.5 py-1 rounded-full border border-teal-800 inline-flex items-center gap-1.5">
             <ImageIcon className="w-3.5 h-3.5" />
-            <span>Visual Tour of ApexPath Diagnostic Lab</span>
+            <span>Visual Tour of Shree Diagnostic Center Diagnostic Lab</span>
           </span>
           <h1 className="text-4xl sm:text-5xl font-black text-white">Laboratory & Facility Gallery</h1>
           <p className="text-slate-300 text-base max-w-2xl mx-auto leading-relaxed">

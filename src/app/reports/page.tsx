@@ -38,7 +38,7 @@ export default function ReportsPage() {
           <div className="space-y-2 text-xs text-slate-600 leading-relaxed">
             <p>1. Enter your 10-digit registered mobile number or your unique Booking Reference ID (e.g., PATH-849201).</p>
             <p>2. Reports are available immediately after final verification by our Chief Medical Pathologist.</p>
-            <p>3. If you experience difficulty downloading your PDF, contact our report desk at care@apexpathlab.com or call +91 98765 43210.</p>
+            <p>3. If you experience difficulty downloading your PDF, contact our report desk at care@shreediagnostic.com or call +91 98765 43210.</p>
           </div>
         </div>
       </section>

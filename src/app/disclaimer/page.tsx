@@ -18,7 +18,7 @@ export default function DisclaimerPage() {
           Legal & Compliance
         </span>
         <h1 className="text-3xl font-black text-slate-900">Medical & Website Disclaimer</h1>
-        <p className="text-xs text-slate-500">Last updated: September 2026 • ApexPath Diagnostic Laboratory</p>
+        <p className="text-xs text-slate-500">Last updated: September 2026 • Shree Diagnostic Center</p>
       </div>
 
       <div className="bg-white rounded-3xl p-8 border border-slate-200 space-y-6 text-xs text-slate-700 leading-relaxed">
@@ -40,7 +40,7 @@ export default function DisclaimerPage() {
         <section className="space-y-2">
           <h2 className="text-sm font-bold text-slate-900">2. Emergency Medical Situations</h2>
           <p>
-            ApexPath Laboratory is an outpatient diagnostic testing facility. Do not rely on web bookings for acute medical emergencies. In the event of a medical emergency, visit the nearest hospital emergency room immediately.
+            Shree Diagnostic Center is an outpatient diagnostic testing facility. Do not rely on web bookings for acute medical emergencies. In the event of a medical emergency, visit the nearest hospital emergency room immediately.
           </p>
         </section>
 
