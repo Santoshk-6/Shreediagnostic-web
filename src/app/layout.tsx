@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ApexPath Diagnostic Labs | NABL Accredited Pathology & Health Packages",
+  title: "Shree Diagnostic Center | NABL Accredited Pathology & Health Packages",
   description: "Premier NABL & ISO 9001:2015 certified pathology laboratory offering blood tests, full body health checkup packages, and doorstep home sample collection.",
-  keywords: ["pathology lab", "blood test near me", "full body checkup", "home sample collection", "NABL lab", "thyroid test", "lipid profile", "diabetes test"],
+  keywords: ["pathology lab", "shree diagnostic center", "blood test near me", "full body checkup", "home sample collection", "NABL lab", "thyroid test", "lipid profile", "diabetes test"],
 };
 
 export default function RootLayout({

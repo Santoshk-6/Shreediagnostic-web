@@ -46,10 +46,10 @@ export const Header = () => {
               </div>
               <div className="flex flex-col">
                 <span className="text-xl font-black tracking-tight text-slate-900 group-hover:text-teal-700 transition-colors">
-                  ApexPath<span className="text-teal-600 font-light">Lab</span>
+                  Shree<span className="text-teal-600 font-light"> Diagnostic</span>
                 </span>
                 <span className="text-[10px] font-bold tracking-wider uppercase text-teal-700">
-                  Advanced Pathology & Diagnostics
+                  Diagnostic Center & Pathology Lab
                 </span>
               </div>
             </Link>
