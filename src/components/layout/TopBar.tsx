@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { Phone, Award, ShieldCheck, FileText, Clock } from "lucide-react";
+import { Phone, Award, ShieldCheck, Clock } from "lucide-react";
 
 export const TopBar = () => {
   return (
@@ -31,14 +31,6 @@ export const TopBar = () => {
             <Phone className="w-3.5 h-3.5 text-teal-400" />
             <span>+91 98765 43210</span>
           </a>
-          <span className="text-slate-700">|</span>
-          <Link
-            href="/reports"
-            className="flex items-center gap-1.5 text-teal-300 hover:text-teal-200 transition-colors bg-teal-950/60 px-2.5 py-1 rounded-md border border-teal-800/60"
-          >
-            <FileText className="w-3.5 h-3.5" />
-            <span className="font-medium">Download Report</span>
-          </Link>
         </div>
 
       </div>

@@ -73,7 +73,6 @@ export const Footer = () => {
               <li><Link href="/services" className="hover:text-teal-400 transition-colors">Services & Tests</Link></li>
               <li><Link href="/health-packages" className="hover:text-teal-400 transition-colors">Health Packages</Link></li>
               <li><Link href="/home-sample-collection" className="hover:text-teal-400 transition-colors">Home Collection</Link></li>
-              <li><Link href="/how-it-works" className="hover:text-teal-400 transition-colors">How It Works</Link></li>
               <li><Link href="/partners" className="hover:text-teal-400 transition-colors">Partners</Link></li>
               <li><Link href="/resources" className="hover:text-teal-400 transition-colors">Resources & Blog</Link></li>
               <li><Link href="/faq" className="hover:text-teal-400 transition-colors">FAQ</Link></li>
@@ -104,7 +103,6 @@ export const Footer = () => {
               <li><Link href="/partner-with-us" className="hover:text-teal-400 transition-colors">Corporate Health Checkups</Link></li>
               <li><Link href="/offers" className="hover:text-teal-400 transition-colors">Offers & Health Camps</Link></li>
               <li><Link href="/gallery" className="hover:text-teal-400 transition-colors">Laboratory Gallery</Link></li>
-              <li><Link href="/reports" className="hover:text-teal-400 transition-colors">Patient Report Portal</Link></li>
               <li><Link href="/home-sample-collection#pincode" className="hover:text-teal-400 transition-colors">Pincode Availability</Link></li>
             </ul>
           </div>

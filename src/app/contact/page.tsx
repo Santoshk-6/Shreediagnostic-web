@@ -16,7 +16,6 @@ import {
   Navigation,
   Globe
 } from "lucide-react";
-import { ReportLookupModal } from "@/components/reports/ReportLookupModal";
 import { BookingModal } from "@/components/booking/BookingModal";
 
 export default function ContactPage() {
@@ -45,19 +44,13 @@ export default function ContactPage() {
           <span className="text-xs font-bold uppercase tracking-wider text-teal-400 bg-teal-950 px-3 py-1 rounded-full border border-teal-800">
             24/7 Patient Support & Contact Hub
           </span>
-          <h1 className="text-4xl sm:text-5xl font-black text-white">Contact Us & Download Reports</h1>
+          <h1 className="text-4xl sm:text-5xl font-black text-white">Contact Us</h1>
           <p className="text-slate-300 text-base max-w-2xl mx-auto leading-relaxed">
-            Have questions about test bookings, home collection, or report delivery? Reach out to our customer care team or download your diagnostic report below.
+            Have questions about test bookings, home collection, or results? Reach out to our customer care team — we're here to help.
           </p>
         </div>
       </section>
 
-      {/* PATIENT REPORT LOOKUP PORTAL */}
-      <section id="reports" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-slate-100 rounded-3xl p-8 border border-slate-200">
-          <ReportLookupModal />
-        </div>
-      </section>
 
       {/* CONTACT INFO & MAP SECTION */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
