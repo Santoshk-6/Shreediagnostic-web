@@ -21,15 +21,14 @@ export interface PathologyTest {
 export const TEST_CATEGORIES = [
   "All Categories",
   "Blood Tests",
-  "Urine Tests",
+  "Cancer Tests",
   "Diabetes Tests",
-  "Thyroid Tests",
-  "Liver Function Tests",
+  "Hormone Tests",
   "Kidney Function Tests",
   "Lipid Profile",
-  "CBC / Hemogram",
+  "Liver Function Tests",
+  "Thyroid Tests",
   "Vitamin Tests",
-  "Hormone Tests",
   "Other Diagnostic Tests",
 ] as const;
 

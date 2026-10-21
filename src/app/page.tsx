@@ -66,7 +66,8 @@ export default function HomePage() {
     { title: "CBC / Hemogram", count: "24 Parameters", href: "/services?category=CBC+%2F+Hemogram", color: "from-red-500/10 to-red-600/5", border: "hover:border-red-300", iconColor: "text-red-600" },
     { title: "Vitamin Tests", count: "Vit D3 & B12", href: "/services?category=Vitamin+Tests", color: "from-orange-500/10 to-orange-600/5", border: "hover:border-orange-300", iconColor: "text-orange-600" },
     { title: "Hormone Tests", count: "Endocrinology", href: "/services?category=Hormone+Tests", color: "from-fuchsia-500/10 to-fuchsia-600/5", border: "hover:border-fuchsia-300", iconColor: "text-fuchsia-600" },
-    { title: "Other Diagnostic", count: "CRP & Serology", href: "/services?category=Other+Diagnostic+Tests", color: "from-indigo-500/10 to-indigo-600/5", border: "hover:border-indigo-300", iconColor: "text-indigo-600" }
+    { title: "Cancer Markers", count: "PSA, CA-125, CEA", href: "/services?category=Cancer+Tests", color: "from-rose-600/10 to-rose-700/5", border: "hover:border-rose-400", iconColor: "text-rose-700" },
+    { title: "Other Diagnostic", count: "Infectious & Panels", href: "/services?category=Other+Diagnostic+Tests", color: "from-indigo-500/10 to-indigo-600/5", border: "hover:border-indigo-300", iconColor: "text-indigo-600" }
   ];
 
   const whyChooseUsList = [
