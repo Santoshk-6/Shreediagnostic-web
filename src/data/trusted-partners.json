@@ -1,0 +1,78 @@
+[
+  {
+    "id": "clinova",
+    "name": "Clinova Diagnostics",
+    "shortName": "CLINOVA",
+    "tagline": "Advanced Molecular Diagnostics Partner",
+    "description": "Clinova is our exclusive molecular diagnostics partner providing RT-PCR, Flow Cytometry, Dengue profiling, Fever panels, and cutting-edge immunological assays. All Clinova tests are processed in their NABL-accredited facility.",
+    "logoText": "CLINOVA",
+    "logoColor": "blue",
+    "logoFile": "/images/partners/clinova/logo.png",
+    "website": "",
+    "specialties": [
+      "Dengue & Fever Profiles",
+      "Flow Cytometry",
+      "Molecular Diagnostics",
+      "Immunological Assays",
+      "COVID-19 Testing"
+    ],
+    "certificates": [
+      {
+        "id": "clinova-dengue",
+        "title": "Dengue Profile Poster",
+        "description": "Complete dengue diagnostic panel — NS1, IgM, IgG, and CBC monitoring",
+        "file": "/images/partners/clinova/certificates/dengue-profile-poster.pdf",
+        "type": "pdf",
+        "aspect": "portrait"
+      },
+      {
+        "id": "clinova-fever",
+        "title": "Fever Profile Poster",
+        "description": "Comprehensive fever workup panel covering malaria, typhoid, dengue and more",
+        "file": "/images/partners/clinova/certificates/fever-profile-poster.pdf",
+        "type": "pdf",
+        "aspect": "portrait"
+      },
+      {
+        "id": "clinova-services",
+        "title": "Clinova Services Overview",
+        "description": "Full catalogue of diagnostic services offered through our Clinova partnership",
+        "file": "/images/partners/clinova/certificates/services-poster.pdf",
+        "type": "pdf",
+        "aspect": "portrait"
+      }
+    ],
+    "featured": true,
+    "order": 1
+  },
+  {
+    "id": "niptr",
+    "name": "NIPTR Genetic Lab",
+    "shortName": "NIPTR",
+    "tagline": "Non-Invasive Prenatal Testing Specialist",
+    "description": "NIPTR specializes in Non-Invasive Prenatal Testing (NIPT) for chromosomal abnormalities including Down syndrome, Edwards syndrome, and Patau syndrome — using the latest cfDNA technology without risk to the foetus.",
+    "logoText": "NIPTR",
+    "logoColor": "teal",
+    "logoFile": "/images/partners/niptr/logo.png",
+    "website": "",
+    "specialties": [
+      "NIPT — Non-Invasive Prenatal Testing",
+      "cfDNA Analysis",
+      "Chromosomal Abnormality Screening",
+      "Trisomy 21, 18, 13 Detection",
+      "Sex Chromosome Disorders"
+    ],
+    "certificates": [
+      {
+        "id": "niptr-nipt",
+        "title": "NIPT Test Information",
+        "description": "Comprehensive guide to Non-Invasive Prenatal Testing — procedure, coverage, and results",
+        "file": "/images/partners/niptr/certificates/nipt-test-poster.pdf",
+        "type": "pdf",
+        "aspect": "portrait"
+      }
+    ],
+    "featured": true,
+    "order": 2
+  }
+]

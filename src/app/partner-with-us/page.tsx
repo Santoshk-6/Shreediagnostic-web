@@ -295,20 +295,47 @@ export default function PartnerWithUsPage() {
               </button>
             </form>
           ) : (
-            <div className="p-8 text-center space-y-4">
+            <div className="p-8 text-center space-y-6">
               <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
                 <CheckCircle2 className="w-10 h-10" />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900">Application Received!</h3>
-              <p className="text-xs text-slate-600">
-                Thank you for your interest in partnering with Shree Diagnostic Center. Our Institutional Head will contact {formData.contactPerson} within 24 business hours.
-              </p>
-              <button
-                onClick={() => setFormSubmitted(false)}
-                className="px-6 py-2.5 rounded-xl bg-teal-700 text-white font-bold text-xs"
-              >
-                Submit Another Request
-              </button>
+              <div className="space-y-1">
+                <h3 className="text-2xl font-bold text-slate-900">Application Received!</h3>
+                <p className="text-xs text-slate-600 max-w-md mx-auto">
+                  Thank you for your interest in partnering with Shree Diagnostic Center. Our Institutional Head will contact {formData.contactPerson} within 24 business hours.
+                </p>
+              </div>
+
+              {/* Related B2B / Partnership Promotion (Requirement 2) */}
+              <div className="p-4 rounded-2xl bg-gradient-to-r from-teal-900 to-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-4 border border-teal-700/50 shadow-md text-left">
+                <div className="space-y-1">
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-teal-300 bg-teal-950 px-2.5 py-0.5 rounded-full border border-teal-800">
+                    B2B Referral Advantage
+                  </span>
+                  <h4 className="text-sm font-bold text-white">Advanced Molecular & Genetic Referral Panels</h4>
+                  <p className="text-xs text-slate-300">
+                    Explore our Clinova & NIPTR reference test portfolio for specialized clinic and hospital tie-ups.
+                  </p>
+                </div>
+                <a
+                  href="/images/partners/clinova/certificates/services-poster.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-teal-400 hover:bg-teal-300 text-slate-950 font-bold text-xs flex items-center justify-center gap-1.5 transition whitespace-nowrap"
+                >
+                  <span>View Services Poster (PDF)</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
+
+              <div>
+                <button
+                  onClick={() => setFormSubmitted(false)}
+                  className="px-6 py-2.5 rounded-xl bg-teal-700 text-white font-bold text-xs hover:bg-teal-800 transition cursor-pointer"
+                >
+                  Submit Another Request
+                </button>
+              </div>
             </div>
           )}
 

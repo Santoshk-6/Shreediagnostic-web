@@ -120,8 +120,18 @@ export default function HealthPackagesPage() {
       </section>
 
       {/* PACKAGE COMPARISON TABLE */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <PackageComparisonTable />
+
+        <div className="text-center pt-4">
+          <Link
+            href="/services"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow-lg transition"
+          >
+            <span>Explore All 140+ Individual Diagnostic Tests & Services</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
       </section>
 
       <BookingModal

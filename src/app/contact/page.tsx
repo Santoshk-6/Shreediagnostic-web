@@ -14,7 +14,8 @@ import {
   Calendar,
   Home as HomeIcon,
   Navigation,
-  Globe
+  Globe,
+  ArrowRight
 } from "lucide-react";
 import { BookingModal } from "@/components/booking/BookingModal";
 
@@ -252,20 +253,47 @@ export default function ContactPage() {
               </button>
             </form>
           ) : (
-            <div className="p-8 text-center space-y-4">
+            <div className="p-8 text-center space-y-6">
               <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
                 <CheckCircle2 className="w-10 h-10" />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900">Message Received!</h3>
-              <p className="text-xs text-slate-600">
-                Thank you for contacting Shree Diagnostic Center. Our representative will get back to you shortly.
-              </p>
-              <button
-                onClick={() => setFormSubmitted(false)}
-                className="px-6 py-2.5 rounded-xl bg-teal-700 text-white font-bold text-xs"
-              >
-                Send Another Message
-              </button>
+              <div className="space-y-1">
+                <h3 className="text-2xl font-bold text-slate-900">Message Received!</h3>
+                <p className="text-xs text-slate-600 max-w-md mx-auto">
+                  Thank you for contacting Shree Diagnostic Center. Our clinical care representative will get back to you shortly.
+                </p>
+              </div>
+
+              {/* Related Promotion Underneath (Requirement 2 & 3) */}
+              <div className="p-4 rounded-2xl bg-gradient-to-r from-teal-900 to-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-4 border border-teal-700/50 shadow-md text-left">
+                <div className="space-y-1">
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-teal-300 bg-teal-950 px-2.5 py-0.5 rounded-full border border-teal-800">
+                    Complimentary Patient Offer
+                  </span>
+                  <h4 className="text-sm font-bold text-white">Full Body Health Checkup Package</h4>
+                  <p className="text-xs text-slate-300">
+                    Get up to 62% off on 78 vital organ screening parameters with doorstep home sample collection.
+                  </p>
+                </div>
+                <a
+                  href="/images/promotions/health-packages-poster.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-teal-400 hover:bg-teal-300 text-slate-950 font-bold text-xs flex items-center justify-center gap-1.5 transition whitespace-nowrap"
+                >
+                  <span>View Package PDF</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
+
+              <div>
+                <button
+                  onClick={() => setFormSubmitted(false)}
+                  className="px-6 py-2.5 rounded-xl bg-teal-700 text-white font-bold text-xs hover:bg-teal-800 transition cursor-pointer"
+                >
+                  Send Another Message
+                </button>
+              </div>
             </div>
           )}
 

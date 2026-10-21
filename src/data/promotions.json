@@ -1,0 +1,57 @@
+[
+  {
+    "id": "health-packages-poster",
+    "title": "Full Body Health Packages",
+    "subtitle": "Complete checkup packages at affordable prices",
+    "file": "/images/promotions/health-packages-poster.pdf",
+    "type": "pdf",
+    "active": true,
+    "showOnPages": ["home", "about", "partners", "contact"],
+    "badge": "Special Offer",
+    "badgeColor": "teal"
+  },
+  {
+    "id": "allergy-leaflet",
+    "title": "Allergy Testing Panel",
+    "subtitle": "Comprehensive allergy diagnostics — 300+ allergens",
+    "file": "/images/promotions/allergy-leaflet.pdf",
+    "type": "pdf",
+    "active": true,
+    "showOnPages": ["home", "about", "partners", "contact"],
+    "badge": "New",
+    "badgeColor": "emerald"
+  },
+  {
+    "id": "covid-omicron-poster",
+    "title": "COVID & Omicron Testing",
+    "subtitle": "RT-PCR, Antigen & Antibody tests available",
+    "file": "/images/promotions/covid-omicron-poster.pdf",
+    "type": "pdf",
+    "active": true,
+    "showOnPages": ["home", "about"],
+    "badge": "Available",
+    "badgeColor": "blue"
+  },
+  {
+    "id": "flowcyto-tests-poster",
+    "title": "Flow Cytometry Tests",
+    "subtitle": "Advanced immunophenotyping & cell analysis",
+    "file": "/images/promotions/flowcyto-tests-poster.pdf",
+    "type": "pdf",
+    "active": true,
+    "showOnPages": ["home", "partners"],
+    "badge": "Advanced",
+    "badgeColor": "purple"
+  },
+  {
+    "id": "gynec-tests-poster",
+    "title": "Women's Gynecology Panel",
+    "subtitle": "Hormonal & reproductive health testing",
+    "file": "/images/promotions/gynec-tests-poster.pdf",
+    "type": "pdf",
+    "active": true,
+    "showOnPages": ["home", "about", "contact"],
+    "badge": "Women's Health",
+    "badgeColor": "rose"
+  }
+]

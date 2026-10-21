@@ -1,0 +1,2837 @@
+[
+  {
+    "id": "test-1",
+    "slug": "complete-blood-count-cbc",
+    "name": "Complete Blood Count (CBC) / Hemogram",
+    "category": "CBC / Hemogram",
+    "shortDescription": "Evaluates overall health and detects a wide range of blood disorders including anemia and infections.",
+    "description": "A Complete Blood Count (CBC) tests the levels of red blood cells, white blood cells, hemoglobin, hematocrit, and platelets. It is one of the most common and vital diagnostic tests for identifying infections, anemia, and immune system status.",
+    "price": 350,
+    "originalPrice": 450,
+    "sampleType": "Blood (EDTA Whole Blood)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "No special preparation needed. Stay hydrated before sample collection.",
+    "turnaroundTime": "Same Day (6-8 Hours)",
+    "isPopular": true,
+    "parametersCount": 24,
+    "overview": [
+      "Hemoglobin Level",
+      "Total Leukocyte Count (TLC)",
+      "Differential Leukocyte Count (DLC)",
+      "Platelet Count",
+      "Packed Cell Volume (PCV)",
+      "RBC Indices (MCV, MCH, MCHC, RDW)"
+    ]
+  },
+  {
+    "id": "test-2",
+    "slug": "fasting-blood-sugar-fbs",
+    "name": "Fasting Blood Sugar (FBS)",
+    "category": "Diabetes Tests",
+    "shortDescription": "Measures glucose levels in blood after an overnight fast to screen for diabetes and prediabetes.",
+    "description": "Fasting Blood Sugar measures blood glucose levels after a minimum 8 to 12 hour fast. It is essential for diagnosing Type 1 and Type 2 Diabetes, as well as monitoring blood glucose control in diabetic patients.",
+    "price": 150,
+    "originalPrice": 200,
+    "sampleType": "Blood (Fluoride Plasma)",
+    "fastingRequirement": "10-12 Hours Strict Fasting",
+    "preparationInstruction": "Do not consume food or beverages except water for 10-12 hours prior to the test.",
+    "turnaroundTime": "Same Day (4 Hours)",
+    "isPopular": true,
+    "parametersCount": 1,
+    "overview": [
+      "Fasting Plasma Glucose Level"
+    ]
+  },
+  {
+    "id": "test-3",
+    "slug": "hba1c-glycated-hemoglobin",
+    "name": "HbA1c (Glycated Hemoglobin)",
+    "category": "Diabetes Tests",
+    "shortDescription": "Reflects average blood sugar control over the past 2 to 3 months.",
+    "description": "HbA1c measures the percentage of blood sugar attached to hemoglobin. It provides a long-term picture of blood sugar control and helps evaluate the effectiveness of diabetes management plans.",
+    "price": 550,
+    "originalPrice": 700,
+    "sampleType": "Blood (Whole Blood)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Can be performed at any time of day regardless of meal timing.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": true,
+    "parametersCount": 3,
+    "overview": [
+      "HbA1c Percentage",
+      "Estimated Average Glucose (eAG)",
+      "Glycated Fraction"
+    ]
+  },
+  {
+    "id": "test-4",
+    "slug": "thyroid-profile-total-t3-t4-tsh",
+    "name": "Thyroid Profile Total (T3, T4, TSH)",
+    "category": "Thyroid Tests",
+    "shortDescription": "Comprehensive evaluation of thyroid gland functioning and hormonal balance.",
+    "description": "Thyroid Profile checks levels of Triiodothyronine (T3), Thyroxine (T4), and Thyroid Stimulating Hormone (TSH) to diagnose hypothyroidism, hyperthyroidism, and thyroiditis.",
+    "price": 490,
+    "originalPrice": 650,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "8-10 Hours Fasting Recommended",
+    "preparationInstruction": "Take blood sample preferably in the morning. Inform technician if taking thyroid medications.",
+    "turnaroundTime": "Same Day (8 Hours)",
+    "isPopular": true,
+    "parametersCount": 3,
+    "overview": [
+      "Total T3",
+      "Total T4",
+      "TSH (Thyroid Stimulating Hormone)"
+    ]
+  },
+  {
+    "id": "test-5",
+    "slug": "lipid-profile-comprehensive",
+    "name": "Lipid Profile Comprehensive",
+    "category": "Lipid Profile",
+    "shortDescription": "Measures cholesterol and triglyceride levels to assess cardiovascular disease risk.",
+    "description": "A complete lipid panel measuring total cholesterol, high-density lipoprotein (HDL - good cholesterol), low-density lipoprotein (LDL - bad cholesterol), VLDL, and triglycerides to evaluate heart health.",
+    "price": 600,
+    "originalPrice": 850,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "10-12 Hours Strict Fasting",
+    "preparationInstruction": "Fast overnight. Avoid alcohol and high-fat meals 24 hours before the test.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": true,
+    "parametersCount": 8,
+    "overview": [
+      "Total Cholesterol",
+      "HDL Cholesterol",
+      "LDL Cholesterol",
+      "Triglycerides",
+      "VLDL Cholesterol",
+      "Total / HDL Ratio",
+      "LDL / HDL Ratio"
+    ]
+  },
+  {
+    "id": "test-6",
+    "slug": "liver-function-test-lft",
+    "name": "Liver Function Test (LFT)",
+    "category": "Liver Function Tests",
+    "shortDescription": "Assesses liver enzymes, protein production, and bilirubin metabolism.",
+    "description": "Evaluates enzymes (SGOT/AST, SGPT/ALT, Alkaline Phosphatase), total proteins, albumin, globulin, and bilirubin levels to check for liver infection, fatty liver disease, and liver damage.",
+    "price": 650,
+    "originalPrice": 900,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "8-10 Hours Fasting Recommended",
+    "preparationInstruction": "Avoid alcohol for 48 hours prior to test. Drink adequate water.",
+    "turnaroundTime": "Same Day (8 Hours)",
+    "isPopular": true,
+    "parametersCount": 11,
+    "overview": [
+      "Bilirubin Total & Direct",
+      "SGOT / AST",
+      "SGPT / ALT",
+      "Alkaline Phosphatase (ALP)",
+      "Total Protein",
+      "Albumin & Globulin Ratio"
+    ]
+  },
+  {
+    "id": "test-7",
+    "slug": "kidney-function-test-kft",
+    "name": "Kidney Function Test (KFT / RFT)",
+    "category": "Kidney Function Tests",
+    "shortDescription": "Evaluates renal function by measuring urea, creatinine, uric acid, and electrolytes.",
+    "description": "Screens for kidney health, filtration efficiency, and electrolyte imbalances. Crucial for hypertension, diabetes, and kidney disorder management.",
+    "price": 650,
+    "originalPrice": 850,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "8-10 Hours Fasting Recommended",
+    "preparationInstruction": "Avoid intense strenuous exercise 24 hours prior to blood draw.",
+    "turnaroundTime": "Same Day (8 Hours)",
+    "isPopular": true,
+    "parametersCount": 9,
+    "overview": [
+      "Blood Urea Nitrogen (BUN)",
+      "Serum Creatinine",
+      "Uric Acid",
+      "Sodium & Potassium",
+      "Chloride",
+      "BUN/Creatinine Ratio"
+    ]
+  },
+  {
+    "id": "test-8",
+    "slug": "vitamin-d3-25-hydroxy",
+    "name": "Vitamin D3 (25-Hydroxy)",
+    "category": "Vitamin Tests",
+    "shortDescription": "Measures Vitamin D levels essential for bone density, immune response, and joint health.",
+    "description": "Checks 25-Hydroxy Vitamin D level in blood serum to detect deficiency responsible for bone weakness, muscle pain, chronic fatigue, and reduced immunity.",
+    "price": 790,
+    "originalPrice": 1200,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Inform doctor if taking Vitamin D supplements.",
+    "turnaroundTime": "24 Hours",
+    "isPopular": true,
+    "parametersCount": 1,
+    "overview": [
+      "25-OH Vitamin D Total Level"
+    ]
+  },
+  {
+    "id": "test-9",
+    "slug": "vitamin-b12-cyanocobalamin",
+    "name": "Vitamin B12 (Cyanocobalamin)",
+    "category": "Vitamin Tests",
+    "shortDescription": "Evaluates Vitamin B12 status essential for nerve health and red blood cell production.",
+    "description": "Detects Vitamin B12 deficiency which can cause nerve damage, numbness, memory impairment, weakness, and megaloblastic anemia.",
+    "price": 690,
+    "originalPrice": 950,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "8 Hours Fasting Recommended",
+    "preparationInstruction": "Fast overnight for optimal test accuracy.",
+    "turnaroundTime": "24 Hours",
+    "isPopular": true,
+    "parametersCount": 1,
+    "overview": [
+      "Serum Vitamin B12 Concentration"
+    ]
+  },
+  {
+    "id": "test-10",
+    "slug": "routine-urine-analysis",
+    "name": "Routine Urine Analysis",
+    "category": "Urine Tests",
+    "shortDescription": "Screens for urinary tract infections (UTI), kidney disease, and diabetes.",
+    "description": "Physical, chemical, and microscopic examination of urine to detect protein, glucose, pus cells, red blood cells, and bacteria.",
+    "price": 200,
+    "originalPrice": 300,
+    "sampleType": "Urine (Clean Catch Midstream)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Collect first-morning clean-catch midstream urine sample in sterile container.",
+    "turnaroundTime": "Same Day (4 Hours)",
+    "isPopular": false,
+    "parametersCount": 18,
+    "overview": [
+      "Urine pH & Specific Gravity",
+      "Protein & Glucose",
+      "Pus Cells & Epithelial Cells",
+      "Crystals & Casts"
+    ]
+  },
+  {
+    "id": "test-11",
+    "slug": "testosterone-total",
+    "name": "Testosterone Total Level",
+    "category": "Hormone Tests",
+    "shortDescription": "Evaluates primary male hormone levels responsible for muscle mass, energy, and reproductive health.",
+    "description": "Measures total circulating testosterone level in blood serum. Helps diagnose hormonal imbalances, fatigue, low libido, and fertility concerns.",
+    "price": 650,
+    "originalPrice": 900,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Recommended",
+    "preparationInstruction": "Best collected early morning between 7 AM and 10 AM when testosterone levels peak.",
+    "turnaroundTime": "24 Hours",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Serum Total Testosterone Level"
+    ]
+  },
+  {
+    "id": "test-12",
+    "slug": "crp-c-reactive-protein",
+    "name": "C-Reactive Protein (Quantitative CRP)",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Detects systemic inflammation, acute bacterial infections, and tissue injury.",
+    "description": "Quantitative CRP is an acute-phase reactant produced by the liver during inflammation or active tissue injury.",
+    "price": 450,
+    "originalPrice": 600,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "No specific restriction required.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Quantitative C-Reactive Protein Level"
+    ]
+  },
+  {
+    "id": "test-13",
+    "slug": "hemoglobin-hb",
+    "name": "Hemoglobin (Hb)",
+    "category": "CBC / Hemogram",
+    "shortDescription": "Measures oxygen-carrying protein in red blood cells.",
+    "description": "Measures oxygen-carrying protein in red blood cells. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 150,
+    "originalPrice": 200,
+    "sampleType": "Blood (EDTA)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (4-6 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Hemoglobin"
+    ]
+  },
+  {
+    "id": "test-14",
+    "slug": "total-leukocyte-count-tlc",
+    "name": "Total Leukocyte Count (TLC)",
+    "category": "CBC / Hemogram",
+    "shortDescription": "Measures white blood cell count for infection detection.",
+    "description": "Measures white blood cell count for infection detection. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 180,
+    "originalPrice": 250,
+    "sampleType": "Blood (EDTA)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (4-6 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "TLC"
+    ]
+  },
+  {
+    "id": "test-15",
+    "slug": "platelet-count",
+    "name": "Platelet Count",
+    "category": "CBC / Hemogram",
+    "shortDescription": "Essential for evaluating clotting disorders and dengue monitoring.",
+    "description": "Essential for evaluating clotting disorders and dengue monitoring. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 180,
+    "originalPrice": 250,
+    "sampleType": "Blood (EDTA)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (4-6 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Platelet Count"
+    ]
+  },
+  {
+    "id": "test-16",
+    "slug": "erythrocyte-sedimentation-rate-esr",
+    "name": "Erythrocyte Sedimentation Rate (ESR)",
+    "category": "Blood Tests",
+    "shortDescription": "Marker of systemic inflammation and infection.",
+    "description": "Marker of systemic inflammation and infection. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 160,
+    "originalPrice": 220,
+    "sampleType": "Blood (EDTA)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (4-6 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "ESR Westergren"
+    ]
+  },
+  {
+    "id": "test-17",
+    "slug": "peripheral-blood-smear-pbs",
+    "name": "Peripheral Blood Smear (PBS)",
+    "category": "CBC / Hemogram",
+    "shortDescription": "Microscopic examination for abnormal blood cell morphology.",
+    "description": "Microscopic examination for abnormal blood cell morphology. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 250,
+    "originalPrice": 350,
+    "sampleType": "Blood (EDTA)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (6-8 Hours)",
+    "isPopular": false,
+    "parametersCount": 3,
+    "overview": [
+      "RBC Morphology",
+      "WBC Morphology",
+      "Platelet Assessment"
+    ]
+  },
+  {
+    "id": "test-18",
+    "slug": "blood-grouping-rh-factor",
+    "name": "Blood Grouping & Rh Factor",
+    "category": "Blood Tests",
+    "shortDescription": "Determines ABO and Rhesus D blood type status.",
+    "description": "Determines ABO and Rhesus D blood type status. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 180,
+    "originalPrice": 250,
+    "sampleType": "Blood (EDTA)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (4-6 Hours)",
+    "isPopular": false,
+    "parametersCount": 2,
+    "overview": [
+      "ABO Group",
+      "Rh Factor"
+    ]
+  },
+  {
+    "id": "test-19",
+    "slug": "absolute-eosinophil-count-aec",
+    "name": "Absolute Eosinophil Count (AEC)",
+    "category": "Blood Tests",
+    "shortDescription": "Identifies allergic reactions and parasitic infections.",
+    "description": "Identifies allergic reactions and parasitic infections. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 220,
+    "originalPrice": 300,
+    "sampleType": "Blood (EDTA)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (4-6 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "AEC"
+    ]
+  },
+  {
+    "id": "test-20",
+    "slug": "reticulocyte-count",
+    "name": "Reticulocyte Count",
+    "category": "Blood Tests",
+    "shortDescription": "Evaluates bone marrow red blood cell production.",
+    "description": "Evaluates bone marrow red blood cell production. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 300,
+    "originalPrice": 400,
+    "sampleType": "Blood (EDTA)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (6-8 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Reticulocyte Percentage"
+    ]
+  },
+  {
+    "id": "test-21",
+    "slug": "prothrombin-time-pt-inr",
+    "name": "Prothrombin Time (PT / INR)",
+    "category": "Blood Tests",
+    "shortDescription": "Evaluates extrinsic coagulation pathway and warfarin monitoring.",
+    "description": "Evaluates extrinsic coagulation pathway and warfarin monitoring. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 350,
+    "originalPrice": 450,
+    "sampleType": "Blood (Sodium Citrate)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 2,
+    "overview": [
+      "PT Seconds",
+      "INR Ratio"
+    ]
+  },
+  {
+    "id": "test-22",
+    "slug": "activated-partial-thromboplastin-time-aptt",
+    "name": "Activated Partial Thromboplastin Time (APTT)",
+    "category": "Blood Tests",
+    "shortDescription": "Screening test for intrinsic clotting factors and heparin monitoring.",
+    "description": "Screening test for intrinsic clotting factors and heparin monitoring. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 400,
+    "originalPrice": 500,
+    "sampleType": "Blood (Sodium Citrate)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "APTT Seconds"
+    ]
+  },
+  {
+    "id": "test-23",
+    "slug": "bleeding-time-clotting-time-bt-ct",
+    "name": "Bleeding Time & Clotting Time (BT/CT)",
+    "category": "Blood Tests",
+    "shortDescription": "Screening for primary and secondary hemostatic function.",
+    "description": "Screening for primary and secondary hemostatic function. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 200,
+    "originalPrice": 280,
+    "sampleType": "Capillary Blood",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (2 Hours)",
+    "isPopular": false,
+    "parametersCount": 2,
+    "overview": [
+      "Bleeding Time",
+      "Clotting Time"
+    ]
+  },
+  {
+    "id": "test-24",
+    "slug": "d-dimer-quantitative",
+    "name": "D-Dimer Quantitative",
+    "category": "Blood Tests",
+    "shortDescription": "Fibrin degradation product indicating thrombosis or clot breakdown.",
+    "description": "Fibrin degradation product indicating thrombosis or clot breakdown. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 1100,
+    "originalPrice": 1500,
+    "sampleType": "Blood (Sodium Citrate)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "D-Dimer Level"
+    ]
+  },
+  {
+    "id": "test-25",
+    "slug": "ferritin-serum",
+    "name": "Ferritin Serum",
+    "category": "Blood Tests",
+    "shortDescription": "Measures stored iron in the body to detect anemia or iron overload.",
+    "description": "Measures stored iron in the body to detect anemia or iron overload. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 650,
+    "originalPrice": 850,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Preferred (8h)",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (8 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Serum Ferritin"
+    ]
+  },
+  {
+    "id": "test-26",
+    "slug": "total-iron-binding-capacity-tibc-iron",
+    "name": "Total Iron Binding Capacity (TIBC) & Iron",
+    "category": "Blood Tests",
+    "shortDescription": "Evaluates serum iron and iron-binding capacity.",
+    "description": "Evaluates serum iron and iron-binding capacity. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 600,
+    "originalPrice": 800,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Required (10h)",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (8 Hours)",
+    "isPopular": false,
+    "parametersCount": 3,
+    "overview": [
+      "Serum Iron",
+      "TIBC",
+      "Transferrin Saturation"
+    ]
+  },
+  {
+    "id": "test-27",
+    "slug": "serum-folic-acid-folate",
+    "name": "Serum Folic Acid (Folate)",
+    "category": "Vitamin Tests",
+    "shortDescription": "Essential vitamin for RBC synthesis and neural tube development.",
+    "description": "Essential vitamin for RBC synthesis and neural tube development. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 850,
+    "originalPrice": 1100,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Required (10-12h)",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "24 Hours",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Folic Acid"
+    ]
+  },
+  {
+    "id": "test-28",
+    "slug": "serum-vitamin-b12-cobalamin",
+    "name": "Serum Vitamin B12 (Cobalamin)",
+    "category": "Vitamin Tests",
+    "shortDescription": "Vital for nerve tissue health, brain function and red blood cell production.",
+    "description": "Vital for nerve tissue health, brain function and red blood cell production. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 750,
+    "originalPrice": 1050,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Required (10-12h)",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (8 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Vitamin B12"
+    ]
+  },
+  {
+    "id": "test-29",
+    "slug": "vitamin-d-25-hydroxy",
+    "name": "Vitamin D 25-Hydroxy",
+    "category": "Vitamin Tests",
+    "shortDescription": "Measures active bone-building and immune supporting vitamin D.",
+    "description": "Measures active bone-building and immune supporting vitamin D. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 1100,
+    "originalPrice": 1600,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (8 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "25-OH Vitamin D"
+    ]
+  },
+  {
+    "id": "test-30",
+    "slug": "vitamin-c-ascorbic-acid",
+    "name": "Vitamin C (Ascorbic Acid)",
+    "category": "Vitamin Tests",
+    "shortDescription": "Antioxidant and collagen cofactor measurement.",
+    "description": "Antioxidant and collagen cofactor measurement. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 1400,
+    "originalPrice": 1900,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Required (12h)",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "24-48 Hours",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Vitamin C Level"
+    ]
+  },
+  {
+    "id": "test-31",
+    "slug": "vitamin-a-retinol",
+    "name": "Vitamin A (Retinol)",
+    "category": "Vitamin Tests",
+    "shortDescription": "Evaluates visual pigment and epithelial integrity.",
+    "description": "Evaluates visual pigment and epithelial integrity. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 1800,
+    "originalPrice": 2400,
+    "sampleType": "Blood (Serum Protect from Light)",
+    "fastingRequirement": "Fasting Required (12h)",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "48 Hours",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Vitamin A"
+    ]
+  },
+  {
+    "id": "test-32",
+    "slug": "vitamin-e-tocopherol",
+    "name": "Vitamin E (Tocopherol)",
+    "category": "Vitamin Tests",
+    "shortDescription": "Lipid-soluble antioxidant status.",
+    "description": "Lipid-soluble antioxidant status. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 1800,
+    "originalPrice": 2400,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Required (12h)",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "48 Hours",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Vitamin E"
+    ]
+  },
+  {
+    "id": "test-33",
+    "slug": "post-prandial-blood-sugar-ppbs",
+    "name": "Post Prandial Blood Sugar (PPBS)",
+    "category": "Diabetes Tests",
+    "shortDescription": "Measures blood glucose exactly 2 hours after a meal.",
+    "description": "Measures blood glucose exactly 2 hours after a meal. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 100,
+    "originalPrice": 150,
+    "sampleType": "Blood (Fluoride Plasma)",
+    "fastingRequirement": "Exactly 2 Hours After Meal",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (4 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Post Prandial Glucose"
+    ]
+  },
+  {
+    "id": "test-34",
+    "slug": "random-blood-sugar-rbs",
+    "name": "Random Blood Sugar (RBS)",
+    "category": "Diabetes Tests",
+    "shortDescription": "Quick screening of circulating blood glucose at any time.",
+    "description": "Quick screening of circulating blood glucose at any time. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 90,
+    "originalPrice": 130,
+    "sampleType": "Blood (Fluoride Plasma)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (2 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Random Glucose"
+    ]
+  },
+  {
+    "id": "test-35",
+    "slug": "oral-glucose-tolerance-test-ogtt",
+    "name": "Oral Glucose Tolerance Test (OGTT)",
+    "category": "Diabetes Tests",
+    "shortDescription": "Evaluates body clearing of standard glucose load.",
+    "description": "Evaluates body clearing of standard glucose load. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 350,
+    "originalPrice": 500,
+    "sampleType": "Blood (Fluoride Plasma)",
+    "fastingRequirement": "10h Fasting Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 3,
+    "overview": [
+      "Fasting",
+      "1-Hour Glucose",
+      "2-Hour Glucose"
+    ]
+  },
+  {
+    "id": "test-36",
+    "slug": "fasting-serum-insulin",
+    "name": "Fasting Serum Insulin",
+    "category": "Diabetes Tests",
+    "shortDescription": "Assesses insulin resistance and pancreatic beta-cell secretion.",
+    "description": "Assesses insulin resistance and pancreatic beta-cell secretion. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 650,
+    "originalPrice": 900,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "10-12 Hours Fasting Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (8 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Fasting Insulin"
+    ]
+  },
+  {
+    "id": "test-37",
+    "slug": "homa-ir-insulin-resistance-index",
+    "name": "HOMA-IR (Insulin Resistance Index)",
+    "category": "Diabetes Tests",
+    "shortDescription": "Calculates cellular insulin resistance from glucose and insulin.",
+    "description": "Calculates cellular insulin resistance from glucose and insulin. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 750,
+    "originalPrice": 1050,
+    "sampleType": "Blood (Serum + Plasma)",
+    "fastingRequirement": "10-12 Hours Fasting Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (8 Hours)",
+    "isPopular": false,
+    "parametersCount": 3,
+    "overview": [
+      "Glucose",
+      "Insulin",
+      "HOMA-IR Score"
+    ]
+  },
+  {
+    "id": "test-38",
+    "slug": "c-peptide-fasting",
+    "name": "C-Peptide Fasting",
+    "category": "Diabetes Tests",
+    "shortDescription": "Direct biomarker of endogenous insulin production.",
+    "description": "Direct biomarker of endogenous insulin production. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 800,
+    "originalPrice": 1100,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "10-12 Hours Fasting Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "24 Hours",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "C-Peptide Level"
+    ]
+  },
+  {
+    "id": "test-39",
+    "slug": "fructosamine",
+    "name": "Fructosamine",
+    "category": "Diabetes Tests",
+    "shortDescription": "Reflects 2-3 week intermediate glycemic control.",
+    "description": "Reflects 2-3 week intermediate glycemic control. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 600,
+    "originalPrice": 850,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "24 Hours",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Fructosamine Level"
+    ]
+  },
+  {
+    "id": "test-40",
+    "slug": "microalbuminuria-urine-albumin-creatinine-ratio",
+    "name": "Microalbuminuria (Urine Albumin/Creatinine Ratio)",
+    "category": "Diabetes Tests",
+    "shortDescription": "Early detector of diabetic nephropathy and kidney microvascular damage.",
+    "description": "Early detector of diabetic nephropathy and kidney microvascular damage. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 550,
+    "originalPrice": 750,
+    "sampleType": "Urine (Spot Morning)",
+    "fastingRequirement": "Morning First Urine Preferred",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 3,
+    "overview": [
+      "Urine Albumin",
+      "Urine Creatinine",
+      "ACR Ratio"
+    ]
+  },
+  {
+    "id": "test-41",
+    "slug": "thyroid-profile-free-ft3-ft4-tsh",
+    "name": "Thyroid Profile Free (FT3, FT4, TSH)",
+    "category": "Thyroid Tests",
+    "shortDescription": "Measures biologically unbound active thyroid hormones.",
+    "description": "Measures biologically unbound active thyroid hormones. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 750,
+    "originalPrice": 1100,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Morning Fasting Preferred",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 3,
+    "overview": [
+      "Free T3",
+      "Free T4",
+      "TSH Ultrasensitive"
+    ]
+  },
+  {
+    "id": "test-42",
+    "slug": "thyroid-stimulating-hormone-tsh-ultrasensitive",
+    "name": "Thyroid Stimulating Hormone (TSH Ultrasensitive)",
+    "category": "Thyroid Tests",
+    "shortDescription": "Most sensitive initial screening test for thyroid disease.",
+    "description": "Most sensitive initial screening test for thyroid disease. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 250,
+    "originalPrice": 350,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (4 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "TSH"
+    ]
+  },
+  {
+    "id": "test-43",
+    "slug": "anti-thyroid-peroxidase-antibody-anti-tpo",
+    "name": "Anti-Thyroid Peroxidase Antibody (Anti-TPO)",
+    "category": "Thyroid Tests",
+    "shortDescription": "Key diagnostic marker for Hashimoto thyroiditis and autoimmune thyroid disease.",
+    "description": "Key diagnostic marker for Hashimoto thyroiditis and autoimmune thyroid disease. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 950,
+    "originalPrice": 1350,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "24 Hours",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Anti-TPO Antibodies"
+    ]
+  },
+  {
+    "id": "test-44",
+    "slug": "anti-thyroglobulin-antibody-anti-tg",
+    "name": "Anti-Thyroglobulin Antibody (Anti-Tg)",
+    "category": "Thyroid Tests",
+    "shortDescription": "Autoimmune marker for thyroid gland inflammatory destruction.",
+    "description": "Autoimmune marker for thyroid gland inflammatory destruction. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 950,
+    "originalPrice": 1350,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "24 Hours",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Anti-Tg Antibodies"
+    ]
+  },
+  {
+    "id": "test-45",
+    "slug": "thyroglobulin-serum",
+    "name": "Thyroglobulin Serum",
+    "category": "Thyroid Tests",
+    "shortDescription": "Tumor marker and monitoring index post-thyroidectomy.",
+    "description": "Tumor marker and monitoring index post-thyroidectomy. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 1200,
+    "originalPrice": 1700,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "24-48 Hours",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Thyroglobulin"
+    ]
+  },
+  {
+    "id": "test-46",
+    "slug": "free-t3-triiodothyronine",
+    "name": "Free T3 (Triiodothyronine)",
+    "category": "Thyroid Tests",
+    "shortDescription": "Unbound active T3 measurement for T3 thyrotoxicosis.",
+    "description": "Unbound active T3 measurement for T3 thyrotoxicosis. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 350,
+    "originalPrice": 500,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Free T3"
+    ]
+  },
+  {
+    "id": "test-47",
+    "slug": "free-t4-thyroxine",
+    "name": "Free T4 (Thyroxine)",
+    "category": "Thyroid Tests",
+    "shortDescription": "Unbound active T4 hormone level.",
+    "description": "Unbound active T4 hormone level. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 350,
+    "originalPrice": 500,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Free T4"
+    ]
+  },
+  {
+    "id": "test-48",
+    "slug": "liver-function-test-comprehensive-lft",
+    "name": "Liver Function Test Comprehensive (LFT)",
+    "category": "Liver Function Tests",
+    "shortDescription": "Full 11-parameter hepatic panel evaluating enzymes, proteins, and bile excretion.",
+    "description": "Full 11-parameter hepatic panel evaluating enzymes, proteins, and bile excretion. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 550,
+    "originalPrice": 850,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "8-10 Hours Fasting Preferred",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 11,
+    "overview": [
+      "Total Bilirubin",
+      "Direct Bilirubin",
+      "Indirect Bilirubin",
+      "SGOT/AST",
+      "SGPT/ALT",
+      "Alkaline Phosphatase",
+      "Total Protein",
+      "Albumin",
+      "Globulin",
+      "A/G Ratio",
+      "GGTP"
+    ]
+  },
+  {
+    "id": "test-49",
+    "slug": "sgot-ast-aspartate-aminotransferase",
+    "name": "SGOT / AST (Aspartate Aminotransferase)",
+    "category": "Liver Function Tests",
+    "shortDescription": "Hepatic and cardiac cellular injury marker.",
+    "description": "Hepatic and cardiac cellular injury marker. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 180,
+    "originalPrice": 250,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (4 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "SGOT / AST"
+    ]
+  },
+  {
+    "id": "test-50",
+    "slug": "sgpt-alt-alanine-aminotransferase",
+    "name": "SGPT / ALT (Alanine Aminotransferase)",
+    "category": "Liver Function Tests",
+    "shortDescription": "Primary specific enzyme for hepatocellular inflammation.",
+    "description": "Primary specific enzyme for hepatocellular inflammation. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 180,
+    "originalPrice": 250,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (4 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "SGPT / ALT"
+    ]
+  },
+  {
+    "id": "test-51",
+    "slug": "gamma-glutamyl-transferase-ggtp",
+    "name": "Gamma-Glutamyl Transferase (GGTP)",
+    "category": "Liver Function Tests",
+    "shortDescription": "Sensitive marker for biliary obstruction and alcohol-induced liver changes.",
+    "description": "Sensitive marker for biliary obstruction and alcohol-induced liver changes. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 350,
+    "originalPrice": 480,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "8h Fasting Recommended",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "GGTP"
+    ]
+  },
+  {
+    "id": "test-52",
+    "slug": "serum-bilirubin-total-direct-indirect",
+    "name": "Serum Bilirubin Total, Direct & Indirect",
+    "category": "Liver Function Tests",
+    "shortDescription": "Assesses jaundice, hemolysis, and bile clearance.",
+    "description": "Assesses jaundice, hemolysis, and bile clearance. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 250,
+    "originalPrice": 350,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Preferred",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (4 Hours)",
+    "isPopular": false,
+    "parametersCount": 3,
+    "overview": [
+      "Total Bilirubin",
+      "Direct Bilirubin",
+      "Indirect Bilirubin"
+    ]
+  },
+  {
+    "id": "test-53",
+    "slug": "serum-alkaline-phosphatase-alp",
+    "name": "Serum Alkaline Phosphatase (ALP)",
+    "category": "Liver Function Tests",
+    "shortDescription": "Enzyme elevated in biliary stasis and high bone turnover states.",
+    "description": "Enzyme elevated in biliary stasis and high bone turnover states. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 220,
+    "originalPrice": 300,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Preferred",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (4 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Alkaline Phosphatase"
+    ]
+  },
+  {
+    "id": "test-54",
+    "slug": "total-protein-albumin-globulin",
+    "name": "Total Protein, Albumin & Globulin",
+    "category": "Liver Function Tests",
+    "shortDescription": "Evaluates nutritional state and liver synthetic capacity.",
+    "description": "Evaluates nutritional state and liver synthetic capacity. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 250,
+    "originalPrice": 350,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (4 Hours)",
+    "isPopular": false,
+    "parametersCount": 3,
+    "overview": [
+      "Total Protein",
+      "Albumin",
+      "A/G Ratio"
+    ]
+  },
+  {
+    "id": "test-55",
+    "slug": "alpha-fetoprotein-afp",
+    "name": "Alpha Fetoprotein (AFP)",
+    "category": "Liver Function Tests",
+    "shortDescription": "Tumor marker for hepatocellular carcinoma and testicular teratoma.",
+    "description": "Tumor marker for hepatocellular carcinoma and testicular teratoma. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 850,
+    "originalPrice": 1200,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "24 Hours",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Serum AFP"
+    ]
+  },
+  {
+    "id": "test-56",
+    "slug": "serum-ammonia",
+    "name": "Serum Ammonia",
+    "category": "Liver Function Tests",
+    "shortDescription": "Monitors severe hepatic encephalopathy and urea cycle defects.",
+    "description": "Monitors severe hepatic encephalopathy and urea cycle defects. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 700,
+    "originalPrice": 950,
+    "sampleType": "Blood (EDTA on Ice)",
+    "fastingRequirement": "Fasting Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (4 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Ammonia"
+    ]
+  },
+  {
+    "id": "test-57",
+    "slug": "kidney-function-test-kft-rft",
+    "name": "Kidney Function Test (KFT / RFT)",
+    "category": "Kidney Function Tests",
+    "shortDescription": "Comprehensive renal profile with urea, BUN, creatinine, uric acid, and electrolytes.",
+    "description": "Comprehensive renal profile with urea, BUN, creatinine, uric acid, and electrolytes. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 600,
+    "originalPrice": 900,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Preferred",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 9,
+    "overview": [
+      "Urea",
+      "BUN",
+      "Creatinine",
+      "Uric Acid",
+      "Sodium",
+      "Potassium",
+      "Chloride",
+      "Calcium",
+      "Phosphorus"
+    ]
+  },
+  {
+    "id": "test-58",
+    "slug": "serum-creatinine-with-egfr",
+    "name": "Serum Creatinine with eGFR",
+    "category": "Kidney Function Tests",
+    "shortDescription": "Gold standard test for kidney filtering efficiency and CKD staging.",
+    "description": "Gold standard test for kidney filtering efficiency and CKD staging. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 200,
+    "originalPrice": 280,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (4 Hours)",
+    "isPopular": false,
+    "parametersCount": 2,
+    "overview": [
+      "Creatinine",
+      "eGFR"
+    ]
+  },
+  {
+    "id": "test-59",
+    "slug": "blood-urea-nitrogen-bun",
+    "name": "Blood Urea Nitrogen (BUN)",
+    "category": "Kidney Function Tests",
+    "shortDescription": "Measures nitrogenous waste cleared by renal tubules.",
+    "description": "Measures nitrogenous waste cleared by renal tubules. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 180,
+    "originalPrice": 250,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (4 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "BUN"
+    ]
+  },
+  {
+    "id": "test-60",
+    "slug": "serum-uric-acid",
+    "name": "Serum Uric Acid",
+    "category": "Kidney Function Tests",
+    "shortDescription": "Key test for gouty arthritis, kidney stones, and purine metabolism.",
+    "description": "Key test for gouty arthritis, kidney stones, and purine metabolism. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 220,
+    "originalPrice": 300,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Preferred (8h)",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (4 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Uric Acid"
+    ]
+  },
+  {
+    "id": "test-61",
+    "slug": "serum-electrolytes-na-k-cl",
+    "name": "Serum Electrolytes (Na+, K+, Cl-)",
+    "category": "Kidney Function Tests",
+    "shortDescription": "Checks hydration, acid-base equilibrium, and cardiac rhythm safety.",
+    "description": "Checks hydration, acid-base equilibrium, and cardiac rhythm safety. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 450,
+    "originalPrice": 650,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (4 Hours)",
+    "isPopular": false,
+    "parametersCount": 3,
+    "overview": [
+      "Sodium",
+      "Potassium",
+      "Chloride"
+    ]
+  },
+  {
+    "id": "test-62",
+    "slug": "serum-calcium-total-ionized",
+    "name": "Serum Calcium Total & Ionized",
+    "category": "Kidney Function Tests",
+    "shortDescription": "Evaluates parathyroid function, bone health, and neuromuscular activity.",
+    "description": "Evaluates parathyroid function, bone health, and neuromuscular activity. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 280,
+    "originalPrice": 380,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Preferred",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (4 Hours)",
+    "isPopular": false,
+    "parametersCount": 2,
+    "overview": [
+      "Total Calcium",
+      "Ionized Calcium"
+    ]
+  },
+  {
+    "id": "test-63",
+    "slug": "serum-phosphorus",
+    "name": "Serum Phosphorus",
+    "category": "Kidney Function Tests",
+    "shortDescription": "Monitors renal bone disease and phosphate balance.",
+    "description": "Monitors renal bone disease and phosphate balance. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 250,
+    "originalPrice": 350,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Required (10h)",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (4 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Phosphorus"
+    ]
+  },
+  {
+    "id": "test-64",
+    "slug": "cystatin-c-with-egfr",
+    "name": "Cystatin C with eGFR",
+    "category": "Kidney Function Tests",
+    "shortDescription": "Precision marker of early renal decline independent of muscle mass.",
+    "description": "Precision marker of early renal decline independent of muscle mass. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 950,
+    "originalPrice": 1350,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "24 Hours",
+    "isPopular": false,
+    "parametersCount": 2,
+    "overview": [
+      "Cystatin C",
+      "eGFR"
+    ]
+  },
+  {
+    "id": "test-65",
+    "slug": "total-cholesterol-serum",
+    "name": "Total Cholesterol Serum",
+    "category": "Lipid Profile",
+    "shortDescription": "Basic cardiovascular screening parameter.",
+    "description": "Basic cardiovascular screening parameter. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 180,
+    "originalPrice": 250,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "10h Fasting Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (4 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Total Cholesterol"
+    ]
+  },
+  {
+    "id": "test-66",
+    "slug": "serum-triglycerides",
+    "name": "Serum Triglycerides",
+    "category": "Lipid Profile",
+    "shortDescription": "Evaluates fat transport and pancreatitis risk.",
+    "description": "Evaluates fat transport and pancreatitis risk. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 220,
+    "originalPrice": 300,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "12h Fasting Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (4 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Triglycerides"
+    ]
+  },
+  {
+    "id": "test-67",
+    "slug": "hdl-direct-cholesterol-good-cholesterol",
+    "name": "HDL Direct Cholesterol (Good Cholesterol)",
+    "category": "Lipid Profile",
+    "shortDescription": "Atheroprotective lipoprotein fraction.",
+    "description": "Atheroprotective lipoprotein fraction. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 220,
+    "originalPrice": 300,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "10h Fasting Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (4 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "HDL Cholesterol"
+    ]
+  },
+  {
+    "id": "test-68",
+    "slug": "ldl-direct-cholesterol-bad-cholesterol",
+    "name": "LDL Direct Cholesterol (Bad Cholesterol)",
+    "category": "Lipid Profile",
+    "shortDescription": "Primary target for lipid-lowering therapy.",
+    "description": "Primary target for lipid-lowering therapy. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 250,
+    "originalPrice": 350,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "10h Fasting Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (4 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "LDL Direct"
+    ]
+  },
+  {
+    "id": "test-69",
+    "slug": "apolipoprotein-a1-b-apo-a1-b-ratio",
+    "name": "Apolipoprotein A1 & B (Apo A1/B Ratio)",
+    "category": "Lipid Profile",
+    "shortDescription": "Advanced atherogenic particle count and vascular risk predictor.",
+    "description": "Advanced atherogenic particle count and vascular risk predictor. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 950,
+    "originalPrice": 1350,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "12h Fasting Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "24 Hours",
+    "isPopular": false,
+    "parametersCount": 3,
+    "overview": [
+      "Apo A1",
+      "Apo B",
+      "Apo B/A1 Ratio"
+    ]
+  },
+  {
+    "id": "test-70",
+    "slug": "lipoprotein-a-lp-a",
+    "name": "Lipoprotein (a) [Lp(a)]",
+    "category": "Lipid Profile",
+    "shortDescription": "Independent genetic cardiovascular and stroke risk factor.",
+    "description": "Independent genetic cardiovascular and stroke risk factor. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 1050,
+    "originalPrice": 1500,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "10h Fasting Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "24 Hours",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Lipoprotein (a)"
+    ]
+  },
+  {
+    "id": "test-71",
+    "slug": "high-sensitivity-crp-hs-crp",
+    "name": "High Sensitivity CRP (hs-CRP)",
+    "category": "Lipid Profile",
+    "shortDescription": "Vascular wall inflammation marker for heart disease prognosis.",
+    "description": "Vascular wall inflammation marker for heart disease prognosis. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 650,
+    "originalPrice": 950,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "hs-CRP"
+    ]
+  },
+  {
+    "id": "test-72",
+    "slug": "routine-microscopic-urine-examination",
+    "name": "Routine & Microscopic Urine Examination",
+    "category": "Urine Tests",
+    "shortDescription": "Screening for kidney infection, proteinuria, hematuria, and metabolic waste.",
+    "description": "Screening for kidney infection, proteinuria, hematuria, and metabolic waste. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 150,
+    "originalPrice": 220,
+    "sampleType": "Urine (Midstream Clean Catch)",
+    "fastingRequirement": "First Morning Urine Best",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (3 Hours)",
+    "isPopular": false,
+    "parametersCount": 18,
+    "overview": [
+      "Color",
+      "pH",
+      "Specific Gravity",
+      "Protein",
+      "Glucose",
+      "Ketones",
+      "Bilirubin",
+      "Pus Cells",
+      "RBCs",
+      "Epithelial Cells",
+      "Crystals",
+      "Casts"
+    ]
+  },
+  {
+    "id": "test-73",
+    "slug": "urine-culture-sensitivity-automated-vitek",
+    "name": "Urine Culture & Sensitivity (Automated VITEK)",
+    "category": "Urine Tests",
+    "shortDescription": "Identifies bacterial species and determines precise antibiotic susceptibility.",
+    "description": "Identifies bacterial species and determines precise antibiotic susceptibility. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 650,
+    "originalPrice": 900,
+    "sampleType": "Urine (Sterile Container)",
+    "fastingRequirement": "Catch Midstream Before Antibiotics",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "48 Hours",
+    "isPopular": false,
+    "parametersCount": 3,
+    "overview": [
+      "Organism Isolated",
+      "Colony Count",
+      "Antibiotic Sensitivity Chart"
+    ]
+  },
+  {
+    "id": "test-74",
+    "slug": "24-hour-urine-protein",
+    "name": "24-Hour Urine Protein",
+    "category": "Urine Tests",
+    "shortDescription": "Quantifies daily protein loss for nephrotic syndrome and glomerulonephritis.",
+    "description": "Quantifies daily protein loss for nephrotic syndrome and glomerulonephritis. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 450,
+    "originalPrice": 650,
+    "sampleType": "24-Hour Urine Container",
+    "fastingRequirement": "Full 24-Hour Timed Collection",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "24 Hours",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "24h Protein"
+    ]
+  },
+  {
+    "id": "test-75",
+    "slug": "24-hour-urine-creatinine-clearance",
+    "name": "24-Hour Urine Creatinine Clearance",
+    "category": "Urine Tests",
+    "shortDescription": "Accurately quantifies true glomerular filtration rate.",
+    "description": "Accurately quantifies true glomerular filtration rate. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 600,
+    "originalPrice": 850,
+    "sampleType": "24-Hour Urine + Serum Creatinine",
+    "fastingRequirement": "24h Urine + Fasting Blood Draw",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "24 Hours",
+    "isPopular": false,
+    "parametersCount": 3,
+    "overview": [
+      "Creatinine Clearance",
+      "Urine Creatinine",
+      "Serum Creatinine"
+    ]
+  },
+  {
+    "id": "test-76",
+    "slug": "24-hour-urine-calcium-uric-acid",
+    "name": "24-Hour Urine Calcium & Uric Acid",
+    "category": "Urine Tests",
+    "shortDescription": "Workup for recurrent renal calculi and kidney stones.",
+    "description": "Workup for recurrent renal calculi and kidney stones. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 650,
+    "originalPrice": 950,
+    "sampleType": "24-Hour Urine Container",
+    "fastingRequirement": "24-Hour Timed Collection",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "24 Hours",
+    "isPopular": false,
+    "parametersCount": 2,
+    "overview": [
+      "Urine Calcium",
+      "Urine Uric Acid"
+    ]
+  },
+  {
+    "id": "test-77",
+    "slug": "urine-pregnancy-test-hcg-spot",
+    "name": "Urine Pregnancy Test (hCG Spot)",
+    "category": "Urine Tests",
+    "shortDescription": "Rapid immunological confirmation of pregnancy.",
+    "description": "Rapid immunological confirmation of pregnancy. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 120,
+    "originalPrice": 180,
+    "sampleType": "Urine (First Morning)",
+    "fastingRequirement": "First Morning Urine Recommended",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (1 Hour)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "hCG Presence"
+    ]
+  },
+  {
+    "id": "test-78",
+    "slug": "urine-bence-jones-protein",
+    "name": "Urine Bence Jones Protein",
+    "category": "Urine Tests",
+    "shortDescription": "Screening for multiple myeloma light chains.",
+    "description": "Screening for multiple myeloma light chains. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 350,
+    "originalPrice": 500,
+    "sampleType": "Urine (Clean Morning)",
+    "fastingRequirement": "Early Morning Sample",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Bence Jones Protein"
+    ]
+  },
+  {
+    "id": "test-79",
+    "slug": "beta-hcg-quantitative-pregnancy-tumor-marker",
+    "name": "Beta hCG Quantitative (Pregnancy / Tumor Marker)",
+    "category": "Hormone Tests",
+    "shortDescription": "Precise blood concentration of human chorionic gonadotropin.",
+    "description": "Precise blood concentration of human chorionic gonadotropin. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 600,
+    "originalPrice": 850,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Beta hCG"
+    ]
+  },
+  {
+    "id": "test-80",
+    "slug": "serum-prolactin",
+    "name": "Serum Prolactin",
+    "category": "Hormone Tests",
+    "shortDescription": "Evaluates pituitary adenoma, galactorrhea, and irregular cycles.",
+    "description": "Evaluates pituitary adenoma, galactorrhea, and irregular cycles. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 450,
+    "originalPrice": 650,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Rest 30 mins before collection",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Prolactin"
+    ]
+  },
+  {
+    "id": "test-81",
+    "slug": "follicle-stimulating-hormone-fsh",
+    "name": "Follicle Stimulating Hormone (FSH)",
+    "category": "Hormone Tests",
+    "shortDescription": "Evaluates ovarian reserve, menopausal state, and testicular function.",
+    "description": "Evaluates ovarian reserve, menopausal state, and testicular function. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 450,
+    "originalPrice": 650,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Cycle Day 2-3 Recommended for Women",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "FSH"
+    ]
+  },
+  {
+    "id": "test-82",
+    "slug": "luteinizing-hormone-lh",
+    "name": "Luteinizing Hormone (LH)",
+    "category": "Hormone Tests",
+    "shortDescription": "Diagnoses PCOS, ovulation dysfunction, and pituitary issues.",
+    "description": "Diagnoses PCOS, ovulation dysfunction, and pituitary issues. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 450,
+    "originalPrice": 650,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Cycle Day 2-3 Recommended",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "LH"
+    ]
+  },
+  {
+    "id": "test-83",
+    "slug": "serum-testosterone-total",
+    "name": "Serum Testosterone Total",
+    "category": "Hormone Tests",
+    "shortDescription": "Primary androgen evaluation for men and PCOS assessment in women.",
+    "description": "Primary androgen evaluation for men and PCOS assessment in women. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 550,
+    "originalPrice": 800,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Morning Sample Required (7-10 AM)",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Total Testosterone"
+    ]
+  },
+  {
+    "id": "test-84",
+    "slug": "serum-testosterone-free",
+    "name": "Serum Testosterone Free",
+    "category": "Hormone Tests",
+    "shortDescription": "Measures bioavailable unbound circulating testosterone.",
+    "description": "Measures bioavailable unbound circulating testosterone. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 1100,
+    "originalPrice": 1600,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Morning Sample Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "24 Hours",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Free Testosterone"
+    ]
+  },
+  {
+    "id": "test-85",
+    "slug": "anti-mullerian-hormone-amh",
+    "name": "Anti-Mullerian Hormone (AMH)",
+    "category": "Hormone Tests",
+    "shortDescription": "Gold standard biomarker for ovarian follicular reserve and fertility planning.",
+    "description": "Gold standard biomarker for ovarian follicular reserve and fertility planning. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 1800,
+    "originalPrice": 2500,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Can be done on any cycle day",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (8 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Serum AMH"
+    ]
+  },
+  {
+    "id": "test-86",
+    "slug": "serum-progesterone",
+    "name": "Serum Progesterone",
+    "category": "Hormone Tests",
+    "shortDescription": "Confirms ovulation and luteal phase sufficiency.",
+    "description": "Confirms ovulation and luteal phase sufficiency. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 550,
+    "originalPrice": 800,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Day 21 of Menstrual Cycle Best",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Progesterone"
+    ]
+  },
+  {
+    "id": "test-87",
+    "slug": "serum-estradiol-e2",
+    "name": "Serum Estradiol (E2)",
+    "category": "Hormone Tests",
+    "shortDescription": "Major estrogen hormone checking follicular development.",
+    "description": "Major estrogen hormone checking follicular development. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 550,
+    "originalPrice": 800,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Record Day of Menstrual Cycle",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Estradiol"
+    ]
+  },
+  {
+    "id": "test-88",
+    "slug": "serum-cortisol-morning-8-am",
+    "name": "Serum Cortisol Morning (8 AM)",
+    "category": "Hormone Tests",
+    "shortDescription": "Adrenal glucocorticoid assessment for Cushing or Addison disease.",
+    "description": "Adrenal glucocorticoid assessment for Cushing or Addison disease. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 500,
+    "originalPrice": 750,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Draw precisely at 8:00 AM",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "8 AM Cortisol"
+    ]
+  },
+  {
+    "id": "test-89",
+    "slug": "serum-cortisol-evening-4-pm",
+    "name": "Serum Cortisol Evening (4 PM)",
+    "category": "Hormone Tests",
+    "shortDescription": "Assesses diurnal adrenal rhythm suppression.",
+    "description": "Assesses diurnal adrenal rhythm suppression. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 500,
+    "originalPrice": 750,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Draw precisely at 4:00 PM",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "4 PM Cortisol"
+    ]
+  },
+  {
+    "id": "test-90",
+    "slug": "dhea-sulfate-dhea-s",
+    "name": "DHEA-Sulfate (DHEA-S)",
+    "category": "Hormone Tests",
+    "shortDescription": "Evaluates adrenal androgen production and hirsutism.",
+    "description": "Evaluates adrenal androgen production and hirsutism. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 850,
+    "originalPrice": 1200,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Morning Sample Preferred",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "24 Hours",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "DHEA-S"
+    ]
+  },
+  {
+    "id": "test-91",
+    "slug": "parathyroid-hormone-pth-intact",
+    "name": "Parathyroid Hormone (PTH Intact)",
+    "category": "Hormone Tests",
+    "shortDescription": "Evaluates calcium metabolism disorders, hypercalcemia, and renal bone disease.",
+    "description": "Evaluates calcium metabolism disorders, hypercalcemia, and renal bone disease. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 1100,
+    "originalPrice": 1600,
+    "sampleType": "Blood (EDTA Plasma)",
+    "fastingRequirement": "Fasting Required (10h)",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (8 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Intact PTH"
+    ]
+  },
+  {
+    "id": "test-92",
+    "slug": "growth-hormone-gh-serum",
+    "name": "Growth Hormone (GH) Serum",
+    "category": "Hormone Tests",
+    "shortDescription": "Diagnoses pituitary acromegaly or growth deficiency.",
+    "description": "Diagnoses pituitary acromegaly or growth deficiency. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 750,
+    "originalPrice": 1100,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "24 Hours",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Growth Hormone"
+    ]
+  },
+  {
+    "id": "test-93",
+    "slug": "dengue-ns1-antigen-igm-igg-rapid-elisa",
+    "name": "Dengue NS1 Antigen + IgM + IgG Rapid & ELISA",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Early and late stage dengue viral infection diagnosis.",
+    "description": "Early and late stage dengue viral infection diagnosis. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 750,
+    "originalPrice": 1100,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (3-4 Hours)",
+    "isPopular": false,
+    "parametersCount": 3,
+    "overview": [
+      "NS1 Antigen",
+      "Dengue IgM",
+      "Dengue IgG"
+    ]
+  },
+  {
+    "id": "test-94",
+    "slug": "widal-slide-tube-agglutination-test-typhoid",
+    "name": "Widal Slide & Tube Agglutination Test (Typhoid)",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Salmonella typhi and paratyphi febrile antibody agglutination.",
+    "description": "Salmonella typhi and paratyphi febrile antibody agglutination. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 250,
+    "originalPrice": 350,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (3 Hours)",
+    "isPopular": false,
+    "parametersCount": 4,
+    "overview": [
+      "S. Typhi O",
+      "S. Typhi H",
+      "S. Paratyphi AH",
+      "S. Paratyphi BH"
+    ]
+  },
+  {
+    "id": "test-95",
+    "slug": "typhidot-igm-igg-rapid",
+    "name": "Typhidot IgM & IgG Rapid",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Rapid early IgM confirmation of acute enteric typhoid fever.",
+    "description": "Rapid early IgM confirmation of acute enteric typhoid fever. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 500,
+    "originalPrice": 750,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (2 Hours)",
+    "isPopular": false,
+    "parametersCount": 2,
+    "overview": [
+      "Typhidot IgM",
+      "Typhidot IgG"
+    ]
+  },
+  {
+    "id": "test-96",
+    "slug": "malaria-antigen-rapid-pv-pf",
+    "name": "Malaria Antigen Rapid (Pv / Pf)",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Differentiates Plasmodium vivax and falciparum malaria parasite infection.",
+    "description": "Differentiates Plasmodium vivax and falciparum malaria parasite infection. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 350,
+    "originalPrice": 500,
+    "sampleType": "Blood (Whole Blood)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (2 Hours)",
+    "isPopular": false,
+    "parametersCount": 2,
+    "overview": [
+      "P. vivax Antigen",
+      "P. falciparum Antigen"
+    ]
+  },
+  {
+    "id": "test-97",
+    "slug": "chikungunya-igm-antibody",
+    "name": "Chikungunya IgM Antibody",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Specific serological confirmation of Chikungunya alphavirus.",
+    "description": "Specific serological confirmation of Chikungunya alphavirus. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 850,
+    "originalPrice": 1200,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Chikungunya IgM"
+    ]
+  },
+  {
+    "id": "test-98",
+    "slug": "hepatitis-b-surface-antigen-hbsag-rapid-elisa",
+    "name": "Hepatitis B Surface Antigen (HBsAg Rapid/ELISA)",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Key screening test for active Hepatitis B viral infection.",
+    "description": "Key screening test for active Hepatitis B viral infection. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 350,
+    "originalPrice": 500,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (4 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "HBsAg"
+    ]
+  },
+  {
+    "id": "test-99",
+    "slug": "anti-hcv-hepatitis-c-total-antibody",
+    "name": "Anti-HCV (Hepatitis C Total Antibody)",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Screening test for Hepatitis C exposure and chronic hepatitis.",
+    "description": "Screening test for Hepatitis C exposure and chronic hepatitis. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 650,
+    "originalPrice": 950,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Anti-HCV Total"
+    ]
+  },
+  {
+    "id": "test-100",
+    "slug": "hiv-1-2-antibody-p24-antigen-4th-gen-elisa",
+    "name": "HIV 1 & 2 Antibody / p24 Antigen (4th Gen ELISA)",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "4th generation combo assay with short window period detection.",
+    "description": "4th generation combo assay with short window period detection. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 550,
+    "originalPrice": 800,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 2,
+    "overview": [
+      "HIV Antibodies",
+      "p24 Antigen"
+    ]
+  },
+  {
+    "id": "test-101",
+    "slug": "vdrl-rpr-syphilis-test",
+    "name": "VDRL / RPR Syphilis Test",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Serological screening test for Treponema pallidum infection.",
+    "description": "Serological screening test for Treponema pallidum infection. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 200,
+    "originalPrice": 300,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (3 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "VDRL Titer"
+    ]
+  },
+  {
+    "id": "test-102",
+    "slug": "mantoux-tuberculin-skin-test-ppd",
+    "name": "Mantoux Tuberculin Skin Test (PPD)",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Intradermal assessment for latent Mycobacterium tuberculosis exposure.",
+    "description": "Intradermal assessment for latent Mycobacterium tuberculosis exposure. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 250,
+    "originalPrice": 350,
+    "sampleType": "Intradermal Injection",
+    "fastingRequirement": "Requires return read at 48-72 hours",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "48-72 Hours",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Induration mm"
+    ]
+  },
+  {
+    "id": "test-103",
+    "slug": "blood-culture-sensitivity-automated-bactec",
+    "name": "Blood Culture & Sensitivity (Automated BACTEC)",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Detects bacteremia and sepsis with precise antibiotic sensitivity matching.",
+    "description": "Detects bacteremia and sepsis with precise antibiotic sensitivity matching. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 950,
+    "originalPrice": 1400,
+    "sampleType": "Blood (Blood Culture Bottle)",
+    "fastingRequirement": "Draw at fever spike before antibiotics",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "48-72 Hours",
+    "isPopular": false,
+    "parametersCount": 2,
+    "overview": [
+      "Microorganism",
+      "Antibiotic Sensitivity"
+    ]
+  },
+  {
+    "id": "test-104",
+    "slug": "sputum-for-acid-fast-bacilli-afb-smear",
+    "name": "Sputum for Acid Fast Bacilli (AFB Smear)",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Microscopic examination for pulmonary tuberculosis bacilli.",
+    "description": "Microscopic examination for pulmonary tuberculosis bacilli. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 250,
+    "originalPrice": 380,
+    "sampleType": "Sputum (Early Morning)",
+    "fastingRequirement": "Rinse mouth with water before collection",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "AFB Smear ZN Stain"
+    ]
+  },
+  {
+    "id": "test-105",
+    "slug": "stool-routine-occult-blood-examination",
+    "name": "Stool Routine & Occult Blood Examination",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Screening for intestinal parasites, amoebiasis, and gastrointestinal bleeding.",
+    "description": "Screening for intestinal parasites, amoebiasis, and gastrointestinal bleeding. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 250,
+    "originalPrice": 350,
+    "sampleType": "Stool Sample",
+    "fastingRequirement": "Clean dry container",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (4 Hours)",
+    "isPopular": false,
+    "parametersCount": 4,
+    "overview": [
+      "Consistency",
+      "Ova & Cysts",
+      "Pus Cells",
+      "Occult Blood"
+    ]
+  },
+  {
+    "id": "test-106",
+    "slug": "c-reactive-protein-quantitative-crp",
+    "name": "C-Reactive Protein Quantitative (CRP)",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Acute phase reactant measuring systemic tissue injury and bacterial infection.",
+    "description": "Acute phase reactant measuring systemic tissue injury and bacterial infection. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 400,
+    "originalPrice": 600,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (4 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Quantitative CRP"
+    ]
+  },
+  {
+    "id": "test-107",
+    "slug": "procalcitonin-pct",
+    "name": "Procalcitonin (PCT)",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "High-specificity biomarker for severe bacterial sepsis.",
+    "description": "High-specificity biomarker for severe bacterial sepsis. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 2200,
+    "originalPrice": 3000,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Procalcitonin"
+    ]
+  },
+  {
+    "id": "test-108",
+    "slug": "serum-immunoglobulin-e-total-ige",
+    "name": "Serum Immunoglobulin E (Total IgE)",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Evaluates general allergic predisposition, atopic asthma, and eczema.",
+    "description": "Evaluates general allergic predisposition, atopic asthma, and eczema. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 750,
+    "originalPrice": 1100,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Total IgE Level"
+    ]
+  },
+  {
+    "id": "test-109",
+    "slug": "allergy-phadiatop-inhalant-food-screening",
+    "name": "Allergy Phadiatop Inhalant & Food Screening",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Multicomponent screening for respiratory and food allergen reactivity.",
+    "description": "Multicomponent screening for respiratory and food allergen reactivity. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 1800,
+    "originalPrice": 2600,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "24 Hours",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Allergen Specificity"
+    ]
+  },
+  {
+    "id": "test-110",
+    "slug": "rheumatoid-factor-ra-factor-quantitative",
+    "name": "Rheumatoid Factor (RA Factor Quantitative)",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Key autoimmune test for rheumatoid arthritis and connective tissue disease.",
+    "description": "Key autoimmune test for rheumatoid arthritis and connective tissue disease. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 450,
+    "originalPrice": 650,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (4 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "RA Factor Quantitative"
+    ]
+  },
+  {
+    "id": "test-111",
+    "slug": "anti-cyclic-citrullinated-peptide-anti-ccp",
+    "name": "Anti-Cyclic Citrullinated Peptide (Anti-CCP)",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "High-specificity marker for early erosive rheumatoid arthritis.",
+    "description": "High-specificity marker for early erosive rheumatoid arthritis. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 1400,
+    "originalPrice": 2000,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (8 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Anti-CCP Level"
+    ]
+  },
+  {
+    "id": "test-112",
+    "slug": "antinuclear-antibodies-ana-by-ifa-on-hep-2",
+    "name": "Antinuclear Antibodies (ANA by IFA on HEp-2)",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Gold standard screening for Systemic Lupus Erythematosus (SLE) and autoimmune disorders.",
+    "description": "Gold standard screening for Systemic Lupus Erythematosus (SLE) and autoimmune disorders. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 1100,
+    "originalPrice": 1600,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "24 Hours",
+    "isPopular": false,
+    "parametersCount": 2,
+    "overview": [
+      "ANA Titer",
+      "Pattern Type"
+    ]
+  },
+  {
+    "id": "test-113",
+    "slug": "serum-amylase-lipase",
+    "name": "Serum Amylase & Lipase",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Pancreatic enzyme duo for diagnosing acute and chronic pancreatitis.",
+    "description": "Pancreatic enzyme duo for diagnosing acute and chronic pancreatitis. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 750,
+    "originalPrice": 1100,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Preferred",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (4 Hours)",
+    "isPopular": false,
+    "parametersCount": 2,
+    "overview": [
+      "Serum Amylase",
+      "Serum Lipase"
+    ]
+  },
+  {
+    "id": "test-114",
+    "slug": "cardiac-troponin-i-quantitative",
+    "name": "Cardiac Troponin I Quantitative",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "High sensitivity myocardial biomarker for diagnosing acute myocardial infarction.",
+    "description": "High sensitivity myocardial biomarker for diagnosing acute myocardial infarction. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 1200,
+    "originalPrice": 1700,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (2 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Troponin I Level"
+    ]
+  },
+  {
+    "id": "test-115",
+    "slug": "cpk-total-creatine-phosphokinase",
+    "name": "CPK Total (Creatine Phosphokinase)",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Evaluates muscle inflammation, rhabdomyolysis, and myocardial injury.",
+    "description": "Evaluates muscle inflammation, rhabdomyolysis, and myocardial injury. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 450,
+    "originalPrice": 650,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Avoid strenuous workout prior to draw",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (4 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "CPK Total"
+    ]
+  },
+  {
+    "id": "test-116",
+    "slug": "prostate-specific-antigen-total-psa",
+    "name": "Prostate Specific Antigen Total (PSA)",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Screening marker for benign prostatic hyperplasia and prostate cancer in men.",
+    "description": "Screening marker for benign prostatic hyperplasia and prostate cancer in men. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 750,
+    "originalPrice": 1100,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Avoid cycling or ejaculation 48h prior",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Total PSA"
+    ]
+  },
+  {
+    "id": "test-117",
+    "slug": "cancer-antigen-125-ca-125",
+    "name": "Cancer Antigen 125 (CA-125)",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Ovarian cancer screening and endometriosis monitoring marker.",
+    "description": "Ovarian cancer screening and endometriosis monitoring marker. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 1200,
+    "originalPrice": 1800,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Avoid collection during active menses",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (8 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "CA-125 Level"
+    ]
+  },
+  {
+    "id": "test-118",
+    "slug": "carcinoembryonic-antigen-cea",
+    "name": "Carcinoembryonic Antigen (CEA)",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Tumor marker for colorectal, gastrointestinal, and lung malignancies.",
+    "description": "Tumor marker for colorectal, gastrointestinal, and lung malignancies. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 850,
+    "originalPrice": 1250,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (8 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "CEA Level"
+    ]
+  },
+  {
+    "id": "test-119",
+    "slug": "ca-19-9-pancreatic-biliary-tumor-marker",
+    "name": "CA 19-9 (Pancreatic & Biliary Tumor Marker)",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Evaluates pancreatic, gallbladder, and cholangiocarcinoma status.",
+    "description": "Evaluates pancreatic, gallbladder, and cholangiocarcinoma status. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 1400,
+    "originalPrice": 2000,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "24 Hours",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "CA 19-9 Level"
+    ]
+  },
+  {
+    "id": "test-120",
+    "slug": "serum-ceruloplasmin",
+    "name": "Serum Ceruloplasmin",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Checks copper transport and Wilson disease.",
+    "description": "Checks copper transport and Wilson disease. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 950,
+    "originalPrice": 1400,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Preferred",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "24-48 Hours",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Ceruloplasmin"
+    ]
+  },
+  {
+    "id": "test-121",
+    "slug": "serum-osmolality",
+    "name": "Serum Osmolality",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Assesses fluid electrolyte balance and SIADH disorders.",
+    "description": "Assesses fluid electrolyte balance and SIADH disorders. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 600,
+    "originalPrice": 900,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Serum Osmolality"
+    ]
+  },
+  {
+    "id": "test-122",
+    "slug": "lactate-dehydrogenase-ldh",
+    "name": "Lactate Dehydrogenase (LDH)",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "General cellular breakdown marker for hematologic and lung disease.",
+    "description": "General cellular breakdown marker for hematologic and lung disease. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 350,
+    "originalPrice": 500,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Avoid hemolyzed sample",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (4 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Serum LDH"
+    ]
+  },
+  {
+    "id": "test-123",
+    "slug": "nipt-non-invasive-prenatal-testing-by-cfdna",
+    "name": "NIPT (Non-Invasive Prenatal Testing by cfDNA)",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Advanced fetal chromosomal aneuploidy screening (Trisomy 21, 18, 13) in partnership with NIPTR.",
+    "description": "Advanced fetal chromosomal aneuploidy screening (Trisomy 21, 18, 13) in partnership with NIPTR. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 18500,
+    "originalPrice": 24000,
+    "sampleType": "Blood (Special Streck Tube)",
+    "fastingRequirement": "10+ Weeks Gestation Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "5-7 Working Days",
+    "isPopular": false,
+    "parametersCount": 5,
+    "overview": [
+      "Trisomy 21 (Down)",
+      "Trisomy 18 (Edwards)",
+      "Trisomy 13 (Patau)",
+      "Sex Chromosomes",
+      "Fetal Fraction %"
+    ]
+  },
+  {
+    "id": "test-124",
+    "slug": "flow-cytometry-cd4-cd8-count",
+    "name": "Flow Cytometry CD4 / CD8 Count",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Evaluates cellular immune status and T-cell ratio via Clinova partnership.",
+    "description": "Evaluates cellular immune status and T-cell ratio via Clinova partnership. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 2200,
+    "originalPrice": 3200,
+    "sampleType": "Blood (EDTA Whole Blood)",
+    "fastingRequirement": "Same-Day Fast Transit",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "24 Hours",
+    "isPopular": false,
+    "parametersCount": 3,
+    "overview": [
+      "Absolute CD4 Count",
+      "Absolute CD8 Count",
+      "CD4/CD8 Ratio"
+    ]
+  },
+  {
+    "id": "test-125",
+    "slug": "covid-19-rt-pcr-qualitative",
+    "name": "COVID-19 RT-PCR Qualitative",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "ICMR-approved molecular diagnosis of SARS-CoV-2 viral RNA.",
+    "description": "ICMR-approved molecular diagnosis of SARS-CoV-2 viral RNA. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 500,
+    "originalPrice": 800,
+    "sampleType": "Nasopharyngeal / Oropharyngeal Swab",
+    "fastingRequirement": "Sterile VTM Tube",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (8 Hours)",
+    "isPopular": false,
+    "parametersCount": 2,
+    "overview": [
+      "SARS-CoV-2 RNA",
+      "Ct Values"
+    ]
+  },
+  {
+    "id": "test-126",
+    "slug": "covid-19-antibody-quantitative-igg-spike",
+    "name": "COVID-19 Antibody Quantitative (IgG Spike)",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Quantifies neutralizing antibodies post-infection or vaccination.",
+    "description": "Quantifies neutralizing antibodies post-infection or vaccination. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 750,
+    "originalPrice": 1100,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Anti-Spike IgG Titer"
+    ]
+  },
+  {
+    "id": "test-127",
+    "slug": "torch-profile-8-parameters-igm-igg",
+    "name": "Torch Profile 8 Parameters (IgM + IgG)",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Screening for Toxoplasmosis, Rubella, CMV, and Herpes during pregnancy.",
+    "description": "Screening for Toxoplasmosis, Rubella, CMV, and Herpes during pregnancy. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 1800,
+    "originalPrice": 2600,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation. Keep well hydrated unless water restriction applies.",
+    "turnaroundTime": "24 Hours",
+    "isPopular": false,
+    "parametersCount": 8,
+    "overview": [
+      "Toxo IgG/IgM",
+      "Rubella IgG/IgM",
+      "CMV IgG/IgM",
+      "HSV 1/2 IgG/IgM"
+    ]
+  },
+  {
+    "id": "test-128",
+    "slug": "serum-magnesium",
+    "name": "Serum Magnesium",
+    "category": "Kidney Function Tests",
+    "shortDescription": "Assesses electrolyte balance and muscle cramping causes.",
+    "description": "Assesses electrolyte balance and muscle cramping causes. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 350,
+    "originalPrice": 500,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Preferred",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation.",
+    "turnaroundTime": "Same Day (4 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Magnesium"
+    ]
+  },
+  {
+    "id": "test-129",
+    "slug": "serum-uric-acid-24h-urine",
+    "name": "Serum Uric Acid 24h Urine",
+    "category": "Urine Tests",
+    "shortDescription": "Monitors uric acid excretion in gout patients.",
+    "description": "Monitors uric acid excretion in gout patients. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 450,
+    "originalPrice": 650,
+    "sampleType": "24h Urine",
+    "fastingRequirement": "24-Hour Timed",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation.",
+    "turnaroundTime": "24 Hours",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Uric Acid 24h"
+    ]
+  },
+  {
+    "id": "test-130",
+    "slug": "urine-microscopic-examination-detailed",
+    "name": "Urine Microscopic Examination Detailed",
+    "category": "Urine Tests",
+    "shortDescription": "High power field evaluation of urinary sediment.",
+    "description": "High power field evaluation of urinary sediment. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 160,
+    "originalPrice": 240,
+    "sampleType": "Urine (Midstream)",
+    "fastingRequirement": "Morning Sample",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation.",
+    "turnaroundTime": "Same Day (2 Hours)",
+    "isPopular": false,
+    "parametersCount": 10,
+    "overview": [
+      "Pus Cells",
+      "RBCs",
+      "Casts",
+      "Crystals"
+    ]
+  },
+  {
+    "id": "test-131",
+    "slug": "lipid-electrophoresis",
+    "name": "Lipid Electrophoresis",
+    "category": "Lipid Profile",
+    "shortDescription": "Fractionation of circulating lipoproteins.",
+    "description": "Fractionation of circulating lipoproteins. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 1200,
+    "originalPrice": 1800,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "12h Fasting",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation.",
+    "turnaroundTime": "48 Hours",
+    "isPopular": false,
+    "parametersCount": 4,
+    "overview": [
+      "Chylomicrons",
+      "Beta Lipoprotein",
+      "Pre-Beta",
+      "Alpha Lipoprotein"
+    ]
+  },
+  {
+    "id": "test-132",
+    "slug": "total-iga-quantitative",
+    "name": "Total IgA Quantitative",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Evaluates mucosal immunity and celiac disease deficiency.",
+    "description": "Evaluates mucosal immunity and celiac disease deficiency. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 750,
+    "originalPrice": 1100,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "IgA"
+    ]
+  },
+  {
+    "id": "test-133",
+    "slug": "total-igg-quantitative",
+    "name": "Total IgG Quantitative",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Monitors secondary immune responses and immunodeficiency.",
+    "description": "Monitors secondary immune responses and immunodeficiency. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 750,
+    "originalPrice": 1100,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "IgG"
+    ]
+  },
+  {
+    "id": "test-134",
+    "slug": "total-igm-quantitative",
+    "name": "Total IgM Quantitative",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Measures primary antibody response to acute challenges.",
+    "description": "Measures primary antibody response to acute challenges. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 750,
+    "originalPrice": 1100,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "IgM"
+    ]
+  },
+  {
+    "id": "test-135",
+    "slug": "complement-c3-quantitative",
+    "name": "Complement C3 Quantitative",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Monitors lupus nephritis and immune complex activity.",
+    "description": "Monitors lupus nephritis and immune complex activity. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 750,
+    "originalPrice": 1100,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "C3 Level"
+    ]
+  },
+  {
+    "id": "test-136",
+    "slug": "complement-c4-quantitative",
+    "name": "Complement C4 Quantitative",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Evaluates classical complement pathway consumption.",
+    "description": "Evaluates classical complement pathway consumption. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 750,
+    "originalPrice": 1100,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation.",
+    "turnaroundTime": "Same Day (6 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "C4 Level"
+    ]
+  },
+  {
+    "id": "test-137",
+    "slug": "aso-titer-quantitative-anti-streptolysin-o",
+    "name": "ASO Titer Quantitative (Anti-Streptolysin O)",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Confirms post-streptococcal rheumatic fever and glomerulonephritis.",
+    "description": "Confirms post-streptococcal rheumatic fever and glomerulonephritis. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 450,
+    "originalPrice": 650,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation.",
+    "turnaroundTime": "Same Day (4 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "ASO Titer"
+    ]
+  },
+  {
+    "id": "test-138",
+    "slug": "serum-copper",
+    "name": "Serum Copper",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Evaluates copper metabolism and toxicity.",
+    "description": "Evaluates copper metabolism and toxicity. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 950,
+    "originalPrice": 1400,
+    "sampleType": "Blood (Serum in Metal-Free Tube)",
+    "fastingRequirement": "Fasting Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation.",
+    "turnaroundTime": "24-48 Hours",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Serum Copper"
+    ]
+  },
+  {
+    "id": "test-139",
+    "slug": "serum-zinc",
+    "name": "Serum Zinc",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Measures essential trace mineral for wound healing and immunity.",
+    "description": "Measures essential trace mineral for wound healing and immunity. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 950,
+    "originalPrice": 1400,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation.",
+    "turnaroundTime": "24-48 Hours",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Serum Zinc"
+    ]
+  },
+  {
+    "id": "test-140",
+    "slug": "total-antioxidant-status-tas",
+    "name": "Total Antioxidant Status (TAS)",
+    "category": "Other Diagnostic Tests",
+    "shortDescription": "Assesses cumulative defense against oxidative stress.",
+    "description": "Assesses cumulative defense against oxidative stress. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 1400,
+    "originalPrice": 2000,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Preferred",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation.",
+    "turnaroundTime": "24 Hours",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "TAS Level"
+    ]
+  },
+  {
+    "id": "test-141",
+    "slug": "serum-lipase-specific",
+    "name": "Serum Lipase Specific",
+    "category": "Liver Function Tests",
+    "shortDescription": "High specificity enzyme for acute pancreatic inflammation.",
+    "description": "High specificity enzyme for acute pancreatic inflammation. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 450,
+    "originalPrice": 650,
+    "sampleType": "Blood (Serum)",
+    "fastingRequirement": "Fasting Preferred",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation.",
+    "turnaroundTime": "Same Day (4 Hours)",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Lipase"
+    ]
+  },
+  {
+    "id": "test-142",
+    "slug": "coagulation-factor-viii-assay",
+    "name": "Coagulation Factor VIII Assay",
+    "category": "Blood Tests",
+    "shortDescription": "Hemophilia A screening and severity grading.",
+    "description": "Hemophilia A screening and severity grading. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 2200,
+    "originalPrice": 3200,
+    "sampleType": "Blood (Sodium Citrate)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation.",
+    "turnaroundTime": "48 Hours",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "Factor VIII %"
+    ]
+  },
+  {
+    "id": "test-143",
+    "slug": "von-willebrand-factor-antigen",
+    "name": "Von Willebrand Factor Antigen",
+    "category": "Blood Tests",
+    "shortDescription": "Evaluates hereditary bleeding diathesis.",
+    "description": "Evaluates hereditary bleeding diathesis. Performed with high clinical precision in automated NABL accredited laboratory environments at Shree Diagnostic Center.",
+    "price": 2800,
+    "originalPrice": 3900,
+    "sampleType": "Blood (Sodium Citrate)",
+    "fastingRequirement": "Fasting Not Required",
+    "preparationInstruction": "Standard diagnostic phlebotomy preparation.",
+    "turnaroundTime": "48 Hours",
+    "isPopular": false,
+    "parametersCount": 1,
+    "overview": [
+      "vWF Antigen"
+    ]
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "slide-health-packages",
+    "title": "Full Body Health Packages",
+    "subtitle": "Starting from ₹599",
+    "file": "/images/promotions/health-packages-poster.pdf",
+    "type": "pdf",
+    "active": true,
+    "order": 1
+  },
+  {
+    "id": "slide-allergy",
+    "title": "Allergy Testing Panel",
+    "subtitle": "300+ Allergens Covered",
+    "file": "/images/promotions/allergy-leaflet.pdf",
+    "type": "pdf",
+    "active": true,
+    "order": 2
+  },
+  {
+    "id": "slide-gynec",
+    "title": "Women's Health Panel",
+    "subtitle": "Hormonal & Reproductive Testing",
+    "file": "/images/promotions/gynec-tests-poster.pdf",
+    "type": "pdf",
+    "active": true,
+    "order": 3
+  },
+  {
+    "id": "slide-flowcyto",
+    "title": "Flow Cytometry",
+    "subtitle": "Advanced Immunophenotyping",
+    "file": "/images/promotions/flowcyto-tests-poster.pdf",
+    "type": "pdf",
+    "active": true,
+    "order": 4
+  }
+]
