@@ -1,57 +1,179 @@
 [
   {
-    "id": "health-packages-poster",
-    "title": "Full Body Health Packages",
-    "subtitle": "Complete checkup packages at affordable prices",
-    "file": "/images/promotions/health-packages-poster.pdf",
-    "type": "pdf",
+    "id": "poster-1",
+    "title": "Comprehensive Diagnostic Testing",
+    "subtitle": "Accurate, timely laboratory evaluations for your health",
+    "image": "/images/Posters/img1_v.png",
+    "aspect": "v",
     "active": true,
-    "showOnPages": ["home", "about", "partners", "contact"],
-    "badge": "Special Offer",
+    "showOnPages": [
+      "all",
+      "home",
+      "health-packages",
+      "contact",
+      "services"
+    ],
+    "badge": "Special Feature",
     "badgeColor": "teal"
   },
   {
-    "id": "allergy-leaflet",
-    "title": "Allergy Testing Panel",
-    "subtitle": "Comprehensive allergy diagnostics — 300+ allergens",
-    "file": "/images/promotions/allergy-leaflet.pdf",
-    "type": "pdf",
+    "id": "poster-2",
+    "title": "Advanced Clinical Health Profiles",
+    "subtitle": "Multi-organ screening panels delivered with same-day reports",
+    "image": "/images/Posters/img2_h.png",
+    "aspect": "h",
     "active": true,
-    "showOnPages": ["home", "about", "partners", "contact"],
-    "badge": "New",
+    "showOnPages": [
+      "all",
+      "services",
+      "home",
+      "health-packages"
+    ],
+    "badge": "Popular",
     "badgeColor": "emerald"
   },
   {
-    "id": "covid-omicron-poster",
-    "title": "COVID & Omicron Testing",
-    "subtitle": "RT-PCR, Antigen & Antibody tests available",
-    "file": "/images/promotions/covid-omicron-poster.pdf",
-    "type": "pdf",
+    "id": "poster-3",
+    "title": "Executive Health Screening",
+    "subtitle": "Full body diagnostic parameters with doctor tele-consultation",
+    "image": "/images/Posters/img3_s.png",
+    "aspect": "s",
     "active": true,
-    "showOnPages": ["home", "about"],
-    "badge": "Available",
+    "showOnPages": [
+      "all",
+      "health-packages",
+      "home",
+      "services"
+    ],
+    "badge": "Health Package",
     "badgeColor": "blue"
   },
   {
-    "id": "flowcyto-tests-poster",
-    "title": "Flow Cytometry Tests",
-    "subtitle": "Advanced immunophenotyping & cell analysis",
-    "file": "/images/promotions/flowcyto-tests-poster.pdf",
-    "type": "pdf",
+    "id": "poster-4",
+    "title": "Specialized Molecular & Fever Testing",
+    "subtitle": "Accredited partner testing with high clinical sensitivity",
+    "image": "/images/Posters/img4_h.png",
+    "aspect": "h",
     "active": true,
-    "showOnPages": ["home", "partners"],
-    "badge": "Advanced",
+    "showOnPages": [
+      "all",
+      "partners",
+      "services",
+      "about"
+    ],
+    "badge": "Clinical Excellence",
     "badgeColor": "purple"
   },
   {
-    "id": "gynec-tests-poster",
-    "title": "Women's Gynecology Panel",
-    "subtitle": "Hormonal & reproductive health testing",
-    "file": "/images/promotions/gynec-tests-poster.pdf",
-    "type": "pdf",
+    "id": "poster-5",
+    "title": "Sterile Doorstep Home Collection",
+    "subtitle": "Certified phlebotomists, vacuum needles & cold chain transport",
+    "image": "/images/Posters/img5_h.png",
+    "aspect": "h",
     "active": true,
-    "showOnPages": ["home", "about", "contact"],
+    "showOnPages": [
+      "all",
+      "home-sample-collection",
+      "home",
+      "contact"
+    ],
+    "badge": "Home Service",
+    "badgeColor": "teal"
+  },
+  {
+    "id": "poster-6",
+    "title": "Diabetes & Heart Risk Panels",
+    "subtitle": "HbA1c, Lipid Profile, and Cardiac Biomarkers",
+    "image": "/images/Posters/img6_s.png",
+    "aspect": "s",
+    "active": true,
+    "showOnPages": [
+      "all",
+      "health-packages",
+      "services",
+      "home"
+    ],
+    "badge": "Preventive Care",
+    "badgeColor": "rose"
+  },
+  {
+    "id": "poster-7",
+    "title": "Women & Maternal Diagnostics",
+    "subtitle": "Hormones, Thyroid & prenatal screening support",
+    "image": "/images/Posters/img7_v.png",
+    "aspect": "v",
+    "active": true,
+    "showOnPages": [
+      "all",
+      "partners",
+      "services",
+      "about"
+    ],
     "badge": "Women's Health",
     "badgeColor": "rose"
+  },
+  {
+    "id": "poster-8",
+    "title": "Senior Citizen Vital Care",
+    "subtitle": "Comprehensive multi-organ checkup tailored for seniors",
+    "image": "/images/Posters/img8_v.png",
+    "aspect": "v",
+    "active": true,
+    "showOnPages": [
+      "all",
+      "health-packages",
+      "home-sample-collection",
+      "home"
+    ],
+    "badge": "Senior Care",
+    "badgeColor": "emerald"
+  },
+  {
+    "id": "poster-9",
+    "title": "Vitamin & Mineral Deficiency Screening",
+    "subtitle": "Vitamin D3, B12, Iron profile & Ferritin levels",
+    "image": "/images/Posters/img9_v.png",
+    "aspect": "v",
+    "active": true,
+    "showOnPages": [
+      "all",
+      "services",
+      "health-packages",
+      "about"
+    ],
+    "badge": "Wellness",
+    "badgeColor": "teal"
+  },
+  {
+    "id": "poster-10",
+    "title": "Complete Hemogram & Infection Workup",
+    "subtitle": "Automated 24-parameter cell counting & differential checks",
+    "image": "/images/Posters/img10_v.png",
+    "aspect": "v",
+    "active": true,
+    "showOnPages": [
+      "all",
+      "services",
+      "contact",
+      "home"
+    ],
+    "badge": "Essential",
+    "badgeColor": "blue"
+  },
+  {
+    "id": "poster-11",
+    "title": "Family Wellness Package",
+    "subtitle": "Whole family routine checkups at discounted package rates",
+    "image": "/images/Posters/img11_s.png",
+    "aspect": "s",
+    "active": true,
+    "showOnPages": [
+      "all",
+      "home",
+      "health-packages",
+      "about"
+    ],
+    "badge": "Family Plan",
+    "badgeColor": "purple"
   }
 ]

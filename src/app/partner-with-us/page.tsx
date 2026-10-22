@@ -318,7 +318,7 @@ export default function PartnerWithUsPage() {
                   </p>
                 </div>
                 <a
-                  href="/images/partners/clinova/certificates/services-poster.pdf"
+                  href="/images/Posters/img4_h.png"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-teal-400 hover:bg-teal-300 text-slate-950 font-bold text-xs flex items-center justify-center gap-1.5 transition whitespace-nowrap"

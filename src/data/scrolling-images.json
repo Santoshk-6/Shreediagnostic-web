@@ -1,38 +1,101 @@
 [
   {
-    "id": "slide-health-packages",
-    "title": "Full Body Health Packages",
-    "subtitle": "Starting from ₹599",
-    "file": "/images/promotions/health-packages-poster.pdf",
-    "type": "pdf",
+    "id": "promo-img1",
+    "title": "Comprehensive Diagnostic Testing",
+    "subtitle": "Accurate, timely laboratory evaluations for your health",
+    "image": "/images/Posters/img1_v.png",
+    "aspect": "v",
     "active": true,
     "order": 1
   },
   {
-    "id": "slide-allergy",
-    "title": "Allergy Testing Panel",
-    "subtitle": "300+ Allergens Covered",
-    "file": "/images/promotions/allergy-leaflet.pdf",
-    "type": "pdf",
+    "id": "promo-img2",
+    "title": "Advanced Clinical Health Profiles",
+    "subtitle": "Multi-organ screening with same-day digital reports",
+    "image": "/images/Posters/img2_h.png",
+    "aspect": "h",
     "active": true,
     "order": 2
   },
   {
-    "id": "slide-gynec",
-    "title": "Women's Health Panel",
-    "subtitle": "Hormonal & Reproductive Testing",
-    "file": "/images/promotions/gynec-tests-poster.pdf",
-    "type": "pdf",
+    "id": "promo-img3",
+    "title": "Executive Health Screening",
+    "subtitle": "Full body diagnostic parameters with doctor tele-consultation",
+    "image": "/images/Posters/img3_s.png",
+    "aspect": "s",
     "active": true,
     "order": 3
   },
   {
-    "id": "slide-flowcyto",
-    "title": "Flow Cytometry",
-    "subtitle": "Advanced Immunophenotyping",
-    "file": "/images/promotions/flowcyto-tests-poster.pdf",
-    "type": "pdf",
+    "id": "promo-img4",
+    "title": "Specialized Molecular & Fever Testing",
+    "subtitle": "Accredited partner testing with high clinical sensitivity",
+    "image": "/images/Posters/img4_h.png",
+    "aspect": "h",
     "active": true,
     "order": 4
+  },
+  {
+    "id": "promo-img5",
+    "title": "Sterile Doorstep Home Collection",
+    "subtitle": "Certified phlebotomists, vacuum needles & cold chain transport",
+    "image": "/images/Posters/img5_h.png",
+    "aspect": "h",
+    "active": true,
+    "order": 5
+  },
+  {
+    "id": "promo-img6",
+    "title": "Diabetes & Heart Risk Panels",
+    "subtitle": "HbA1c, Lipid Profile, and Cardiac Biomarkers",
+    "image": "/images/Posters/img6_s.png",
+    "aspect": "s",
+    "active": true,
+    "order": 6
+  },
+  {
+    "id": "promo-img7",
+    "title": "Women & Maternal Diagnostics",
+    "subtitle": "Hormones, Thyroid & prenatal screening support",
+    "image": "/images/Posters/img7_v.png",
+    "aspect": "v",
+    "active": true,
+    "order": 7
+  },
+  {
+    "id": "promo-img8",
+    "title": "Senior Citizen Vital Care",
+    "subtitle": "Comprehensive multi-organ checkup tailored for seniors",
+    "image": "/images/Posters/img8_v.png",
+    "aspect": "v",
+    "active": true,
+    "order": 8
+  },
+  {
+    "id": "promo-img9",
+    "title": "Vitamin & Mineral Deficiency Screening",
+    "subtitle": "Vitamin D3, B12, Iron profile & Ferritin levels",
+    "image": "/images/Posters/img9_v.png",
+    "aspect": "v",
+    "active": true,
+    "order": 9
+  },
+  {
+    "id": "promo-img10",
+    "title": "Complete Hemogram & Infection Workup",
+    "subtitle": "Automated 24-parameter cell counting & differential checks",
+    "image": "/images/Posters/img10_v.png",
+    "aspect": "v",
+    "active": true,
+    "order": 10
+  },
+  {
+    "id": "promo-img11",
+    "title": "Family Wellness Package",
+    "subtitle": "Whole family routine checkups at discounted rates",
+    "image": "/images/Posters/img11_s.png",
+    "aspect": "s",
+    "active": true,
+    "order": 11
   }
 ]

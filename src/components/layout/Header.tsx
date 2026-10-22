@@ -3,7 +3,8 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Stethoscope, Menu, X, Home, Home as HomeIcon, Phone, Calendar, Search } from "lucide-react";
+import Image from "next/image";
+import { Menu, X, Home as HomeIcon, Calendar } from "lucide-react";
 import { TopBar } from "./TopBar";
 import { BookingModal } from "../booking/BookingModal";
 
@@ -37,19 +38,26 @@ export const Header = () => {
         <TopBar />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
-            
-            {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-teal-700 via-teal-600 to-cyan-500 flex items-center justify-center text-white shadow-md shadow-teal-700/20 group-hover:scale-105 transition-transform">
-                <Stethoscope className="w-6 h-6" />
+          <div className="flex items-center justify-between h-16 sm:h-18 lg:h-20">
+
+            {/* Logo — uses client's supplied image */}
+            <Link href="/" className="flex items-center gap-2.5 group flex-shrink-0">
+              <div className="relative h-10 w-10 sm:h-12 sm:w-12 lg:h-14 lg:w-14 flex-shrink-0">
+                <Image
+                  src="/images/logo/logo.jpeg"
+                  alt="Shree Diagnostic Center Logo"
+                  fill
+                  sizes="(max-width: 640px) 40px, (max-width: 1024px) 48px, 56px"
+                  className="object-contain rounded-xl"
+                  priority
+                />
               </div>
-              <div className="flex flex-col">
-                <span className="text-xl font-black tracking-tight text-slate-900 group-hover:text-teal-700 transition-colors">
+              <div className="flex flex-col leading-tight">
+                <span className="text-lg sm:text-xl font-black tracking-tight text-slate-900 group-hover:text-teal-700 transition-colors whitespace-nowrap">
                   Shree<span className="text-teal-600 font-light"> Diagnostic</span>
                 </span>
-                <span className="text-[10px] font-bold tracking-wider uppercase text-teal-700">
-                  Diagnostic Center & Pathology Lab
+                <span className="text-[9px] sm:text-[10px] font-bold tracking-wider uppercase text-teal-700 whitespace-nowrap">
+                  Diagnostic Center &amp; Pathology Lab
                 </span>
               </div>
             </Link>
@@ -75,7 +83,7 @@ export const Header = () => {
             </nav>
 
             {/* Desktop CTAs */}
-            <div className="hidden md:flex items-center gap-3">
+            <div className="hidden md:flex items-center gap-3 flex-shrink-0">
               <Link
                 href="/home-sample-collection"
                 className="px-4 py-2.5 rounded-xl border border-teal-600/40 text-teal-700 hover:bg-teal-50 text-xs font-bold transition-all flex items-center gap-1.5"
@@ -83,10 +91,10 @@ export const Header = () => {
                 <HomeIcon className="w-3.5 h-3.5" />
                 <span>Book Home Collection</span>
               </Link>
-              
+
               <button
                 onClick={openBookTest}
-                className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-teal-700 to-cyan-700 hover:from-teal-800 hover:to-cyan-800 text-white text-xs font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-1.5"
+                className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-teal-700 to-cyan-700 hover:from-teal-800 hover:to-cyan-800 text-white text-xs font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-1.5 cursor-pointer"
               >
                 <Calendar className="w-3.5 h-3.5" />
                 <span>Book a Test</span>
@@ -133,7 +141,7 @@ export const Header = () => {
             <div className="pt-2 border-t border-slate-100 flex flex-col gap-2.5">
               <button
                 onClick={openBookTest}
-                className="w-full py-3 rounded-xl bg-teal-700 text-white font-bold text-sm shadow-md flex items-center justify-center gap-2"
+                className="w-full py-3 rounded-xl bg-teal-700 text-white font-bold text-sm shadow-md flex items-center justify-center gap-2 cursor-pointer"
               >
                 <Calendar className="w-4 h-4" />
                 <span>Book a Test</span>

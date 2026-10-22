@@ -6,6 +6,7 @@ import { Sparkles, Check, ArrowRight, ShieldCheck, Clock, FileCheck } from "luci
 import { HEALTH_PACKAGES, PACKAGE_CATEGORIES } from "@/data/packages";
 import { PackageComparisonTable } from "@/components/packages/PackageComparisonTable";
 import { BookingModal } from "@/components/booking/BookingModal";
+import { GoogleDisplayBanner } from "@/components/promotions/GoogleDisplayBanner";
 
 export default function HealthPackagesPage() {
   const [selectedCategory, setSelectedCategory] = useState("All Packages");
@@ -118,6 +119,10 @@ export default function HealthPackagesPage() {
           ))}
         </div>
       </section>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <GoogleDisplayBanner aspect="h" pageContext="health-packages" />
+      </div>
 
       {/* PACKAGE COMPARISON TABLE */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">

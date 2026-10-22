@@ -19,27 +19,27 @@
     "certificates": [
       {
         "id": "clinova-dengue",
-        "title": "Dengue Profile Poster",
-        "description": "Complete dengue diagnostic panel — NS1, IgM, IgG, and CBC monitoring",
-        "file": "/images/partners/clinova/certificates/dengue-profile-poster.pdf",
-        "type": "pdf",
+        "title": "Molecular Quality Accreditation",
+        "description": "NABL Accredited Molecular Testing Compliance Certificate",
+        "file": "/images/Certifiactes_sampel/cerf1_v.png",
+        "type": "image",
         "aspect": "portrait"
       },
       {
         "id": "clinova-fever",
-        "title": "Fever Profile Poster",
-        "description": "Comprehensive fever workup panel covering malaria, typhoid, dengue and more",
-        "file": "/images/partners/clinova/certificates/fever-profile-poster.pdf",
-        "type": "pdf",
+        "title": "Clinical Laboratory Excellence",
+        "description": "ISO 9001:2015 Diagnostic Center Quality Standard",
+        "file": "/images/Certifiactes_sampel/cerf2_v.png",
+        "type": "image",
         "aspect": "portrait"
       },
       {
         "id": "clinova-services",
-        "title": "Clinova Services Overview",
-        "description": "Full catalogue of diagnostic services offered through our Clinova partnership",
-        "file": "/images/partners/clinova/certificates/services-poster.pdf",
-        "type": "pdf",
-        "aspect": "portrait"
+        "title": "Clinova Diagnostics Services",
+        "description": "Specialized Immunology & Reference Testing Accreditation",
+        "file": "/images/Certifiactes_sampel/cerf3_h.png",
+        "type": "image",
+        "aspect": "landscape"
       }
     ],
     "featured": true,
@@ -65,11 +65,11 @@
     "certificates": [
       {
         "id": "niptr-nipt",
-        "title": "NIPT Test Information",
-        "description": "Comprehensive guide to Non-Invasive Prenatal Testing — procedure, coverage, and results",
-        "file": "/images/partners/niptr/certificates/nipt-test-poster.pdf",
-        "type": "pdf",
-        "aspect": "portrait"
+        "title": "NIPT Genetic Testing Certification",
+        "description": "Reference Genetics Laboratory Validation & Standards",
+        "file": "/images/Certifiactes_sampel/cerf4_h.png",
+        "type": "image",
+        "aspect": "landscape"
       }
     ],
     "featured": true,

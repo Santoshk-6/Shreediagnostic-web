@@ -2,20 +2,14 @@
 
 import React, { useState } from "react";
 import {
-  Building2,
   CheckCircle2,
   Send,
-  FileText,
-  ChevronRight,
-  X,
-  ExternalLink,
   Award,
-  Microscope,
-  Star,
-  ArrowRight
+  X,
+  ArrowRight,
+  ZoomIn
 } from "lucide-react";
 import partnersData from "@/data/trusted-partners.json";
-import { PartnerDocumentGallery } from "@/components/partners/PartnerDocumentGallery";
 import { PARTNER_BENEFITS } from "@/data/partners";
 
 interface Certificate {
@@ -52,9 +46,99 @@ const logoGradients: Record<string, string> = {
   rose: "from-rose-700 to-rose-500",
 };
 
+// ---------------------------------------------------------------------------
+// Certificate images gallery configuration
+// ---------------------------------------------------------------------------
+const CERT_IMAGES = [
+  { id: "cerf1", src: "/images/Certifiactes_sampel/cerf1_v.png", alt: "Accreditation Certificate 1", aspect: "portrait" },
+  { id: "cerf2", src: "/images/Certifiactes_sampel/cerf2_v.png", alt: "Accreditation Certificate 2", aspect: "portrait" },
+  { id: "cerf3", src: "/images/Certifiactes_sampel/cerf3_h.png", alt: "Quality Certificate 3", aspect: "landscape" },
+  { id: "cerf4", src: "/images/Certifiactes_sampel/cerf4_h.png", alt: "Quality Certificate 4", aspect: "landscape" },
+  { id: "cerf5", src: "/images/Certifiactes_sampel/cerf5_v.png", alt: "Accreditation Certificate 5", aspect: "portrait" },
+];
+
+// ---------------------------------------------------------------------------
+// Lightbox component
+// ---------------------------------------------------------------------------
+function CertLightbox({
+  images,
+  initialIndex,
+  onClose,
+}: {
+  images: typeof CERT_IMAGES;
+  initialIndex: number;
+  onClose: () => void;
+}) {
+  const [idx, setIdx] = useState(initialIndex);
+  const current = images[idx];
+
+  const prev = () => setIdx((i) => (i > 0 ? i - 1 : images.length - 1));
+  const next = () => setIdx((i) => (i < images.length - 1 ? i + 1 : 0));
+
+  React.useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowLeft") prev();
+      if (e.key === "ArrowRight") next();
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  });
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4"
+      onClick={onClose}
+    >
+      <div
+        className="relative max-w-4xl w-full flex flex-col items-center gap-4"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Close */}
+        <button
+          onClick={onClose}
+          className="absolute -top-2 -right-2 w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition z-10 cursor-pointer"
+          aria-label="Close"
+        >
+          <X className="w-5 h-5" />
+        </button>
+
+        {/* Image */}
+        <img
+          src={current.src}
+          alt={current.alt}
+          className="max-h-[78vh] w-auto max-w-full object-contain rounded-2xl shadow-2xl"
+        />
+
+        {/* Caption & nav */}
+        <div className="flex items-center gap-6">
+          <button
+            onClick={prev}
+            className="px-4 py-1.5 rounded-xl bg-white/20 hover:bg-white/30 text-white text-xs font-bold transition cursor-pointer"
+          >
+            ← Prev
+          </button>
+          <span className="text-white/70 text-xs font-medium">
+            {idx + 1} / {images.length}
+          </span>
+          <button
+            onClick={next}
+            className="px-4 py-1.5 rounded-xl bg-white/20 hover:bg-white/30 text-white text-xs font-bold transition cursor-pointer"
+          >
+            Next →
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Main Page
+// ---------------------------------------------------------------------------
 export default function PartnersPage() {
-  const [activePartner, setActivePartner] = useState<Partner | null>(null);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [formData, setFormData] = useState({
     orgName: "",
     contactPerson: "",
@@ -62,7 +146,7 @@ export default function PartnersPage() {
     email: "",
     orgType: "Clinic",
     requirements: "Diagnostic B2B Processing",
-    message: ""
+    message: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -70,7 +154,9 @@ export default function PartnersPage() {
     setFormSubmitted(true);
   };
 
-  const featuredPartners = partners.filter((p) => p.featured).sort((a, b) => a.order - b.order);
+  const featuredPartners = partners
+    .filter((p) => p.featured)
+    .sort((a, b) => a.order - b.order);
 
   return (
     <div className="space-y-0 pb-16">
@@ -89,13 +175,20 @@ export default function PartnersPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-6 pt-4">
             {featuredPartners.map((p) => (
-              <div key={p.id} className={`flex items-center gap-2.5 bg-white/5 border border-white/10 rounded-2xl px-5 py-3`}>
-                <div className={`w-9 h-9 rounded-xl bg-gradient-to-br ${logoGradients[p.logoColor] || logoGradients.teal} text-white font-black text-xs flex items-center justify-center shadow`}>
+              <div
+                key={p.id}
+                className="flex items-center gap-2.5 bg-white/5 border border-white/10 rounded-2xl px-5 py-3"
+              >
+                <div
+                  className={`w-9 h-9 rounded-xl bg-gradient-to-br ${logoGradients[p.logoColor] || logoGradients.teal} text-white font-black text-xs flex items-center justify-center shadow`}
+                >
                   {p.logoText.slice(0, 2)}
                 </div>
                 <div className="text-left">
                   <div className="text-white font-bold text-sm">{p.shortName}</div>
-                  <div className="text-teal-400 text-[10px]">{p.tagline.split(" ").slice(0, 3).join(" ")}</div>
+                  <div className="text-teal-400 text-[10px]">
+                    {p.tagline.split(" ").slice(0, 3).join(" ")}
+                  </div>
                 </div>
               </div>
             ))}
@@ -114,7 +207,7 @@ export default function PartnersPage() {
               Meet Our Diagnostic Partners
             </h2>
             <p className="text-slate-500 text-sm">
-              Click any partner to view their service brochures, certificates, and detailed test menus.
+              Accredited specialists collaborating with Shree Diagnostic Center to expand testing capabilities.
             </p>
           </div>
 
@@ -125,7 +218,9 @@ export default function PartnersPage() {
                 className="group bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl hover:border-teal-300 transition-all duration-300 overflow-hidden"
               >
                 {/* Card Header */}
-                <div className={`bg-gradient-to-br ${logoGradients[partner.logoColor] || logoGradients.teal} p-6 text-white`}>
+                <div
+                  className={`bg-gradient-to-br ${logoGradients[partner.logoColor] || logoGradients.teal} p-6 text-white`}
+                >
                   <div className="flex items-start justify-between">
                     <div className="flex items-center gap-4">
                       <div className="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center font-black text-lg border border-white/30 shadow-lg">
@@ -136,9 +231,6 @@ export default function PartnersPage() {
                         <p className="text-white/70 text-xs mt-0.5">{partner.tagline}</p>
                       </div>
                     </div>
-                    <span className="text-[10px] font-bold bg-white/20 text-white px-2 py-1 rounded-lg border border-white/20">
-                      {partner.certificates.length} Doc{partner.certificates.length !== 1 ? "s" : ""}
-                    </span>
                   </div>
                 </div>
 
@@ -148,37 +240,29 @@ export default function PartnersPage() {
 
                   {/* Specialties */}
                   <div>
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Specialties</h4>
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
+                      Specialties
+                    </h4>
                     <div className="flex flex-wrap gap-1.5">
                       {partner.specialties.map((spec, i) => (
-                        <span key={i} className="text-[10px] font-semibold bg-slate-100 text-slate-700 px-2.5 py-1 rounded-lg">
+                        <span
+                          key={i}
+                          className="text-[10px] font-semibold bg-slate-100 text-slate-700 px-2.5 py-1 rounded-lg"
+                        >
                           {spec}
                         </span>
                       ))}
                     </div>
                   </div>
 
-                  {/* Documents Preview */}
-                  <div>
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Available Documents</h4>
-                    <div className="space-y-1.5">
-                      {partner.certificates.map((cert) => (
-                        <div key={cert.id} className="flex items-center gap-2 text-xs text-slate-600">
-                          <FileText className="w-3.5 h-3.5 text-teal-500 flex-shrink-0" />
-                          <span>{cert.title}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* CTA */}
-                  <button
-                    onClick={() => setActivePartner(partner)}
+                  {/* Contact/Learn More CTA */}
+                  <a
+                    href="#partner-form"
                     className={`w-full py-3 rounded-2xl bg-gradient-to-r ${logoGradients[partner.logoColor] || logoGradients.teal} text-white font-bold text-sm flex items-center justify-center gap-2 hover:opacity-90 transition shadow-md`}
                   >
-                    <span>View Brochures & Documents</span>
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
+                    <span>Enquire About This Partner</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
                 </div>
               </div>
             ))}
@@ -186,41 +270,64 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      {/* PARTNER DOCUMENT MODAL */}
-      {activePartner && (
-        <div
-          className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 backdrop-blur-sm"
-          onClick={(e) => { if (e.target === e.currentTarget) setActivePartner(null); }}
-        >
-          <div className="bg-white w-full max-w-5xl max-h-[95vh] rounded-3xl overflow-hidden flex flex-col shadow-2xl">
-            {/* Modal Header */}
-            <div className={`bg-gradient-to-r ${logoGradients[activePartner.logoColor] || logoGradients.teal} p-5 flex items-center justify-between flex-shrink-0`}>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center font-black text-white border border-white/30">
-                  {activePartner.logoText.slice(0, 2)}
-                </div>
-                <div>
-                  <h3 className="text-white font-black text-base">{activePartner.name}</h3>
-                  <p className="text-white/70 text-xs">{activePartner.tagline}</p>
-                </div>
-              </div>
-              <button
-                onClick={() => setActivePartner(null)}
-                className="w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            {/* Modal Content */}
-            <div className="overflow-y-auto flex-1 p-6">
-              <PartnerDocumentGallery
-                certificates={activePartner.certificates}
-                partnerName={activePartner.name}
-              />
-            </div>
+      {/* ACCREDITATIONS & QUALITY CERTIFICATES GALLERY */}
+      <section className="bg-slate-50 py-16 border-b border-slate-200/60">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+          <div className="text-center max-w-2xl mx-auto space-y-2">
+            <span className="text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-50 border border-teal-200/60 px-3.5 py-1 rounded-full">
+              Verified Credentials
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+              Accreditations &amp; Quality Certificates
+            </h2>
+            <p className="text-slate-500 text-sm">
+              Official certifications and accreditations held by Shree Diagnostic Center and its trusted partners.
+            </p>
           </div>
+
+          {/* Certificate Gallery Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+            {CERT_IMAGES.map((cert, i) => (
+              <button
+                key={cert.id}
+                onClick={() => setLightboxIndex(i)}
+                className="group relative bg-white rounded-2xl border border-slate-200 hover:border-teal-400 shadow-sm hover:shadow-xl transition-all overflow-hidden cursor-pointer focus:outline-none focus:ring-2 focus:ring-teal-500"
+                aria-label={`View ${cert.alt}`}
+              >
+                <div
+                  className={`w-full overflow-hidden ${cert.aspect === "landscape" ? "aspect-[4/3]" : "aspect-[3/4]"}`}
+                >
+                  <img
+                    src={cert.src}
+                    alt={cert.alt}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                </div>
+                {/* Hover overlay */}
+                <div className="absolute inset-0 bg-teal-900/0 group-hover:bg-teal-900/30 transition-colors duration-200 flex items-center justify-center">
+                  <ZoomIn className="w-7 h-7 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-200 drop-shadow-lg" />
+                </div>
+                <div className="px-2 py-1.5 text-center">
+                  <p className="text-[10px] font-semibold text-slate-600 truncate">{cert.alt}</p>
+                </div>
+              </button>
+            ))}
+          </div>
+
+          <p className="text-center text-[11px] text-slate-400">
+            Click any certificate to view full size • {CERT_IMAGES.length} certificates displayed
+          </p>
         </div>
+      </section>
+
+      {/* Lightbox */}
+      {lightboxIndex !== null && (
+        <CertLightbox
+          images={CERT_IMAGES}
+          initialIndex={lightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+        />
       )}
 
       {/* PARTNER BENEFITS */}
@@ -317,7 +424,7 @@ export default function PartnersPage() {
                   className="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-teal-600 text-xs outline-none" />
               </div>
               <button type="submit"
-                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-teal-700 to-cyan-700 hover:from-teal-800 hover:to-cyan-800 text-white font-bold text-sm shadow-md transition flex items-center justify-center gap-2">
+                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-teal-700 to-cyan-700 hover:from-teal-800 hover:to-cyan-800 text-white font-bold text-sm shadow-md transition flex items-center justify-center gap-2 cursor-pointer">
                 <Send className="w-4 h-4" />
                 <span>Submit Partnership Application</span>
               </button>
@@ -333,29 +440,6 @@ export default function PartnersPage() {
                   Thank you for reaching out. Our Corporate Relationship Manager will contact {formData.contactPerson} within 24 business hours.
                 </p>
               </div>
-
-              {/* Related Partnership Promotion (Requirement 2 & 3) */}
-              <div className="p-4 rounded-2xl bg-gradient-to-r from-teal-900 to-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-4 border border-teal-700/50 shadow-md text-left">
-                <div className="space-y-1">
-                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-teal-300 bg-teal-950 px-2.5 py-0.5 rounded-full border border-teal-800">
-                    Partner Document Preview
-                  </span>
-                  <h4 className="text-sm font-bold text-white">Clinova Molecular Diagnostic Services</h4>
-                  <p className="text-xs text-slate-300">
-                    Review our complete clinical services poster and specialty test parameters.
-                  </p>
-                </div>
-                <a
-                  href="/images/partners/clinova/certificates/services-poster.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-teal-400 hover:bg-teal-300 text-slate-950 font-bold text-xs flex items-center justify-center gap-1.5 transition whitespace-nowrap"
-                >
-                  <span>View Services PDF</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </a>
-              </div>
-
               <div>
                 <button
                   onClick={() => setFormSubmitted(false)}
@@ -366,7 +450,6 @@ export default function PartnersPage() {
               </div>
             </div>
           )}
-
         </div>
       </section>
 

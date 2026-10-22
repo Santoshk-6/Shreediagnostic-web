@@ -276,7 +276,7 @@ export default function ContactPage() {
                   </p>
                 </div>
                 <a
-                  href="/images/promotions/health-packages-poster.pdf"
+                  href="/images/Posters/img1_v.png"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-teal-400 hover:bg-teal-300 text-slate-950 font-bold text-xs flex items-center justify-center gap-1.5 transition whitespace-nowrap"

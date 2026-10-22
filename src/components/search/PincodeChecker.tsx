@@ -121,12 +121,12 @@ export const PincodeChecker = () => {
                 </div>
               </div>
               <a
-                href="/images/promotions/health-packages-poster.pdf"
+                href="/images/Posters/img5_h.png"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto px-3.5 py-1.5 rounded-xl bg-teal-400 hover:bg-teal-300 text-slate-950 font-bold text-[11px] flex items-center justify-center gap-1.5 transition whitespace-nowrap"
               >
-                <span>View Brochure</span>
+                <span>View Offer Poster</span>
                 <ExternalLink className="w-3 h-3" />
               </a>
             </div>

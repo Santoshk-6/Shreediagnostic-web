@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import Link from "next/link";
 import {
   Stethoscope,
@@ -19,6 +19,8 @@ import {
   ArrowRight,
   Sparkles,
   Search,
+  Filter,
+  X,
   Activity,
   Microscope,
   Zap,
@@ -45,6 +47,336 @@ import { TestSearchBar } from "@/components/search/TestSearchBar";
 import { PincodeChecker } from "@/components/search/PincodeChecker";
 import { BookingModal } from "@/components/booking/BookingModal";
 import { ScrollingBanner } from "@/components/promotions/ScrollingBanner";
+
+// ---------------------------------------------------------------------------
+// Inline Popular Tests Search Sub-Component (search + category dropdown only)
+// ---------------------------------------------------------------------------
+interface PathologyTest {
+  id: string;
+  name: string;
+  slug: string;
+  category: string;
+  price: number;
+  originalPrice?: number;
+  isPopular?: boolean;
+  turnaroundTime: string;
+  fastingRequirement: string;
+  shortDescription: string;
+  keywords?: string[];
+}
+
+function PopularTestsSearchSection({
+  allTests,
+  handleBookItem,
+}: {
+  allTests: PathologyTest[];
+  handleBookItem: (name: string, type: "test" | "package", price: number) => void;
+}) {
+  const [query, setQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All Categories");
+
+  const categories = useMemo(() => {
+    const cats = Array.from(new Set(allTests.map((t) => t.category)));
+    return ["All Categories", ...cats.sort()];
+  }, [allTests]);
+
+  const results = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    const catMatch = selectedCategory === "All Categories"
+      ? allTests
+      : allTests.filter((t) => t.category === selectedCategory);
+
+    if (!q) return catMatch.filter((t) => t.isPopular).slice(0, 6);
+    return catMatch.filter((t) =>
+      t.name.toLowerCase().includes(q) ||
+      t.category.toLowerCase().includes(q) ||
+      (t.keywords && t.keywords.some((k: string) => k.toLowerCase().includes(q))) ||
+      t.shortDescription.toLowerCase().includes(q)
+    ).slice(0, 9);
+  }, [allTests, query, selectedCategory]);
+
+  const isSearching = query.trim().length > 0 || selectedCategory !== "All Categories";
+
+  return (
+    <div className="space-y-6">
+      {/* Search + Category row */}
+      <div className="flex flex-col sm:flex-row gap-3">
+        {/* Search Input */}
+        <div className="relative flex-1">
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
+          <input
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search tests — e.g. CBC, thyroid, vitamin D, HbA1c..."
+            className="w-full pl-11 pr-10 py-3.5 rounded-2xl border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 bg-white text-sm text-slate-800 placeholder-slate-400 outline-none shadow-sm transition"
+          />
+          {query && (
+            <button
+              onClick={() => setQuery("")}
+              className="absolute right-3 top-1/2 -translate-y-1/2 w-7 h-7 flex items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 transition cursor-pointer"
+              aria-label="Clear search"
+            >
+              <ChevronRight className="w-4 h-4 rotate-180" />
+            </button>
+          )}
+        </div>
+
+        {/* All Categories Dropdown */}
+        <div className="relative sm:w-52">
+          <Filter className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
+          <select
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+            className="w-full pl-10 pr-4 py-3.5 rounded-2xl border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 bg-white text-sm text-slate-800 outline-none shadow-sm transition cursor-pointer appearance-none"
+          >
+            {categories.map((cat) => (
+              <option key={cat} value={cat}>{cat}</option>
+            ))}
+          </select>
+        </div>
+      </div>
+
+      {/* Empty state */}
+      {isSearching && results.length === 0 && (
+        <div className="py-12 text-center text-slate-400 text-sm">
+          <Search className="w-8 h-8 mx-auto mb-3 opacity-40" />
+          <p className="font-semibold">No tests found for &ldquo;{query}&rdquo;</p>
+          <p className="text-xs mt-1">Try a different name or <Link href="/services" className="text-teal-600 underline">browse all tests</Link>.</p>
+        </div>
+      )}
+
+      {/* Test cards grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {results.map((test) => (
+          <div
+            key={test.id}
+            className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-teal-500/60 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between space-y-5 group"
+          >
+            <div>
+              <div className="flex items-center justify-between gap-2 mb-3">
+                <span className="text-[10px] font-extrabold uppercase tracking-wide px-3 py-1 rounded-full bg-teal-50 text-teal-800 border border-teal-200/60">
+                  {test.category}
+                </span>
+                <div className="text-right">
+                  <span className="text-xl font-black text-slate-900">&#x20B9;{test.price}</span>
+                  {test.originalPrice && (
+                    <span className="text-xs text-slate-400 line-through ml-1.5 font-medium">
+                      &#x20B9;{test.originalPrice}
+                    </span>
+                  )}
+                </div>
+              </div>
+              <h3 className="text-base font-bold text-slate-900 group-hover:text-teal-700 transition-colors">
+                {test.name}
+              </h3>
+              <p className="text-xs text-slate-500 line-clamp-2 mt-1.5 leading-relaxed">
+                {test.shortDescription}
+              </p>
+            </div>
+            <div className="pt-3 border-t border-slate-100 space-y-3">
+              <div className="flex items-center justify-between text-[11px] text-slate-500">
+                <span className="flex items-center gap-1.5 font-medium">
+                  <Clock className="w-3.5 h-3.5 text-teal-600" />
+                  {test.turnaroundTime}
+                </span>
+                <span className="truncate max-w-[150px] font-medium text-slate-600">
+                  {test.fastingRequirement}
+                </span>
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                <Link
+                  href={`/services/${test.slug}`}
+                  className="py-2.5 rounded-xl border border-slate-200 text-center font-bold text-xs text-slate-700 hover:bg-slate-50 hover:text-slate-900 transition"
+                >
+                  View Details
+                </Link>
+                <button
+                  onClick={() => handleBookItem(test.name, "test", test.price)}
+                  className="py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-sm hover:shadow-md transition cursor-pointer"
+                >
+                  Book Test
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {isSearching && results.length > 0 && (
+        <div className="text-center">
+          <Link
+            href={`/services?search=${encodeURIComponent(query)}`}
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-teal-700 hover:text-teal-800 transition"
+          >
+            <span>See all results on Services page</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Package Poster Slider — top of Health Packages section
+// ---------------------------------------------------------------------------
+const PACKAGE_POSTERS = [
+  { id: "pkg1", src: "/images/Posters/img1_v.png",    aspect: "portrait",  title: "Comprehensive Diagnostic Package" },
+  { id: "pkg2", src: "/images/Posters/img3_s.png",  aspect: "square",    title: "Executive Health Screening" },
+  { id: "pkg3", src: "/images/Posters/img6_s.png",  aspect: "square",    title: "Diabetes & Heart Risk Panel" },
+  { id: "pkg4", src: "/images/Posters/img8_v.png",    aspect: "portrait",  title: "Senior Citizen Vital Care" },
+  { id: "pkg5", src: "/images/Posters/img11_s.png", aspect: "square",    title: "Family Wellness Package" },
+];
+
+function PackagePosterSlider({
+  handleBookItem,
+}: {
+  handleBookItem: (name: string, type: "test" | "package", price: number) => void;
+}) {
+  const [idx, setIdx] = React.useState(0);
+  const [paused, setPaused] = React.useState(false);
+  const [lightbox, setLightbox] = React.useState(false);
+  const total = PACKAGE_POSTERS.length;
+
+  React.useEffect(() => {
+    if (paused || lightbox || total <= 1) return;
+    const t = setInterval(() => setIdx((p) => (p + 1) % total), 4000);
+    return () => clearInterval(t);
+  }, [paused, lightbox, total]);
+
+  React.useEffect(() => {
+    if (!lightbox) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightbox(false);
+      if (e.key === "ArrowLeft") setIdx((p) => (p - 1 + total) % total);
+      if (e.key === "ArrowRight") setIdx((p) => (p + 1) % total);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [lightbox, total]);
+
+  const current = PACKAGE_POSTERS[idx];
+
+  return (
+    <>
+      <div
+        className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm mb-10 bg-white"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+      >
+        <div className="overflow-hidden">
+          <div
+            className="flex transition-transform duration-500 ease-in-out"
+            style={{ transform: `translateX(-${idx * 100}%)` }}
+          >
+            {PACKAGE_POSTERS.map((poster) => (
+              <div key={poster.id} className="min-w-full flex flex-col sm:flex-row">
+                <button
+                  onClick={() => setLightbox(true)}
+                  className={`flex-shrink-0 bg-slate-50 flex items-center justify-center cursor-zoom-in focus:outline-none
+                    ${poster.aspect === "landscape" ? "w-full sm:w-72 h-48 sm:h-44" : "w-full sm:w-52 h-56 sm:h-52"}`}
+                  aria-label="View poster full size"
+                >
+                  <img
+                    src={poster.src}
+                    alt={poster.title}
+                    className="w-full h-full object-contain"
+                    loading="lazy"
+                  />
+                </button>
+                <div className="flex-1 flex flex-col justify-between p-5 sm:p-6">
+                  <div>
+                    <span className="text-[10px] font-extrabold uppercase tracking-widest text-teal-700 bg-teal-50 border border-teal-200/60 px-2.5 py-1 rounded-full">
+                      Featured Package Offer
+                    </span>
+                    <h4 className="text-lg font-black text-slate-900 mt-2">{poster.title}</h4>
+                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">
+                      Click the poster to view full size. Book directly for same-day confirmation and free home collection.
+                    </p>
+                  </div>
+                  <div className="flex flex-wrap gap-2 pt-4">
+                    <button
+                      onClick={() => handleBookItem(poster.title, "package", 1499)}
+                      className="px-4 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-sm transition cursor-pointer flex items-center gap-1.5"
+                    >
+                      <Calendar className="w-3.5 h-3.5" />
+                      Book This Package
+                    </button>
+                    <button
+                      onClick={() => setLightbox(true)}
+                      className="px-4 py-2 rounded-xl border border-slate-200 hover:border-teal-400 text-slate-700 font-semibold text-xs transition cursor-pointer"
+                    >
+                      View Full Poster
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {total > 1 && (
+          <>
+            <button
+              onClick={() => setIdx((p) => (p - 1 + total) % total)}
+              className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center transition cursor-pointer z-10"
+              aria-label="Previous poster"
+            >
+              <ChevronRight className="w-4 h-4 rotate-180" />
+            </button>
+            <button
+              onClick={() => setIdx((p) => (p + 1) % total)}
+              className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center transition cursor-pointer z-10"
+              aria-label="Next poster"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </>
+        )}
+        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+          {PACKAGE_POSTERS.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setIdx(i)}
+              className={`rounded-full transition-all cursor-pointer ${i === idx ? "w-5 h-1.5 bg-teal-600" : "w-1.5 h-1.5 bg-slate-400/60 hover:bg-slate-500"}`}
+              aria-label={`Poster ${i + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+
+      {lightbox && (
+        <div
+          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+          onClick={() => setLightbox(false)}
+        >
+          <div className="relative max-w-2xl w-full flex flex-col items-center gap-4" onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={() => setLightbox(false)}
+              className="absolute -top-3 -right-3 w-9 h-9 rounded-full bg-white/20 hover:bg-white/35 text-white flex items-center justify-center z-10 cursor-pointer"
+              aria-label="Close"
+            >
+              <X className="w-5 h-5" />
+            </button>
+            <img
+              src={current.src}
+              alt={current.title}
+              className="max-h-[82vh] w-auto max-w-full object-contain rounded-2xl shadow-2xl"
+            />
+            {total > 1 && (
+              <div className="flex justify-center gap-4">
+                <button onClick={() => setIdx((p) => (p-1+total)%total)} className="px-4 py-1.5 rounded-lg bg-white/20 hover:bg-white/30 text-white text-xs font-bold cursor-pointer">&#8592; Prev</button>
+                <span className="text-white/60 text-xs self-center">{idx + 1} / {total}</span>
+                <button onClick={() => setIdx((p) => (p+1)%total)} className="px-4 py-1.5 rounded-lg bg-white/20 hover:bg-white/30 text-white text-xs font-bold cursor-pointer">Next &#8594;</button>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
 
 export default function HomePage() {
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
@@ -336,13 +668,13 @@ export default function HomePage() {
                   </button>
 
                   <a
-                    href="/images/promotions/health-packages-poster.pdf"
+                    href="/images/Posters/img1_v.png"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full py-2.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/20 text-white text-xs font-bold transition flex items-center justify-center gap-2"
                   >
                     <FileText className="w-3.5 h-3.5 text-teal-300" />
-                    <span>View Official Package Brochure (PDF)</span>
+                    <span>View Official Package Poster</span>
                     <ExternalLink className="w-3 h-3 text-slate-400" />
                   </a>
                 </div>
@@ -363,8 +695,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* 2. INTERACTIVE TEST SEARCH MODULE */}
+      {/* 2. SEARCH PATHOLOGY TESTS & HEALTH PANELS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-20">
         <TestSearchBar />
       </section>
@@ -407,9 +738,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. POPULAR TESTS GRID */}
+            {/* 4. POPULAR TESTS GRID WITH INLINE SEARCH */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        {/* Section header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 gap-4">
           <div>
             <span className="text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-50 border border-teal-200/60 px-3.5 py-1 rounded-full">
               Frequently Booked
@@ -417,7 +749,7 @@ export default function HomePage() {
             <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mt-2">
               Popular Individual Tests
             </h2>
-            <p className="text-slate-500 text-xs sm:text-sm mt-1">Single diagnostic parameters delivered with same-day digital reports.</p>
+            <p className="text-slate-500 text-xs sm:text-sm mt-1">Search any diagnostic test or browse by category.</p>
           </div>
           <Link
             href="/services"
@@ -428,62 +760,8 @@ export default function HomePage() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {PATHOLOGY_TESTS.filter(t => t.isPopular).slice(0, 6).map((test) => (
-            <div
-              key={test.id}
-              className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-teal-500/60 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between space-y-5 group"
-            >
-              <div>
-                <div className="flex items-center justify-between gap-2 mb-3">
-                  <span className="text-[10px] font-extrabold uppercase tracking-wide px-3 py-1 rounded-full bg-teal-50 text-teal-800 border border-teal-200/60">
-                    {test.category}
-                  </span>
-                  <div className="text-right">
-                    <span className="text-xl font-black text-slate-900">₹{test.price}</span>
-                    {test.originalPrice && (
-                      <span className="text-xs text-slate-400 line-through ml-1.5 font-medium">
-                        ₹{test.originalPrice}
-                      </span>
-                    )}
-                  </div>
-                </div>
-
-                <h3 className="text-base font-bold text-slate-900 group-hover:text-teal-700 transition-colors">
-                  {test.name}
-                </h3>
-                <p className="text-xs text-slate-500 line-clamp-2 mt-1.5 leading-relaxed">
-                  {test.shortDescription}
-                </p>
-              </div>
-
-              <div className="pt-3 border-t border-slate-100 space-y-3">
-                <div className="flex items-center justify-between text-[11px] text-slate-500">
-                  <span className="flex items-center gap-1.5 font-medium">
-                    <Clock className="w-3.5 h-3.5 text-teal-600" />
-                    {test.turnaroundTime}
-                  </span>
-                  <span className="truncate max-w-[150px] font-medium text-slate-600">{test.fastingRequirement}</span>
-                </div>
-
-                <div className="grid grid-cols-2 gap-2">
-                  <Link
-                    href={`/services/${test.slug}`}
-                    className="py-2.5 rounded-xl border border-slate-200 text-center font-bold text-xs text-slate-700 hover:bg-slate-50 hover:text-slate-900 transition"
-                  >
-                    View Details
-                  </Link>
-                  <button
-                    onClick={() => handleBookItem(test.name, "test", test.price)}
-                    className="py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-sm hover:shadow-md transition cursor-pointer"
-                  >
-                    Book Test
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+        {/* Inline Search Bar + Category Dropdown */}
+        <PopularTestsSearchSection handleBookItem={handleBookItem} allTests={PATHOLOGY_TESTS} />
       </section>
 
       {/* 5. POPULAR HEALTH CHECKUP PACKAGES */}
@@ -501,6 +779,9 @@ export default function HomePage() {
               All-inclusive master checkup profiles with up to 65% savings on multi-organ diagnostic screenings.
             </p>
           </div>
+
+          {/* Promotional poster slider for health packages */}
+          <PackagePosterSlider handleBookItem={handleBookItem} />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {HEALTH_PACKAGES.map((pkg) => (
@@ -798,13 +1079,13 @@ export default function HomePage() {
 
               <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
                 <a
-                  href="/images/partners/clinova/certificates/dengue-profile-poster.pdf"
+                  href="/images/Posters/img4_h.png"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-xs font-bold text-blue-700 hover:text-blue-900 flex items-center gap-1.5"
                 >
                   <FileText className="w-3.5 h-3.5" />
-                  <span>Dengue Poster (PDF)</span>
+                  <span>Dengue & Fever Poster</span>
                   <ExternalLink className="w-3 h-3" />
                 </a>
 
@@ -850,13 +1131,13 @@ export default function HomePage() {
 
               <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
                 <a
-                  href="/images/partners/niptr/certificates/nipt-test-poster.pdf"
+                  href="/images/Posters/img7_v.png"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-xs font-bold text-teal-700 hover:text-teal-900 flex items-center gap-1.5"
                 >
                   <FileText className="w-3.5 h-3.5" />
-                  <span>NIPT Guide (PDF)</span>
+                  <span>NIPT Prenatal Poster</span>
                   <ExternalLink className="w-3 h-3" />
                 </a>
 
