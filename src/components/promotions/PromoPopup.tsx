@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { usePathname } from "next/navigation";
-import { X, Calendar, ChevronLeft, ChevronRight } from "lucide-react";
+import { X, Calendar } from "lucide-react";
 import promotionsData from "@/data/promotions.json";
 
 interface Promotion {
@@ -22,14 +22,14 @@ const ALL_PROMOTIONS = promotionsData as Promotion[];
 const ACTIVE_PROMOS = ALL_PROMOTIONS.filter((p) => p.active !== false && p.image);
 const TOTAL_POSTERS = ACTIVE_PROMOS.length;
 
-// Google Display Advertisement timing configuration
+// Timing configuration for the advertisement popup
 const INITIAL_AUTO_POPUP_DELAY_MS = 3500; // 3.5 seconds after page load
 const REVISIT_RESHOW_INTERVAL_MS = 45000;  // 45 seconds interval before showing again
 const LAST_SHOWN_KEY = "sdc_google_ad_last_shown_time";
 const LAST_PROMO_INDEX_KEY = "sdc_google_ad_last_promo_idx";
 
 /**
- * Pure helper to pick a separate, random advertisement index for the given route
+ * Pure helper to pick a single separate, random advertisement index for the given route
  */
 function pickRandomAdIndex(currentPath: string): number {
   if (TOTAL_POSTERS === 0) return 0;
@@ -42,7 +42,7 @@ function pickRandomAdIndex(currentPath: string): number {
   else if (currentPath.startsWith("/contact")) pageKey = "contact";
   else if (currentPath.startsWith("/about")) pageKey = "about";
 
-  // Find candidates that target this page
+  // Find candidate posters that target this page
   const targetedIndices: number[] = [];
   ACTIVE_PROMOS.forEach((promo, idx) => {
     const pages = promo.showOnPages || ["all"];
@@ -64,7 +64,7 @@ function pickRandomAdIndex(currentPath: string): number {
   const filtered = candidateIndices.filter((idx) => idx !== lastIndex);
   const pool = filtered.length > 0 ? filtered : candidateIndices;
 
-  // Pick randomly
+  // Pick one random poster
   const randomIndex = pool[Math.floor(Math.random() * pool.length)];
 
   try {
@@ -80,8 +80,6 @@ export const PromoPopup = () => {
   const [currentIndex, setCurrentIndex] = useState(() =>
     TOTAL_POSTERS > 0 ? Math.floor(Math.random() * TOTAL_POSTERS) : 0
   );
-  const [isPaused, setIsPaused] = useState(false);
-  const autoSlideTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   const close = useCallback(() => {
     setVisible(false);
@@ -90,40 +88,17 @@ export const PromoPopup = () => {
     } catch {}
   }, []);
 
-  const handlePrev = useCallback((e?: React.MouseEvent) => {
-    if (e) e.stopPropagation();
-    setCurrentIndex((prev) => (prev > 0 ? prev - 1 : TOTAL_POSTERS - 1));
-  }, []);
-
-  const handleNext = useCallback((e?: React.MouseEvent) => {
-    if (e) e.stopPropagation();
-    setCurrentIndex((prev) => (prev < TOTAL_POSTERS - 1 ? prev + 1 : 0));
-  }, []);
-
-  // Keyboard navigation: Escape to close, Left/Right arrows to flip ads
+  // Keyboard navigation: Escape key to close
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!visible) return;
       if (e.key === "Escape") close();
-      if (e.key === "ArrowLeft") handlePrev();
-      if (e.key === "ArrowRight") handleNext();
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [visible, close, handlePrev, handleNext]);
+  }, [visible, close]);
 
-  // Auto-advance slides in the advertisement slider (pauses on hover)
-  useEffect(() => {
-    if (!visible || TOTAL_POSTERS <= 1 || isPaused) return;
-    autoSlideTimerRef.current = setInterval(() => {
-      handleNext();
-    }, 5500);
-    return () => {
-      if (autoSlideTimerRef.current) clearInterval(autoSlideTimerRef.current);
-    };
-  }, [visible, isPaused, handleNext]);
-
-  // Listen for manual trigger events
+  // Listen for manual trigger events (dispatched from banners or buttons)
   useEffect(() => {
     const handleManualOpen = () => {
       setCurrentIndex(pickRandomAdIndex(pathname));
@@ -169,7 +144,7 @@ export const PromoPopup = () => {
         sessionStorage.setItem(LAST_SHOWN_KEY, now.toString());
       } catch {}
 
-      // Pick a fresh random separate ad
+      // Pick one fresh separate random ad
       setCurrentIndex(pickRandomAdIndex(pathname));
       setVisible(true);
     };
@@ -188,7 +163,7 @@ export const PromoPopup = () => {
   const currentPromo = ACTIVE_PROMOS[currentIndex] || ACTIVE_PROMOS[0];
   const aspect = currentPromo.aspect || "v";
 
-  // Dynamic Google Ad Container sizing based on poster format:
+  // Dynamic Google Ad Container sizing based on single poster format:
   // v = Vertical (skyscraper format)
   // h = Horizontal (leaderboard format)
   // s = Square (square card format)
@@ -220,29 +195,24 @@ export const PromoPopup = () => {
       role="dialog"
       aria-label="Shree Diagnostic Advertisement"
     >
-      {/* Floating Google Display Advertisement Card */}
+      {/* Single Static Google Display Advertisement Card (No Slider) */}
       <div
         className={`relative ${getAspectClasses()} bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-200/90 my-auto flex flex-col group animate-in fade-in zoom-in-95 duration-200 select-none cursor-pointer`}
         onClick={(e) => {
           e.stopPropagation();
           handleAdClick();
         }}
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-        title="Click to Book Test — Shree Diagnostic Center"
+        title={`Sponsored: ${currentPromo.title} — Click to Book Test`}
       >
-        {/* Google Ad Header Badge & Close Button */}
+        {/* Google Ad Header: Ad Label on Left, Close Button on Right */}
         <div className="absolute top-2.5 left-3 right-3 z-30 flex items-center justify-between pointer-events-none">
           {/* Ad Label & Brand attribution */}
           <div className="flex items-center gap-1.5 bg-black/65 backdrop-blur-md px-2.5 py-1 rounded-full text-white pointer-events-auto border border-white/15 shadow-md">
             <span className="text-[9px] font-black uppercase tracking-wider text-amber-400 bg-amber-400/20 px-1.5 py-0.5 rounded">
               Ad
             </span>
-            <span className="text-[11px] font-bold text-white/95 truncate max-w-[130px] sm:max-w-none">
+            <span className="text-[11px] font-bold text-white/95">
               Shree Diagnostic
-            </span>
-            <span className="text-[10px] text-teal-300 font-semibold hidden sm:inline">
-              • {currentIndex + 1} of {TOTAL_POSTERS}
             </span>
           </div>
 
@@ -259,54 +229,16 @@ export const PromoPopup = () => {
           </button>
         </div>
 
-        {/* Poster Image — fills the ad container with NO black letterboxing voids */}
+        {/* Single Poster Image — perfectly fitted without black letterboxing */}
         <div className="relative w-full h-full overflow-hidden bg-slate-100 flex items-center justify-center">
           <img
             src={currentPromo.image}
             alt={currentPromo.title}
-            className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-300"
+            className="w-full h-full object-cover object-center group-hover:scale-[1.015] transition-transform duration-300"
           />
 
-          {/* Overlaid Previous / Next Arrows */}
-          {TOTAL_POSTERS > 1 && (
-            <>
-              <button
-                onClick={handlePrev}
-                aria-label="Previous advertisement"
-                className="absolute left-2.5 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/55 hover:bg-black/85 text-white flex items-center justify-center backdrop-blur-xs transition shadow-md border border-white/20 z-20 cursor-pointer"
-              >
-                <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
-              </button>
-              <button
-                onClick={handleNext}
-                aria-label="Next advertisement"
-                className="absolute right-2.5 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/55 hover:bg-black/85 text-white flex items-center justify-center backdrop-blur-xs transition shadow-md border border-white/20 z-20 cursor-pointer"
-              >
-                <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
-              </button>
-            </>
-          )}
-
-          {/* Bottom Bar: Call-to-Action Pill + Slide Dots */}
-          <div className="absolute bottom-2.5 left-3 right-3 z-20 flex items-center justify-between gap-2 pointer-events-none">
-            {/* Dots */}
-            <div className="flex items-center gap-1 bg-black/60 backdrop-blur-xs px-2 py-1 rounded-full border border-white/15 pointer-events-auto">
-              {ACTIVE_PROMOS.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setCurrentIndex(i);
-                  }}
-                  aria-label={`Go to ad ${i + 1}`}
-                  className={`h-1.5 rounded-full transition-all cursor-pointer ${
-                    i === currentIndex ? "w-4 bg-teal-400" : "w-1.5 bg-white/40 hover:bg-white/70"
-                  }`}
-                />
-              ))}
-            </div>
-
-            {/* Click to Book Action Pill */}
+          {/* Bottom Right: Call-to-Action Pill */}
+          <div className="absolute bottom-2.5 right-3 z-20 pointer-events-none">
             <div className="flex items-center gap-1.5 bg-gradient-to-r from-teal-700 to-cyan-700 hover:from-teal-600 hover:to-cyan-600 text-white px-3.5 py-1.5 rounded-full font-bold text-xs shadow-lg border border-teal-300/30 transition pointer-events-auto">
               <Calendar className="w-3.5 h-3.5" />
               <span>Book Now →</span>
