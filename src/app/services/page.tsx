@@ -5,14 +5,11 @@ import Link from "next/link";
 import {
   Search,
   Filter,
-  Clock,
   ArrowRight,
   ShieldCheck,
   CheckCircle2,
   Sparkles,
-  Award,
-  Layers,
-  ArrowUpRight
+  Layers
 } from "lucide-react";
 import { PATHOLOGY_TESTS, TEST_CATEGORIES } from "@/data/tests";
 import { BookingModal } from "@/components/booking/BookingModal";
@@ -27,12 +24,6 @@ export default function ServicesPage() {
     type: "test" | "package";
     price: number;
   } | null>(null);
-
-  // Popular individual tests with badges
-  const popularTests = useMemo(
-    () => PATHOLOGY_TESTS.filter((t) => t.isPopular),
-    []
-  );
 
   const filteredTests = useMemo(() => {
     return PATHOLOGY_TESTS.filter((test) => {
@@ -52,18 +43,18 @@ export default function ServicesPage() {
     setBookingModalOpen(true);
   };
 
-  const isDefaultView = searchTerm.trim() === "" && selectedCategory === "All Categories";
-
   return (
-    <div className="space-y-12 pb-16">
+    <div className="space-y-8 sm:space-y-12 pb-16">
       {/* HERO */}
-      <section className="bg-gradient-to-b from-teal-950 via-slate-900 to-slate-950 text-white py-16">
+      <section className="bg-gradient-to-b from-teal-950 via-slate-900 to-slate-950 text-white py-14 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
           <span className="text-xs font-bold uppercase tracking-wider text-teal-400 bg-teal-950 px-3.5 py-1 rounded-full border border-teal-800">
             NABL Accredited Diagnostics Directory • 140+ Tests
           </span>
-          <h1 className="text-4xl sm:text-5xl font-black text-white">Services & Diagnostic Tests</h1>
-          <p className="text-slate-300 text-base max-w-2xl mx-auto leading-relaxed">
+          <h1 className="text-3xl sm:text-5xl font-black text-white">
+            Services &amp; Diagnostic Tests
+          </h1>
+          <p className="text-slate-300 text-xs sm:text-base max-w-2xl mx-auto leading-relaxed">
             Browse our comprehensive test catalogue. Search parameters, filter clinical categories, view preparation instructions, and schedule doorstep phlebotomy.
           </p>
           <div className="pt-2 flex justify-center gap-3">
@@ -78,10 +69,10 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* COMBINED MAIN SEARCH & FILTER STRIP (Requirement 5) */}
+      {/* COMBINED MAIN SEARCH & FILTER STRIP */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-3xl p-6 shadow-lg border border-slate-200/80 space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="bg-white rounded-3xl p-5 sm:p-6 shadow-md border border-slate-200/80 space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
             {/* Search Input */}
             <div className="md:col-span-2 relative">
               <Search className="w-5 h-5 text-slate-400 absolute left-4 top-3.5" />
@@ -119,9 +110,9 @@ export default function ServicesPage() {
             </div>
           </div>
 
-          {/* Category Badges */}
-          <div className="flex items-center gap-2 flex-wrap pt-2 border-t border-slate-100">
-            <span className="text-xs font-semibold text-slate-400">Categories:</span>
+          {/* Category Badges Filter */}
+          <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap pt-2 border-t border-slate-100">
+            <span className="text-xs font-semibold text-slate-400 mr-1">Categories:</span>
             {TEST_CATEGORIES.map((cat) => (
               <button
                 key={cat}
@@ -139,100 +130,27 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* POPULAR INDIVIDUAL TESTS SECTION WITH POPULAR BADGES (Requirement 5) */}
-      {isDefaultView && popularTests.length > 0 && (
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 pb-4">
-            <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-50 border border-teal-200/60 px-3 py-0.5 rounded-full">
-                Most Requested
-              </span>
-              <h2 className="text-2xl font-black text-slate-900 mt-1">Popular Individual Tests</h2>
-            </div>
-            <span className="text-xs text-slate-500">Same-Day Digital Reporting Guaranteed</span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {popularTests.map((test) => (
-              <div
-                key={test.id}
-                className="bg-white rounded-3xl p-6 border-2 border-teal-600/40 shadow-sm hover:shadow-xl hover:border-teal-600 transition-all flex flex-col justify-between space-y-4 relative group"
-              >
-                <div>
-                  <div className="flex items-center justify-between gap-2 mb-2">
-                    <span className="text-[10px] font-black uppercase px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300 flex items-center gap-1 shadow-xs">
-                      <Sparkles className="w-3 h-3 text-emerald-600" />
-                      <span>Popular</span>
-                    </span>
-                    <div className="text-right">
-                      <span className="text-xl font-black text-slate-900">₹{test.price}</span>
-                      {test.originalPrice && (
-                        <span className="text-xs text-slate-400 line-through ml-1.5 font-medium">
-                          ₹{test.originalPrice}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-
-                  <h3 className="text-base font-bold text-slate-900 group-hover:text-teal-700 transition-colors">
-                    {test.name}
-                  </h3>
-                  <p className="text-xs text-slate-500 leading-relaxed line-clamp-2 mt-1">
-                    {test.shortDescription}
-                  </p>
-
-                  <div className="mt-4 p-3 rounded-2xl bg-teal-50/50 space-y-1.5 text-[11px] text-slate-600 border border-teal-100">
-                    <div className="flex justify-between">
-                      <span className="text-slate-500">Sample:</span>
-                      <span className="font-semibold text-slate-800">{test.sampleType}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-slate-500">Fasting:</span>
-                      <span className="font-semibold text-slate-800">{test.fastingRequirement}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-slate-500">Turnaround:</span>
-                      <span className="font-bold text-teal-800">{test.turnaroundTime}</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="pt-2 grid grid-cols-2 gap-2">
-                  <Link
-                    href={`/services/${test.slug}`}
-                    className="py-2.5 rounded-xl border border-slate-200 text-center font-bold text-xs text-slate-700 hover:bg-slate-50 transition"
-                  >
-                    View Details
-                  </Link>
-                  <button
-                    onClick={() => handleBook(test.name, test.price)}
-                    className="py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-md transition cursor-pointer"
-                  >
-                    Book Test
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
-
+      {/* IN-CONTENT GOOGLE DISPLAY PROMOTIONAL BANNER */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <GoogleDisplayBanner aspect="h" pageContext="services" />
       </div>
 
-      {/* FULL TEST LISTING GRID (140+ Tests) */}
+      {/* FULL TEST LISTING DIRECTORY (140+ Tests) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-        <div className="flex items-center justify-between border-b border-slate-200 pb-3 text-xs text-slate-500">
-          <span className="font-bold text-slate-800 text-sm">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-3 gap-1 text-xs text-slate-500">
+          <span className="font-bold text-slate-900 text-sm">
             All Diagnostic Investigations ({filteredTests.length})
           </span>
-          <span className="font-semibold text-teal-700">Doorstep Home Collection Available Across City</span>
+          <span className="font-semibold text-teal-700">
+            Doorstep Home Collection Available Across City
+          </span>
         </div>
 
         {filteredTests.length === 0 ? (
           <div className="p-12 text-center bg-white rounded-3xl border border-slate-200 space-y-3">
-            <p className="text-base font-bold text-slate-700">No diagnostic tests found matching "{searchTerm}"</p>
+            <p className="text-base font-bold text-slate-700">
+              No diagnostic tests found matching &quot;{searchTerm}&quot;
+            </p>
             <p className="text-xs text-slate-400">
               Try searching with another medical keyword, parameter name, or reset the category filter.
             </p>
@@ -241,9 +159,9 @@ export default function ServicesPage() {
                 setSearchTerm("");
                 setSelectedCategory("All Categories");
               }}
-              className="px-5 py-2 rounded-xl bg-teal-700 text-white text-xs font-bold"
+              className="px-5 py-2 rounded-xl bg-teal-700 text-white text-xs font-bold cursor-pointer"
             >
-              Reset Search & Filters
+              Reset Search &amp; Filters
             </button>
           </div>
         ) : (
@@ -278,11 +196,15 @@ export default function ServicesPage() {
                   <div className="mt-4 p-3 rounded-2xl bg-slate-50 space-y-1.5 text-[11px] text-slate-600 border border-slate-100">
                     <div className="flex justify-between">
                       <span className="text-slate-400">Sample Type:</span>
-                      <span className="font-semibold text-slate-800 truncate max-w-[170px]">{test.sampleType}</span>
+                      <span className="font-semibold text-slate-800 truncate max-w-[170px]">
+                        {test.sampleType}
+                      </span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-slate-400">Fasting:</span>
-                      <span className="font-semibold text-slate-800">{test.fastingRequirement}</span>
+                      <span className="font-semibold text-slate-800">
+                        {test.fastingRequirement}
+                      </span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-slate-400">Turnaround:</span>
@@ -311,14 +233,16 @@ export default function ServicesPage() {
         )}
       </section>
 
-      {/* EXPLORE ALL PACKAGES CTA STRIP (Requirement 5) */}
+      {/* EXPLORE ALL PACKAGES CTA STRIP */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-gradient-to-r from-teal-900 via-slate-900 to-cyan-950 text-white rounded-3xl p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
           <div className="space-y-2 text-center md:text-left">
             <span className="text-xs font-bold uppercase tracking-wider text-teal-400 bg-teal-950 px-3 py-1 rounded-full border border-teal-800">
               Preventative Healthcare
             </span>
-            <h3 className="text-2xl font-black text-white">Looking for Multi-Parameter Health Checkups?</h3>
+            <h3 className="text-2xl font-black text-white">
+              Looking for Multi-Parameter Health Checkups?
+            </h3>
             <p className="text-xs sm:text-sm text-slate-300 max-w-xl">
               Save up to 65% with our curated Full Body, Diabetes, and Senior Citizen packages covering up to 78 parameters.
             </p>

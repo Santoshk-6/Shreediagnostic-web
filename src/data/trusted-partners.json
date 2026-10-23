@@ -4,7 +4,7 @@
     "name": "Clinova Diagnostics",
     "shortName": "CLINOVA",
     "tagline": "Advanced Molecular Diagnostics Partner",
-    "description": "Clinova is our exclusive molecular diagnostics partner providing RT-PCR, Flow Cytometry, Dengue profiling, Fever panels, and cutting-edge immunological assays. All Clinova tests are processed in their NABL-accredited facility.",
+    "description": "Clinova is our exclusive molecular diagnostics partner providing RT-PCR, Flow Cytometry, Dengue profiling, Fever panels, and cutting-edge immunological assays. All Clinova tests are processed in their NABL-accredited reference laboratory.",
     "logoText": "CLINOVA",
     "logoColor": "blue",
     "logoFile": "/images/partners/clinova/logo.png",
@@ -12,34 +12,31 @@
     "specialties": [
       "Dengue & Fever Profiles",
       "Flow Cytometry",
-      "Molecular Diagnostics",
+      "Molecular RT-PCR Diagnostics",
       "Immunological Assays",
-      "COVID-19 Testing"
+      "COVID-19 & Infection Panels"
     ],
-    "certificates": [
+    "gallery": [
       {
-        "id": "clinova-dengue",
-        "title": "Molecular Quality Accreditation",
-        "description": "NABL Accredited Molecular Testing Compliance Certificate",
-        "file": "/images/Certifiactes_sampel/cerf1_v.png",
-        "type": "image",
-        "aspect": "portrait"
+        "id": "clinova-v1",
+        "title": "Molecular Quality Accreditation Certificate",
+        "image": "/images/Certifiactes_sampel/cerf1_v.png",
+        "aspect": "v",
+        "badge": "Accreditation"
       },
       {
-        "id": "clinova-fever",
-        "title": "Clinical Laboratory Excellence",
-        "description": "ISO 9001:2015 Diagnostic Center Quality Standard",
-        "file": "/images/Certifiactes_sampel/cerf2_v.png",
-        "type": "image",
-        "aspect": "portrait"
+        "id": "clinova-h1",
+        "title": "Dengue & Fever Investigation Profiles",
+        "image": "/images/Posters/img4_h.png",
+        "aspect": "h",
+        "badge": "Clinical Panel"
       },
       {
-        "id": "clinova-services",
-        "title": "Clinova Diagnostics Services",
-        "description": "Specialized Immunology & Reference Testing Accreditation",
-        "file": "/images/Certifiactes_sampel/cerf3_h.png",
-        "type": "image",
-        "aspect": "landscape"
+        "id": "clinova-h2",
+        "title": "Clinova Laboratory Services & Quality Standards",
+        "image": "/images/Certifiactes_sampel/cerf3_h.png",
+        "aspect": "h",
+        "badge": "Quality Standard"
       }
     ],
     "featured": true,
@@ -50,26 +47,39 @@
     "name": "NIPTR Genetic Lab",
     "shortName": "NIPTR",
     "tagline": "Non-Invasive Prenatal Testing Specialist",
-    "description": "NIPTR specializes in Non-Invasive Prenatal Testing (NIPT) for chromosomal abnormalities including Down syndrome, Edwards syndrome, and Patau syndrome — using the latest cfDNA technology without risk to the foetus.",
+    "description": "NIPTR specializes in Non-Invasive Prenatal Testing (NIPT) for chromosomal abnormalities including Down syndrome, Edwards syndrome, and Patau syndrome — utilizing maternal cell-free DNA (cfDNA) technology with zero procedural risk.",
     "logoText": "NIPTR",
     "logoColor": "teal",
     "logoFile": "/images/partners/niptr/logo.png",
     "website": "",
     "specialties": [
       "NIPT — Non-Invasive Prenatal Testing",
-      "cfDNA Analysis",
-      "Chromosomal Abnormality Screening",
+      "cfDNA Next-Gen Sequencing",
       "Trisomy 21, 18, 13 Detection",
+      "Maternal Serum Biomarkers",
       "Sex Chromosome Disorders"
     ],
-    "certificates": [
+    "gallery": [
       {
-        "id": "niptr-nipt",
-        "title": "NIPT Genetic Testing Certification",
-        "description": "Reference Genetics Laboratory Validation & Standards",
-        "file": "/images/Certifiactes_sampel/cerf4_h.png",
-        "type": "image",
-        "aspect": "landscape"
+        "id": "niptr-v1",
+        "title": "Maternal Fetal Genetic Screening Poster",
+        "image": "/images/Posters/img7_v.png",
+        "aspect": "v",
+        "badge": "Specialty Panel"
+      },
+      {
+        "id": "niptr-h1",
+        "title": "NIPT Genetic Testing Accreditation Standards",
+        "image": "/images/Certifiactes_sampel/cerf4_h.png",
+        "aspect": "h",
+        "badge": "Accreditation"
+      },
+      {
+        "id": "niptr-h2",
+        "title": "Advanced Clinical Health Profiles",
+        "image": "/images/Posters/img2_h.png",
+        "aspect": "h",
+        "badge": "Clinical Panel"
       }
     ],
     "featured": true,

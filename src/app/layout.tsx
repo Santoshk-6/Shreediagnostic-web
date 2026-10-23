@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { PromoPopup } from "@/components/promotions/PromoPopup";
+import { FloatingContactButtons } from "@/components/common/FloatingContactButtons";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,6 +34,7 @@ export default function RootLayout({
         <main className="flex-grow">{children}</main>
         <Footer />
         <PromoPopup />
+        <FloatingContactButtons />
       </body>
     </html>
   );

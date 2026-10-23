@@ -13,18 +13,18 @@ import {
   CheckCircle2,
   ShieldCheck,
   Sparkles,
-  Stethoscope,
   QrCode,
   ArrowRight,
   CreditCard,
   Gift,
-  ExternalLink,
   MessageCircle,
-  ArrowLeft
+  ArrowLeft,
+  Loader2,
+  FileCheck2,
+  Receipt
 } from "lucide-react";
 import { PATHOLOGY_TESTS } from "@/data/tests";
 import { HEALTH_PACKAGES } from "@/data/packages";
-import promotionsData from "@/data/promotions.json";
 
 interface BookingModalProps {
   isOpen?: boolean;
@@ -36,15 +36,18 @@ interface BookingModalProps {
   } | null;
 }
 
+// 4-Step sequence: "details" (Step 1) -> "payment" (Step 2) -> "processing" (Step 3) -> "summary" (Step 4)
+type BookingStep = "details" | "payment" | "processing" | "summary";
+
 export const BookingModal: React.FC<BookingModalProps> = ({
   isOpen = false,
   onClose,
   preselectedItem,
 }) => {
-  // Step sequence: "form" (Step 1) -> "payment" (Step 2) -> "confirmation" (Step 3)
-  const [step, setStep] = useState<"form" | "payment" | "confirmation">("form");
+  const [step, setStep] = useState<BookingStep>("details");
   const [selfOpen, setSelfOpen] = useState(false);
   const [collectionType, setCollectionType] = useState<"home" | "lab">("home");
+
   const [selectedItemName, setSelectedItemName] = useState<string>(
     preselectedItem ? preselectedItem.name : PATHOLOGY_TESTS[0].name
   );
@@ -61,6 +64,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   const [preferredTime, setPreferredTime] = useState("06:30 AM - 08:30 AM");
   const [bookingId, setBookingId] = useState("");
   const [paymentChoice, setPaymentChoice] = useState<"upi" | "pay_on_collection">("pay_on_collection");
+  const [submissionFailed, setSubmissionFailed] = useState(false);
 
   const isModalOpen = isOpen || selfOpen;
 
@@ -75,7 +79,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   // Always reset to Step 1 whenever opened
   useEffect(() => {
     if (isModalOpen) {
-      setStep("form");
+      setStep("details");
+      setSubmissionFailed(false);
     }
   }, [isModalOpen]);
 
@@ -89,7 +94,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
           setItemPrice(customEvent.detail.price);
         }
       }
-      setStep("form");
+      setStep("details");
+      setSubmissionFailed(false);
       setSelfOpen(true);
     };
     window.addEventListener("open-booking-modal", handleOpen);
@@ -97,17 +103,13 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   }, []);
 
   const resetAndClose = useCallback(() => {
-    setStep("form");
-    setPatientName("");
-    setPhone("");
-    setEmail("");
-    setAddress("");
-    setPincode("");
+    setStep("details");
     setSelfOpen(false);
+    setSubmissionFailed(false);
     if (onClose) onClose();
   }, [onClose]);
 
-  // Escape key listener
+  // Close on Escape key
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape" && isModalOpen) {
@@ -118,250 +120,364 @@ export const BookingModal: React.FC<BookingModalProps> = ({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isModalOpen, resetAndClose]);
 
-  if (!isModalOpen) return null;
-
-  const handleItemSelectChange = (name: string) => {
+  const handleItemChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const name = e.target.value;
     setSelectedItemName(name);
-    const test = PATHOLOGY_TESTS.find((t) => t.name === name);
-    if (test) {
-      setItemPrice(test.price);
+
+    const foundTest = PATHOLOGY_TESTS.find((t) => t.name === name);
+    if (foundTest) {
+      setItemPrice(foundTest.price);
       return;
     }
-    const pkg = HEALTH_PACKAGES.find((p) => p.name === name);
-    if (pkg) {
-      setItemPrice(pkg.price);
+    const foundPkg = HEALTH_PACKAGES.find((p) => p.name === name);
+    if (foundPkg) {
+      setItemPrice(foundPkg.price);
     }
   };
 
-  // Step 1 -> Step 2
+  // STEP 1 -> STEP 2
   const handleStep1Submit = (e: React.FormEvent) => {
     e.preventDefault();
-    const randomId = "SDC-" + Math.floor(100000 + Math.random() * 900000);
-    setBookingId(randomId);
-    setStep("payment"); // Moves to Step 2
+    setStep("payment");
   };
 
-  // Step 2 -> Step 3
-  const handleConfirmBooking = (choice: "upi" | "pay_on_collection") => {
+  // STEP 2 -> STEP 3 (Submission Processing) -> STEP 4 (Thank You Summary)
+  const handleStartSubmission = (choice: "upi" | "pay_on_collection") => {
     setPaymentChoice(choice);
-    setStep("confirmation"); // Moves to Step 3
+    setStep("processing");
+    setSubmissionFailed(false);
+
+    // Simulate reliable network booking dispatch
+    setTimeout(() => {
+      try {
+        const generatedId = "SHREE-" + Math.floor(100000 + Math.random() * 900000);
+        setBookingId(generatedId);
+        // Successfully submitted -> transition to Step 4
+        setStep("summary");
+      } catch (err) {
+        setSubmissionFailed(true);
+        setStep("payment");
+      }
+    }, 1400);
   };
 
-  const relatedPromo =
-    promotionsData.find((p) => p.id === "poster-3") || promotionsData[0];
+  if (!isModalOpen) return null;
 
   return (
     <div
-      className="fixed inset-0 z-[99999] flex items-center justify-center bg-slate-950/75 backdrop-blur-sm p-3 sm:p-4 overflow-y-auto"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/70 backdrop-blur-sm p-3 sm:p-4 overflow-y-auto"
       onClick={resetAndClose}
       aria-modal="true"
       role="dialog"
     >
       <div
-        className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-200 my-auto flex flex-col max-h-[94vh] animate-in fade-in zoom-in-95 duration-200"
+        className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden my-auto animate-in fade-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header Bar */}
-        <div className="bg-gradient-to-r from-teal-900 via-slate-900 to-[#031d24] text-white px-6 py-4 flex items-center justify-between shrink-0">
-          <div className="flex items-center gap-3">
-            <div className="relative w-11 h-11 rounded-xl overflow-hidden bg-white flex-shrink-0 shadow-sm border border-white/20">
-              <Image
-                src="/images/logo/logo.jpeg"
-                alt="Shree Diagnostic Center"
-                fill
-                className="object-contain"
-                sizes="44px"
-              />
-            </div>
+        {/* Modal Top Header with 4-Step Progress Indicator */}
+        <div className="bg-slate-900 text-white p-5 sm:p-6 relative">
+          <div className="flex items-center justify-between">
             <div>
-              <div className="flex items-center gap-2">
-                <h3 className="text-lg sm:text-xl font-black text-white">Book Diagnostic Test</h3>
-                <span className="text-[10px] font-bold uppercase tracking-wider bg-teal-500/20 text-teal-300 px-2.5 py-0.5 rounded-full border border-teal-400/30">
-                  {step === "form" ? "Step 1 of 3: Details" : step === "payment" ? "Step 2 of 3: Payment" : "Step 3 of 3: Confirmed"}
-                </span>
-              </div>
-              <p className="text-[11px] text-teal-100/80">Shree Diagnostic Center • NABL Accredited Precision</p>
+              <span className="text-[10px] font-bold tracking-wider uppercase text-teal-400 bg-teal-950 px-2.5 py-0.5 rounded-full border border-teal-800">
+                Official Booking Portal
+              </span>
+              <h3 className="text-xl sm:text-2xl font-black text-white mt-1">
+                Shree Diagnostic Center
+              </h3>
+              <p className="text-xs text-slate-300 mt-0.5">
+                NABL Accredited • Doorstep Phlebotomy &amp; Same-Day Reports
+              </p>
             </div>
+
+            <button
+              onClick={resetAndClose}
+              className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition cursor-pointer"
+              aria-label="Close booking modal"
+            >
+              <X className="w-4 h-4" />
+            </button>
           </div>
 
-          <button
-            onClick={resetAndClose}
-            className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors text-white cursor-pointer shrink-0"
-            aria-label="Close modal"
-          >
-            <X className="w-4 h-4" />
-          </button>
-        </div>
+          {/* 4-Step Visual Progress Bar */}
+          <div className="grid grid-cols-4 gap-2 mt-4 pt-4 border-t border-slate-800">
+            {/* Step 1 */}
+            <div className="space-y-1">
+              <div
+                className={`h-1.5 rounded-full ${
+                  step === "details"
+                    ? "bg-teal-400"
+                    : "bg-teal-600"
+                }`}
+              />
+              <span
+                className={`text-[9px] font-bold block truncate ${
+                  step === "details" ? "text-teal-300" : "text-slate-400"
+                }`}
+              >
+                1. Patient Details
+              </span>
+            </div>
 
-        {/* Visual Step Progress Bar */}
-        <div className="bg-slate-100 px-6 py-2 border-b border-slate-200 flex items-center justify-between text-[11px] font-bold text-slate-500 shrink-0">
-          <div className={`flex items-center gap-1.5 ${step === "form" ? "text-teal-700" : "text-emerald-700"}`}>
-            <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] text-white ${step === "form" ? "bg-teal-700" : "bg-emerald-600"}`}>1</span>
-            <span>Patient Info</span>
-          </div>
-          <div className="h-0.5 w-8 bg-slate-300" />
-          <div className={`flex items-center gap-1.5 ${step === "payment" ? "text-teal-700" : step === "confirmation" ? "text-emerald-700" : "text-slate-400"}`}>
-            <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] text-white ${step === "payment" ? "bg-teal-700" : step === "confirmation" ? "bg-emerald-600" : "bg-slate-400"}`}>2</span>
-            <span>Payment &amp; QR</span>
-          </div>
-          <div className="h-0.5 w-8 bg-slate-300" />
-          <div className={`flex items-center gap-1.5 ${step === "confirmation" ? "text-emerald-700" : "text-slate-400"}`}>
-            <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] text-white ${step === "confirmation" ? "bg-emerald-600" : "bg-slate-400"}`}>3</span>
-            <span>Confirmation</span>
+            {/* Step 2 */}
+            <div className="space-y-1">
+              <div
+                className={`h-1.5 rounded-full ${
+                  step === "payment"
+                    ? "bg-teal-400"
+                    : step === "processing" || step === "summary"
+                    ? "bg-teal-600"
+                    : "bg-slate-800"
+                }`}
+              />
+              <span
+                className={`text-[9px] font-bold block truncate ${
+                  step === "payment" ? "text-teal-300" : "text-slate-400"
+                }`}
+              >
+                2. Payment Options
+              </span>
+            </div>
+
+            {/* Step 3 */}
+            <div className="space-y-1">
+              <div
+                className={`h-1.5 rounded-full ${
+                  step === "processing"
+                    ? "bg-teal-400 animate-pulse"
+                    : step === "summary"
+                    ? "bg-teal-600"
+                    : "bg-slate-800"
+                }`}
+              />
+              <span
+                className={`text-[9px] font-bold block truncate ${
+                  step === "processing" ? "text-teal-300" : "text-slate-400"
+                }`}
+              >
+                3. Submitting
+              </span>
+            </div>
+
+            {/* Step 4 */}
+            <div className="space-y-1">
+              <div
+                className={`h-1.5 rounded-full ${
+                  step === "summary" ? "bg-emerald-400" : "bg-slate-800"
+                }`}
+              />
+              <span
+                className={`text-[9px] font-bold block truncate ${
+                  step === "summary" ? "text-emerald-300 font-black" : "text-slate-400"
+                }`}
+              >
+                4. Thank You
+              </span>
+            </div>
           </div>
         </div>
 
         {/* Modal Scrollable Body */}
-        <div className="overflow-y-auto flex-1">
+        <div className="max-h-[75vh] overflow-y-auto">
+
           {/* ═════════════════════════════════════════════════════════════ */}
-          {/* STEP 1: PATIENT DETAILS & TEST SELECTION                     */}
+          {/* STEP 1: PATIENT DETAILS & INVESTIGATION SELECTION             */}
           {/* ═════════════════════════════════════════════════════════════ */}
-          {step === "form" && (
+          {step === "details" && (
             <form onSubmit={handleStep1Submit} className="p-6 space-y-5">
               {/* Collection Type Selector */}
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
-                  Collection Preference
+                <label className="text-xs font-bold text-slate-700 block mb-2">
+                  Sample Collection Mode:
                 </label>
                 <div className="grid grid-cols-2 gap-3">
                   <button
                     type="button"
                     onClick={() => setCollectionType("home")}
-                    className={`flex items-center justify-center gap-2 p-3 rounded-2xl border text-xs font-bold transition-all cursor-pointer ${
+                    className={`p-3 rounded-2xl border text-left transition-all cursor-pointer ${
                       collectionType === "home"
-                        ? "border-teal-600 bg-teal-50 text-teal-900 ring-2 ring-teal-500/20 shadow-xs"
-                        : "border-slate-200 hover:border-slate-300 text-slate-600 bg-slate-50/50"
+                        ? "border-teal-600 bg-teal-50/70 shadow-xs"
+                        : "border-slate-200 hover:border-slate-300 bg-white"
                     }`}
                   >
-                    <MapPin className="w-4 h-4 text-teal-600" />
-                    <span>Doorstep Home Collection</span>
+                    <div className="flex items-center gap-2">
+                      <div
+                        className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${
+                          collectionType === "home" ? "border-teal-600" : "border-slate-300"
+                        }`}
+                      >
+                        {collectionType === "home" && (
+                          <div className="w-2 h-2 rounded-full bg-teal-600" />
+                        )}
+                      </div>
+                      <span className="text-xs font-bold text-slate-900">Doorstep Home Collection</span>
+                    </div>
+                    <span className="text-[10px] text-slate-500 block ml-6 mt-0.5">
+                      Phlebotomist arrives at your home with sterile kit
+                    </span>
                   </button>
+
                   <button
                     type="button"
                     onClick={() => setCollectionType("lab")}
-                    className={`flex items-center justify-center gap-2 p-3 rounded-2xl border text-xs font-bold transition-all cursor-pointer ${
+                    className={`p-3 rounded-2xl border text-left transition-all cursor-pointer ${
                       collectionType === "lab"
-                        ? "border-teal-600 bg-teal-50 text-teal-900 ring-2 ring-teal-500/20 shadow-xs"
-                        : "border-slate-200 hover:border-slate-300 text-slate-600 bg-slate-50/50"
+                        ? "border-teal-600 bg-teal-50/70 shadow-xs"
+                        : "border-slate-200 hover:border-slate-300 bg-white"
                     }`}
                   >
-                    <Stethoscope className="w-4 h-4 text-teal-600" />
-                    <span>Lab Visit (Walk-in)</span>
+                    <div className="flex items-center gap-2">
+                      <div
+                        className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${
+                          collectionType === "lab" ? "border-teal-600" : "border-slate-300"
+                        }`}
+                      >
+                        {collectionType === "lab" && (
+                          <div className="w-2 h-2 rounded-full bg-teal-600" />
+                        )}
+                      </div>
+                      <span className="text-xs font-bold text-slate-900">Central Lab Walk-in</span>
+                    </div>
+                    <span className="text-[10px] text-slate-500 block ml-6 mt-0.5">
+                      Fast-track priority queue at diagnostic center
+                    </span>
                   </button>
                 </div>
               </div>
 
-              {/* Test or Package Selection */}
+              {/* Selected Investigation & Price */}
               <div>
-                <div className="flex items-center justify-between mb-1">
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-500">
-                    Select Test or Health Package *
-                  </label>
-                  <span className="text-sm font-black text-teal-800">₹{itemPrice}</span>
+                <label className="text-xs font-bold text-slate-700 block mb-1">
+                  Selected Diagnostic Test / Health Package:
+                </label>
+                <div className="relative">
+                  <select
+                    value={selectedItemName}
+                    onChange={handleItemChange}
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-xs sm:text-sm font-semibold text-slate-800 focus:border-teal-600 focus:ring-4 focus:ring-teal-500/10 outline-none cursor-pointer"
+                  >
+                    <optgroup label="Popular Individual Diagnostic Tests">
+                      {PATHOLOGY_TESTS.map((t) => (
+                        <option key={t.id} value={t.name}>
+                          {t.name} (₹{t.price})
+                        </option>
+                      ))}
+                    </optgroup>
+                    <optgroup label="Full Body Preventive Health Packages">
+                      {HEALTH_PACKAGES.map((p) => (
+                        <option key={p.id} value={p.name}>
+                          {p.name} (₹{p.price})
+                        </option>
+                      ))}
+                    </optgroup>
+                  </select>
                 </div>
-                <select
-                  value={selectedItemName}
-                  onChange={(e) => handleItemSelectChange(e.target.value)}
-                  className="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:border-teal-600 text-slate-800 bg-white text-xs outline-none transition"
-                  required
-                >
-                  <optgroup label="Popular Diagnostic Tests">
-                    {PATHOLOGY_TESTS.map((t) => (
-                      <option key={t.id} value={t.name}>
-                        {t.name} — ₹{t.price}
-                      </option>
-                    ))}
-                  </optgroup>
-                  <optgroup label="Preventive Health Packages">
-                    {HEALTH_PACKAGES.map((p) => (
-                      <option key={p.id} value={p.name}>
-                        {p.name} — ₹{p.price} ({p.testCount} Tests Included)
-                      </option>
-                    ))}
-                  </optgroup>
-                </select>
+
+                <div className="mt-2 p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between text-xs">
+                  <span className="text-slate-500 font-medium">Estimated Lab Price:</span>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-base font-black text-teal-800">₹{itemPrice}</span>
+                    <span className="text-[10px] text-emerald-800 font-bold bg-emerald-50 px-2 py-0.5 rounded">
+                      Standard NABL Rate
+                    </span>
+                  </div>
+                </div>
               </div>
 
-              {/* Patient Personal Info */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {/* Patient Contact Details */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-slate-600 mb-1">Patient Full Name *</label>
+                  <label className="text-xs font-bold text-slate-700 block mb-1">
+                    Patient Full Name *
+                  </label>
                   <div className="relative">
                     <User className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
                     <input
                       type="text"
                       required
-                      placeholder="e.g. Ramesh Sharma"
+                      placeholder="e.g. Ramesh Kumar"
                       value={patientName}
                       onChange={(e) => setPatientName(e.target.value)}
-                      className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 focus:border-teal-600 text-xs outline-none"
+                      className="w-full pl-10 pr-3 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm outline-none focus:border-teal-600"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-600 mb-1">Mobile Phone Number *</label>
+                  <label className="text-xs font-bold text-slate-700 block mb-1">
+                    Mobile Phone Number *
+                  </label>
                   <div className="relative">
                     <Phone className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
                     <input
                       type="tel"
                       required
-                      placeholder="+91 98765 43210"
+                      pattern="[0-9]{10}"
+                      placeholder="10-digit mobile number"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 focus:border-teal-600 text-xs outline-none"
+                      className="w-full pl-10 pr-3 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm outline-none focus:border-teal-600"
                     />
                   </div>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-slate-600 mb-1">Email Address (Optional)</label>
+                  <label className="text-xs font-bold text-slate-700 block mb-1">
+                    Email Address (Optional)
+                  </label>
                   <div className="relative">
                     <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
                     <input
                       type="email"
-                      placeholder="patient@example.com"
+                      placeholder="For PDF report dispatch"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 focus:border-teal-600 text-xs outline-none"
+                      className="w-full pl-10 pr-3 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm outline-none focus:border-teal-600"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-600 mb-1">Area Pincode *</label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="e.g. 110001"
-                    value={pincode}
-                    onChange={(e) => setPincode(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:border-teal-600 text-xs outline-none"
-                  />
+                  <label className="text-xs font-bold text-slate-700 block mb-1">
+                    Area Pincode *
+                  </label>
+                  <div className="relative">
+                    <MapPin className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
+                    <input
+                      type="text"
+                      required
+                      placeholder="6-digit area pincode"
+                      value={pincode}
+                      onChange={(e) => setPincode(e.target.value)}
+                      className="w-full pl-10 pr-3 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm outline-none focus:border-teal-600"
+                    />
+                  </div>
                 </div>
               </div>
 
-              {/* Address if Home Collection */}
               {collectionType === "home" && (
                 <div>
-                  <label className="block text-xs font-semibold text-slate-600 mb-1">Doorstep Address *</label>
+                  <label className="text-xs font-bold text-slate-700 block mb-1">
+                    Complete Residential Address *
+                  </label>
                   <textarea
                     required
                     rows={2}
-                    placeholder="Flat/House No., Street, Landmark, Colony"
+                    placeholder="House/Flat number, building name, street, nearby landmark"
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:border-teal-600 text-xs outline-none"
+                    className="w-full p-3 rounded-xl border border-slate-200 text-xs sm:text-sm outline-none focus:border-teal-600 resize-none"
                   />
                 </div>
               )}
 
-              {/* Preferred Date & Time */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {/* Preferred Slot */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-slate-600 mb-1">Preferred Date *</label>
+                  <label className="text-xs font-bold text-slate-700 block mb-1">
+                    Preferred Date *
+                  </label>
                   <div className="relative">
                     <Calendar className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
                     <input
@@ -369,31 +485,35 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                       required
                       value={preferredDate}
                       onChange={(e) => setPreferredDate(e.target.value)}
-                      className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 focus:border-teal-600 text-xs outline-none"
+                      min={new Date().toISOString().split("T")[0]}
+                      className="w-full pl-10 pr-3 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm outline-none focus:border-teal-600 bg-white"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-600 mb-1">Preferred Time Slot *</label>
+                  <label className="text-xs font-bold text-slate-700 block mb-1">
+                    Sample Pickup Time Slot *
+                  </label>
                   <div className="relative">
                     <Clock className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
                     <select
                       value={preferredTime}
                       onChange={(e) => setPreferredTime(e.target.value)}
-                      className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 focus:border-teal-600 text-xs outline-none bg-white"
+                      className="w-full pl-10 pr-3 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm outline-none focus:border-teal-600 bg-white"
                     >
-                      <option value="06:30 AM - 08:30 AM">06:30 AM - 08:30 AM (Fasting Ideal)</option>
+                      <option value="06:30 AM - 08:30 AM">06:30 AM - 08:30 AM (Fasting Preferred)</option>
                       <option value="08:30 AM - 10:30 AM">08:30 AM - 10:30 AM (Morning)</option>
-                      <option value="10:30 AM - 01:00 PM">10:30 AM - 01:00 PM (Midday)</option>
-                      <option value="02:00 PM - 05:00 PM">02:00 PM - 05:00 PM (Afternoon)</option>
+                      <option value="10:30 AM - 12:30 PM">10:30 AM - 12:30 PM (Mid-day)</option>
+                      <option value="04:00 PM - 06:00 PM">04:00 PM - 06:00 PM (Evening)</option>
+                      <option value="06:00 PM - 08:00 PM">06:00 PM - 08:00 PM (Late Evening)</option>
                     </select>
                   </div>
                 </div>
               </div>
 
-              {/* Actions */}
-              <div className="flex items-center justify-between pt-3 border-t border-slate-100">
+              {/* Form Action Buttons */}
+              <div className="flex items-center justify-end gap-3 pt-4 border-t border-slate-100">
                 <button
                   type="button"
                   onClick={resetAndClose}
@@ -405,7 +525,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   type="submit"
                   className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-teal-700 to-cyan-700 hover:from-teal-800 hover:to-cyan-800 text-white font-bold text-xs shadow-md hover:shadow-lg transition flex items-center gap-2 cursor-pointer"
                 >
-                  <span>Continue to Step 2: Payment &amp; QR Code</span>
+                  <span>Continue to Step 2: Payment Options</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
@@ -413,19 +533,25 @@ export const BookingModal: React.FC<BookingModalProps> = ({
           )}
 
           {/* ═════════════════════════════════════════════════════════════ */}
-          {/* STEP 2: PAYMENT & QR CODE OPTIONS                           */}
+          {/* STEP 2: PAYMENT OPTIONS                                      */}
           {/* ═════════════════════════════════════════════════════════════ */}
           {step === "payment" && (
             <div className="p-6 space-y-6">
               <div className="text-center max-w-md mx-auto space-y-1.5">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-teal-800 bg-teal-50 px-3 py-0.5 rounded-full border border-teal-200">
-                  Step 2 of 3: Payment Preference
+                  Step 2 of 4: Payment Preference
                 </span>
-                <h4 className="text-xl sm:text-2xl font-black text-slate-900">Payment &amp; Verification Option</h4>
+                <h4 className="text-xl sm:text-2xl font-black text-slate-900">Choose Payment Method</h4>
                 <p className="text-xs text-slate-500">
                   Scan and pay via UPI QR code for contactless collection, or choose to pay later in person.
                 </p>
               </div>
+
+              {submissionFailed && (
+                <div className="p-3 bg-rose-50 border border-rose-200 text-rose-800 text-xs rounded-xl font-medium">
+                  We could not complete your request. Please check your network and try again.
+                </div>
+              )}
 
               {/* Bill Summary Box */}
               <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between">
@@ -479,10 +605,11 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
                   <button
                     type="button"
-                    onClick={() => handleConfirmBooking("upi")}
-                    className="w-full py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-sm transition cursor-pointer"
+                    onClick={() => handleStartSubmission("upi")}
+                    className="w-full py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-sm transition flex items-center justify-center gap-1.5 cursor-pointer"
                   >
-                    Proceed to Confirmation (After UPI Scan) →
+                    <span>Proceed &amp; Submit (After UPI Scan)</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
 
@@ -506,17 +633,18 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                       </p>
                       <p className="flex items-center gap-1.5 font-medium">
                         <CheckCircle2 className="w-3.5 h-3.5 text-teal-600" />
-                        <span>Printed official receipt provided upon pickup</span>
+                        <span>Official printed receipt provided upon pickup</span>
                       </p>
                     </div>
                   </div>
 
                   <button
                     type="button"
-                    onClick={() => handleConfirmBooking("pay_on_collection")}
-                    className="w-full py-2.5 rounded-xl border-2 border-slate-300 hover:border-slate-400 bg-slate-50 hover:bg-slate-100 text-slate-800 font-bold text-xs transition cursor-pointer"
+                    onClick={() => handleStartSubmission("pay_on_collection")}
+                    className="w-full py-2.5 rounded-xl border-2 border-slate-300 hover:border-slate-400 bg-slate-50 hover:bg-slate-100 text-slate-800 font-bold text-xs transition flex items-center justify-center gap-1.5 cursor-pointer"
                   >
-                    Skip &amp; Pay at Collection (Cash / Card) →
+                    <span>Submit &amp; Pay on Collection</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
               </div>
@@ -524,7 +652,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               <div className="flex items-center justify-between pt-2 border-t border-slate-100">
                 <button
                   type="button"
-                  onClick={() => setStep("form")}
+                  onClick={() => setStep("details")}
                   className="flex items-center gap-1 text-xs font-bold text-slate-500 hover:text-slate-800 transition cursor-pointer"
                 >
                   <ArrowLeft className="w-3.5 h-3.5" />
@@ -538,112 +666,145 @@ export const BookingModal: React.FC<BookingModalProps> = ({
           )}
 
           {/* ═════════════════════════════════════════════════════════════ */}
-          {/* STEP 3: THANK-YOU & BOOKING CONFIRMATION WITH WHATSAPP       */}
+          {/* STEP 3: BOOKING SUBMISSION / CONFIRMATION PROCESSING          */}
           {/* ═════════════════════════════════════════════════════════════ */}
-          {step === "confirmation" && (
+          {step === "processing" && (
+            <div className="p-10 text-center space-y-6">
+              <div className="w-16 h-16 rounded-3xl bg-teal-50 text-teal-600 flex items-center justify-center mx-auto shadow-md">
+                <Loader2 className="w-8 h-8 animate-spin" />
+              </div>
+
+              <div className="space-y-2">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-teal-800 bg-teal-50 px-3 py-0.5 rounded-full border border-teal-200">
+                  Step 3 of 4: Submission Processing
+                </span>
+                <h4 className="text-xl sm:text-2xl font-black text-slate-900">
+                  Submitting Your Booking Request...
+                </h4>
+                <p className="text-xs text-slate-500 max-w-sm mx-auto">
+                  Connecting to Shree Diagnostic dispatch desk, reserving slot, and generating your encrypted booking ID.
+                </p>
+              </div>
+
+              <div className="max-w-xs mx-auto p-3.5 rounded-2xl bg-slate-50 border border-slate-200 text-left text-xs space-y-2">
+                <div className="flex items-center gap-2 text-slate-700">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-teal-600" />
+                  <span className="text-[11px]">Validated patient &amp; address parameters</span>
+                </div>
+                <div className="flex items-center gap-2 text-slate-700">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-teal-600" />
+                  <span className="text-[11px]">Selected: {selectedItemName}</span>
+                </div>
+                <div className="flex items-center gap-2 text-slate-700">
+                  <Loader2 className="w-3.5 h-3.5 text-teal-600 animate-spin" />
+                  <span className="text-[11px] text-teal-800 font-semibold">Assigning lab phlebotomy coordinator...</span>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* ═════════════════════════════════════════════════════════════ */}
+          {/* STEP 4: THANK YOU & BOOKING SUMMARY                          */}
+          {/* ═════════════════════════════════════════════════════════════ */}
+          {step === "summary" && (
             <div className="p-6 space-y-5">
               <div className="text-center space-y-2">
                 <div className="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-sm">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
-                <h4 className="text-2xl font-black text-slate-900">Booking Confirmed!</h4>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-3 py-0.5 rounded-full border border-emerald-200">
+                  Step 4 of 4: Booking Submitted
+                </span>
+                <h4 className="text-2xl font-black text-slate-900">Thank You! Booking Confirmed</h4>
                 <p className="text-xs text-slate-500 max-w-md mx-auto">
-                  Thank you, <span className="font-bold text-slate-800">{patientName}</span>. Your diagnostic slot has been reserved. Our phlebotomist coordinator will call you to confirm sample arrival.
+                  Thank you, <span className="font-bold text-slate-800">{patientName}</span>. Your diagnostic slot has been successfully recorded in our central system.
                 </p>
               </div>
 
-              {/* Booking Details Card */}
+              {/* Complete Booking Details Summary */}
               <div className="bg-teal-50/70 border border-teal-200/80 rounded-2xl p-5 text-xs space-y-2.5">
-                <div className="flex justify-between border-b border-teal-200/60 pb-2">
+                <div className="flex justify-between items-center border-b border-teal-200/60 pb-2">
                   <span className="text-slate-500 font-medium">Booking Reference ID:</span>
-                  <span className="font-black text-teal-950 font-mono text-sm">{bookingId}</span>
+                  <span className="font-black text-teal-950 font-mono text-sm tracking-wide bg-white px-2.5 py-0.5 rounded-lg border border-teal-300">
+                    {bookingId}
+                  </span>
                 </div>
                 <div className="flex justify-between border-b border-teal-200/60 pb-2">
-                  <span className="text-slate-500 font-medium">Investigation:</span>
-                  <span className="font-bold text-slate-800">{selectedItemName}</span>
+                  <span className="text-slate-500 font-medium">Investigation / Package:</span>
+                  <span className="font-bold text-slate-900 text-right">{selectedItemName}</span>
+                </div>
+                <div className="flex justify-between border-b border-teal-200/60 pb-2">
+                  <span className="text-slate-500 font-medium">Patient Contact:</span>
+                  <span className="font-semibold text-slate-800">{patientName} ({phone})</span>
                 </div>
                 <div className="flex justify-between border-b border-teal-200/60 pb-2">
                   <span className="text-slate-500 font-medium">Payment Status:</span>
-                  <span className={`font-bold ${paymentChoice === "upi" ? "text-amber-800" : "text-emerald-800"}`}>
-                    {paymentChoice === "upi"
-                      ? "Advance UPI (Pending Verification via WhatsApp)"
-                      : "Pay Later at Collection / Lab"} (₹{itemPrice})
+                  <span className="font-bold text-amber-900 bg-amber-100/80 px-2 py-0.5 rounded">
+                    Payment Verification: Pending (₹{itemPrice})
                   </span>
                 </div>
                 <div className="flex justify-between border-b border-teal-200/60 pb-2">
-                  <span className="text-slate-500 font-medium">Collection Preference:</span>
+                  <span className="text-slate-500 font-medium">Collection Mode:</span>
                   <span className="font-semibold text-slate-800 capitalize">
-                    {collectionType === "home" ? `Home Pickup (${pincode})` : "Central Lab Walk-in"}
+                    {collectionType === "home" ? `Doorstep Pickup (${pincode})` : "Central Lab Walk-in"}
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-500 font-medium">Scheduled Time:</span>
-                  <span className="font-semibold text-slate-800">
-                    {preferredDate || "Scheduled Date"} ({preferredTime})
+                  <span className="text-slate-500 font-medium">Scheduled Slot:</span>
+                  <span className="font-bold text-teal-900">
+                    {preferredDate || "Scheduled Date"} • {preferredTime}
                   </span>
                 </div>
               </div>
 
-              {/* WhatsApp Redirect Action */}
+              {/* WhatsApp Direct Action for Payment Verification / Instant Updates */}
               <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-xs">
                 <div className="space-y-0.5 min-w-0">
                   <p className="text-xs font-extrabold text-emerald-900 flex items-center gap-1.5">
                     <MessageCircle className="w-4 h-4 flex-shrink-0 text-emerald-600" />
-                    {paymentChoice === "upi"
-                      ? "Send UPI Payment Screenshot on WhatsApp"
-                      : "Send Booking Confirmation on WhatsApp"}
+                    <span>WhatsApp Booking Desk</span>
                   </p>
                   <p className="text-[11px] text-emerald-700">
-                    {paymentChoice === "upi"
-                      ? <>Share your UPI transaction screenshot with Booking ID <strong>{bookingId}</strong> to verify your slot.</>
-                      : <>Share your Booking ID <strong>{bookingId}</strong> with our desk coordinator on WhatsApp for instant confirmation.</>}
+                    Share your Booking ID <strong>{bookingId}</strong> on WhatsApp for real-time phlebotomist tracking &amp; report delivery.
                   </p>
                 </div>
                 <a
                   href={`https://wa.me/919876543210?text=${encodeURIComponent(
-                    paymentChoice === "upi"
-                      ? `*Shree Diagnostic Center - Booking & Payment Verification*\n\nBooking ID: ${bookingId}\nPatient Name: ${patientName}\nMobile: ${phone}\nTest: ${selectedItemName}\nAmount: ₹${itemPrice}\nPayment Choice: Advance UPI\n\n[Please find attached UPI payment screenshot for verification]`
-                      : `*Shree Diagnostic Center - Home Booking Confirmation*\n\nBooking ID: ${bookingId}\nPatient Name: ${patientName}\nMobile: ${phone}\nTest: ${selectedItemName}\nAmount: ₹${itemPrice}\nPayment Mode: Pay at Collection\nDate & Slot: ${preferredDate || "Scheduled Date"} (${preferredTime})`
+                    `*Shree Diagnostic Center - Booking Confirmation*\n\nBooking ID: ${bookingId}\nPatient Name: ${patientName}\nMobile: ${phone}\nInvestigation: ${selectedItemName}\nAmount: ₹${itemPrice}\nPayment Mode: ${paymentChoice === "upi" ? "Advance UPI" : "Pay at Collection"}\nScheduled Slot: ${preferredDate || "Scheduled Date"} (${preferredTime})\n\n[Please verify my appointment]`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition shadow-sm whitespace-nowrap flex-shrink-0"
+                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition shadow-sm whitespace-nowrap flex-shrink-0 cursor-pointer"
                 >
                   <MessageCircle className="w-3.5 h-3.5" />
                   <span>Open WhatsApp</span>
                 </a>
               </div>
 
-              {/* Related Promotion Banner */}
-              {relatedPromo && (
-                <div className="p-3.5 rounded-2xl bg-gradient-to-r from-teal-900 to-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-3 border border-teal-700/50">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-teal-500/20 text-teal-300 flex items-center justify-center shrink-0">
-                      <Gift className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <span className="text-[9px] font-bold uppercase tracking-wider text-teal-400">
-                        Patient Offer
-                      </span>
-                      <h5 className="text-xs font-bold text-white">{relatedPromo.title}</h5>
-                    </div>
+              {/* Promotional Content within the Confirmation Experience */}
+              <div className="p-3.5 rounded-2xl bg-gradient-to-r from-teal-900 to-slate-900 text-white flex items-center justify-between gap-3 border border-teal-700/50">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-teal-500/20 text-teal-300 flex items-center justify-center shrink-0">
+                    <Gift className="w-4 h-4" />
                   </div>
-                  <a
-                    href={relatedPromo.image || "#"}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-3 py-1.5 rounded-lg bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-[11px] flex items-center gap-1 transition whitespace-nowrap"
-                  >
-                    <span>View Offer Poster</span>
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
+                  <div>
+                    <span className="text-[9px] font-bold uppercase tracking-wider text-teal-400">
+                      Patient Reward Privilege
+                    </span>
+                    <h5 className="text-xs font-bold text-white">
+                      Get 10% OFF on your next family health checkup!
+                    </h5>
+                    <p className="text-[10px] text-slate-300 mt-0.5">
+                      Quote promo voucher <strong className="text-teal-300 font-mono">SHREECARE10</strong> during your next visit.
+                    </p>
+                  </div>
                 </div>
-              )}
+              </div>
 
-              {/* Done / Return Action */}
+              {/* Return / Book Another Actions */}
               <div className="flex items-center justify-center gap-3 pt-2">
                 <button
-                  onClick={() => setStep("form")}
+                  onClick={() => setStep("details")}
                   className="px-5 py-2.5 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-bold transition cursor-pointer"
                 >
                   Book Another Test

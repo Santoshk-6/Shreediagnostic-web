@@ -17,19 +17,23 @@ interface Promotion {
   badgeColor?: string;
 }
 
-// Static promotions data
+// Static promotions data: ONLY vertical (_v) and horizontal (_h) posters. Square (_s) images are excluded.
 const ALL_PROMOTIONS = promotionsData as Promotion[];
-const ACTIVE_PROMOS = ALL_PROMOTIONS.filter((p) => p.active !== false && p.image);
-const TOTAL_POSTERS = ACTIVE_PROMOS.length;
+const POPUP_ELIGIBLE_PROMOS = ALL_PROMOTIONS.filter(
+  (p) => p.active !== false && p.image && (p.aspect === "v" || p.aspect === "h")
+);
+const TOTAL_POSTERS = POPUP_ELIGIBLE_PROMOS.length;
 
 // Timing configuration for the advertisement popup
 const INITIAL_AUTO_POPUP_DELAY_MS = 3500; // 3.5 seconds after page load
 const REVISIT_RESHOW_INTERVAL_MS = 45000;  // 45 seconds interval before showing again
-const LAST_SHOWN_KEY = "sdc_google_ad_last_shown_time";
+const SESSION_DISMISSED_KEY = "sdc_promo_popup_dismissed_session";
+const LAST_SHOWN_TIME_KEY = "sdc_google_ad_last_shown_time";
 const LAST_PROMO_INDEX_KEY = "sdc_google_ad_last_promo_idx";
 
 /**
  * Pure helper to pick a single separate, random advertisement index for the given route
+ * (Filtered strictly to _v and _h images)
  */
 function pickRandomAdIndex(currentPath: string): number {
   if (TOTAL_POSTERS === 0) return 0;
@@ -44,14 +48,15 @@ function pickRandomAdIndex(currentPath: string): number {
 
   // Find candidate posters that target this page
   const targetedIndices: number[] = [];
-  ACTIVE_PROMOS.forEach((promo, idx) => {
+  POPUP_ELIGIBLE_PROMOS.forEach((promo, idx) => {
     const pages = promo.showOnPages || ["all"];
     if (pages.includes(pageKey)) {
       targetedIndices.push(idx);
     }
   });
 
-  const candidateIndices = targetedIndices.length > 0 ? targetedIndices : ACTIVE_PROMOS.map((_, i) => i);
+  const candidateIndices =
+    targetedIndices.length > 0 ? targetedIndices : POPUP_ELIGIBLE_PROMOS.map((_, i) => i);
 
   // Retrieve last shown index to guarantee showing a DIFFERENT separate poster
   let lastIndex = -1;
@@ -81,10 +86,12 @@ export const PromoPopup = () => {
     TOTAL_POSTERS > 0 ? Math.floor(Math.random() * TOTAL_POSTERS) : 0
   );
 
+  // When visitor closes popup, suppress it for remainder of that browser session
   const close = useCallback(() => {
     setVisible(false);
     try {
-      sessionStorage.setItem(LAST_SHOWN_KEY, Date.now().toString());
+      sessionStorage.setItem(SESSION_DISMISSED_KEY, "true");
+      sessionStorage.setItem(LAST_SHOWN_TIME_KEY, Date.now().toString());
     } catch {}
   }, []);
 
@@ -113,9 +120,16 @@ export const PromoPopup = () => {
     const checkAndShow = () => {
       if (visible) return;
 
+      // Suppress if user closed popup during this browser session
+      try {
+        if (sessionStorage.getItem(SESSION_DISMISSED_KEY) === "true") {
+          return;
+        }
+      } catch {}
+
       let lastShownTime = 0;
       try {
-        const stored = sessionStorage.getItem(LAST_SHOWN_KEY);
+        const stored = sessionStorage.getItem(LAST_SHOWN_TIME_KEY);
         if (stored) lastShownTime = parseInt(stored, 10) || 0;
       } catch {}
 
@@ -141,10 +155,10 @@ export const PromoPopup = () => {
       }
 
       try {
-        sessionStorage.setItem(LAST_SHOWN_KEY, now.toString());
+        sessionStorage.setItem(LAST_SHOWN_TIME_KEY, now.toString());
       } catch {}
 
-      // Pick one fresh separate random ad
+      // Pick one fresh separate random ad (strictly _v or _h)
       setCurrentIndex(pickRandomAdIndex(pathname));
       setVisible(true);
     };
@@ -160,22 +174,19 @@ export const PromoPopup = () => {
 
   if (!visible || TOTAL_POSTERS === 0) return null;
 
-  const currentPromo = ACTIVE_PROMOS[currentIndex] || ACTIVE_PROMOS[0];
+  const currentPromo = POPUP_ELIGIBLE_PROMOS[currentIndex] || POPUP_ELIGIBLE_PROMOS[0];
   const aspect = currentPromo.aspect || "v";
 
-  // Dynamic Google Ad Container sizing based on single poster format:
-  // v = Vertical (skyscraper format)
-  // h = Horizontal (leaderboard format)
-  // s = Square (square card format)
+  // Dynamic Google Ad Container sizing based on poster format:
+  // v = Vertical (skyscraper format, e.g. 3:4.2)
+  // h = Horizontal (leaderboard format, e.g. 16:7.5)
+  // (Square _s images are excluded from popup)
   const getAspectClasses = () => {
     if (aspect === "v") {
-      return "max-w-[420px] w-full max-h-[88vh] aspect-[3/4.1] sm:aspect-[0.72]";
+      return "max-w-[430px] w-full max-h-[88vh] aspect-[3/4.2] sm:aspect-[0.72]";
     }
-    if (aspect === "h") {
-      return "max-w-4xl w-full max-h-[75vh] aspect-[16/7.5] sm:aspect-[2.1]";
-    }
-    // "s" or square
-    return "max-w-[520px] w-full max-h-[82vh] aspect-square";
+    // "h" or landscape
+    return "max-w-4xl w-full max-h-[75vh] aspect-[16/7.5] sm:aspect-[2.1]";
   };
 
   const handleAdClick = () => {
@@ -195,7 +206,7 @@ export const PromoPopup = () => {
       role="dialog"
       aria-label="Shree Diagnostic Advertisement"
     >
-      {/* Single Static Google Display Advertisement Card (No Slider) */}
+      {/* Single Static Google Display Advertisement Card (No Slider, No PDFs) */}
       <div
         className={`relative ${getAspectClasses()} bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-200/90 my-auto flex flex-col group animate-in fade-in zoom-in-95 duration-200 select-none cursor-pointer`}
         onClick={(e) => {
@@ -229,12 +240,12 @@ export const PromoPopup = () => {
           </button>
         </div>
 
-        {/* Single Poster Image — perfectly fitted without black letterboxing */}
-        <div className="relative w-full h-full overflow-hidden bg-slate-100 flex items-center justify-center">
+        {/* Poster Image — uses object-contain to preserve 100% full image proportions without text cropping */}
+        <div className="relative w-full h-full overflow-hidden bg-slate-950 flex items-center justify-center">
           <img
             src={currentPromo.image}
             alt={currentPromo.title}
-            className="w-full h-full object-cover object-center group-hover:scale-[1.015] transition-transform duration-300"
+            className="w-full h-full object-contain object-center group-hover:scale-[1.01] transition-transform duration-300"
           />
 
           {/* Bottom Right: Call-to-Action Pill */}

@@ -43,10 +43,10 @@ import { PARTNERS_LIST } from "@/data/partners";
 import { CITIES_SERVED } from "@/data/locations";
 import trustedPartnersData from "@/data/trusted-partners.json";
 
-import { TestSearchBar } from "@/components/search/TestSearchBar";
 import { PincodeChecker } from "@/components/search/PincodeChecker";
 import { BookingModal } from "@/components/booking/BookingModal";
 import { ScrollingBanner } from "@/components/promotions/ScrollingBanner";
+import { FullBodyPackagesCarousel } from "@/components/packages/FullBodyPackagesCarousel";
 
 // ---------------------------------------------------------------------------
 // Inline Popular Tests Search Sub-Component (search + category dropdown only)
@@ -219,165 +219,6 @@ function PopularTestsSearchSection({
 }
 
 // ---------------------------------------------------------------------------
-// Package Poster Slider — top of Health Packages section
-// ---------------------------------------------------------------------------
-const PACKAGE_POSTERS = [
-  { id: "pkg1", src: "/images/Posters/img1_v.png",    aspect: "portrait",  title: "Comprehensive Diagnostic Package" },
-  { id: "pkg2", src: "/images/Posters/img3_s.png",  aspect: "square",    title: "Executive Health Screening" },
-  { id: "pkg3", src: "/images/Posters/img6_s.png",  aspect: "square",    title: "Diabetes & Heart Risk Panel" },
-  { id: "pkg4", src: "/images/Posters/img8_v.png",    aspect: "portrait",  title: "Senior Citizen Vital Care" },
-  { id: "pkg5", src: "/images/Posters/img11_s.png", aspect: "square",    title: "Family Wellness Package" },
-];
-
-function PackagePosterSlider({
-  handleBookItem,
-}: {
-  handleBookItem: (name: string, type: "test" | "package", price: number) => void;
-}) {
-  const [idx, setIdx] = React.useState(0);
-  const [paused, setPaused] = React.useState(false);
-  const [lightbox, setLightbox] = React.useState(false);
-  const total = PACKAGE_POSTERS.length;
-
-  React.useEffect(() => {
-    if (paused || lightbox || total <= 1) return;
-    const t = setInterval(() => setIdx((p) => (p + 1) % total), 4000);
-    return () => clearInterval(t);
-  }, [paused, lightbox, total]);
-
-  React.useEffect(() => {
-    if (!lightbox) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setLightbox(false);
-      if (e.key === "ArrowLeft") setIdx((p) => (p - 1 + total) % total);
-      if (e.key === "ArrowRight") setIdx((p) => (p + 1) % total);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [lightbox, total]);
-
-  const current = PACKAGE_POSTERS[idx];
-
-  return (
-    <>
-      <div
-        className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm mb-10 bg-white"
-        onMouseEnter={() => setPaused(true)}
-        onMouseLeave={() => setPaused(false)}
-      >
-        <div className="overflow-hidden">
-          <div
-            className="flex transition-transform duration-500 ease-in-out"
-            style={{ transform: `translateX(-${idx * 100}%)` }}
-          >
-            {PACKAGE_POSTERS.map((poster) => (
-              <div key={poster.id} className="min-w-full flex flex-col sm:flex-row">
-                <button
-                  onClick={() => setLightbox(true)}
-                  className={`flex-shrink-0 bg-slate-50 flex items-center justify-center cursor-zoom-in focus:outline-none
-                    ${poster.aspect === "landscape" ? "w-full sm:w-72 h-48 sm:h-44" : "w-full sm:w-52 h-56 sm:h-52"}`}
-                  aria-label="View poster full size"
-                >
-                  <img
-                    src={poster.src}
-                    alt={poster.title}
-                    className="w-full h-full object-contain"
-                    loading="lazy"
-                  />
-                </button>
-                <div className="flex-1 flex flex-col justify-between p-5 sm:p-6">
-                  <div>
-                    <span className="text-[10px] font-extrabold uppercase tracking-widest text-teal-700 bg-teal-50 border border-teal-200/60 px-2.5 py-1 rounded-full">
-                      Featured Package Offer
-                    </span>
-                    <h4 className="text-lg font-black text-slate-900 mt-2">{poster.title}</h4>
-                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">
-                      Click the poster to view full size. Book directly for same-day confirmation and free home collection.
-                    </p>
-                  </div>
-                  <div className="flex flex-wrap gap-2 pt-4">
-                    <button
-                      onClick={() => handleBookItem(poster.title, "package", 1499)}
-                      className="px-4 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-sm transition cursor-pointer flex items-center gap-1.5"
-                    >
-                      <Calendar className="w-3.5 h-3.5" />
-                      Book This Package
-                    </button>
-                    <button
-                      onClick={() => setLightbox(true)}
-                      className="px-4 py-2 rounded-xl border border-slate-200 hover:border-teal-400 text-slate-700 font-semibold text-xs transition cursor-pointer"
-                    >
-                      View Full Poster
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {total > 1 && (
-          <>
-            <button
-              onClick={() => setIdx((p) => (p - 1 + total) % total)}
-              className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center transition cursor-pointer z-10"
-              aria-label="Previous poster"
-            >
-              <ChevronRight className="w-4 h-4 rotate-180" />
-            </button>
-            <button
-              onClick={() => setIdx((p) => (p + 1) % total)}
-              className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center transition cursor-pointer z-10"
-              aria-label="Next poster"
-            >
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </>
-        )}
-        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
-          {PACKAGE_POSTERS.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setIdx(i)}
-              className={`rounded-full transition-all cursor-pointer ${i === idx ? "w-5 h-1.5 bg-teal-600" : "w-1.5 h-1.5 bg-slate-400/60 hover:bg-slate-500"}`}
-              aria-label={`Poster ${i + 1}`}
-            />
-          ))}
-        </div>
-      </div>
-
-      {lightbox && (
-        <div
-          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
-          onClick={() => setLightbox(false)}
-        >
-          <div className="relative max-w-2xl w-full flex flex-col items-center gap-4" onClick={(e) => e.stopPropagation()}>
-            <button
-              onClick={() => setLightbox(false)}
-              className="absolute -top-3 -right-3 w-9 h-9 rounded-full bg-white/20 hover:bg-white/35 text-white flex items-center justify-center z-10 cursor-pointer"
-              aria-label="Close"
-            >
-              <X className="w-5 h-5" />
-            </button>
-            <img
-              src={current.src}
-              alt={current.title}
-              className="max-h-[82vh] w-auto max-w-full object-contain rounded-2xl shadow-2xl"
-            />
-            {total > 1 && (
-              <div className="flex justify-center gap-4">
-                <button onClick={() => setIdx((p) => (p-1+total)%total)} className="px-4 py-1.5 rounded-lg bg-white/20 hover:bg-white/30 text-white text-xs font-bold cursor-pointer">&#8592; Prev</button>
-                <span className="text-white/60 text-xs self-center">{idx + 1} / {total}</span>
-                <button onClick={() => setIdx((p) => (p+1)%total)} className="px-4 py-1.5 rounded-lg bg-white/20 hover:bg-white/30 text-white text-xs font-bold cursor-pointer">Next &#8594;</button>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
-    </>
-  );
-}
-
 export default function HomePage() {
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
   const [preselectedItem, setPreselectedItem] = useState<{ name: string; type: "test" | "package"; price: number } | null>(null);
@@ -695,10 +536,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* 2. SEARCH PATHOLOGY TESTS & HEALTH PANELS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-20">
-        <TestSearchBar />
-      </section>
+      
 
       {/* PROMOTIONAL SCROLLING BANNER */}
       <ScrollingBanner />
@@ -764,114 +602,8 @@ export default function HomePage() {
         <PopularTestsSearchSection handleBookItem={handleBookItem} allTests={PATHOLOGY_TESTS} />
       </section>
 
-      {/* 5. POPULAR HEALTH CHECKUP PACKAGES */}
-      <section className="bg-slate-100/70 py-16 sm:py-20 border-y border-slate-200/60">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          
-          <div className="text-center max-w-2xl mx-auto space-y-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-teal-700 bg-white border border-slate-200/80 px-3.5 py-1 rounded-full shadow-xs">
-              Preventive Healthcare Profiles
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-              Curated Preventive Health Packages
-            </h2>
-            <p className="text-slate-500 text-xs sm:text-sm">
-              All-inclusive master checkup profiles with up to 65% savings on multi-organ diagnostic screenings.
-            </p>
-          </div>
-
-          {/* Promotional poster slider for health packages */}
-          <PackagePosterSlider handleBookItem={handleBookItem} />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {HEALTH_PACKAGES.map((pkg) => (
-              <div
-                key={pkg.id}
-                className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm hover:shadow-2xl transition-all flex flex-col justify-between space-y-6 relative overflow-hidden"
-              >
-                {pkg.isPopular && (
-                  <div className="absolute top-4 right-4 bg-teal-600 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full shadow-sm">
-                    Most Popular
-                  </div>
-                )}
-
-                <div>
-                  <span className="text-[11px] font-bold text-teal-800 bg-teal-50 px-2.5 py-1 rounded-md">
-                    {pkg.category}
-                  </span>
-
-                  <h3 className="text-xl font-black text-slate-900 mt-2.5 tracking-tight">{pkg.name}</h3>
-                  <p className="text-xs text-slate-500 italic mt-0.5">{pkg.tagline}</p>
-
-                  {/* Price Box */}
-                  <div className="my-5 p-4 rounded-2xl bg-teal-50/70 border border-teal-100 flex items-center justify-between">
-                    <div>
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-2xl sm:text-3xl font-black text-teal-950">₹{pkg.price}</span>
-                        <span className="text-xs text-slate-400 line-through">₹{pkg.originalPrice}</span>
-                      </div>
-                      <span className="text-[11px] text-slate-500 mt-0.5 block">{pkg.recommendedFor}</span>
-                    </div>
-                    <span className="text-xs font-black text-emerald-800 bg-emerald-100 px-2.5 py-1 rounded-lg">
-                      {pkg.discountPercentage}% OFF
-                    </span>
-                  </div>
-
-                  {/* Included list preview */}
-                  <div className="space-y-2 text-xs text-slate-700">
-                    <p className="font-bold text-slate-900 flex items-center gap-1.5">
-                      <FileCheck className="w-4 h-4 text-teal-600" />
-                      <span>{pkg.testCount} Parameters Included</span>
-                    </p>
-                    <ul className="space-y-1.5 text-slate-600 text-[11px]">
-                      {pkg.includedCategories.slice(0, 3).map((c, idx) => (
-                        <li key={idx} className="flex items-center gap-1.5">
-                          <Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
-                          <span>{c.categoryName}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="pt-3 border-t border-slate-100 grid grid-cols-2 gap-2">
-                  <Link
-                    href={`/health-packages/${pkg.slug}`}
-                    className="py-2.5 rounded-xl border border-slate-200 text-center font-bold text-xs text-slate-700 hover:bg-slate-50 transition"
-                  >
-                    View Details
-                  </Link>
-                  <button
-                    onClick={() => handleBookItem(pkg.name, "package", pkg.price)}
-                    className="py-2.5 rounded-xl bg-gradient-to-r from-teal-700 to-cyan-700 hover:from-teal-800 hover:to-cyan-800 text-white font-bold text-xs shadow-md transition cursor-pointer"
-                  >
-                    Book Package
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="/health-packages"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow-lg transition"
-            >
-              <span>Explore All Packages & Comparison</span>
-              <ArrowRight className="w-4 h-4 text-teal-400" />
-            </Link>
-
-            <Link
-              href="/services"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-white hover:bg-slate-50 border-2 border-teal-700 text-teal-800 font-bold text-xs shadow-sm hover:shadow-md transition"
-            >
-              <span>Explore All 140+ Individual Services & Tests</span>
-              <ArrowRight className="w-4 h-4 text-teal-700" />
-            </Link>
-          </div>
-
-        </div>
-      </section>
+      {/* 5. FULL BODY HEALTH PACKAGES CAROUSEL */}
+      <FullBodyPackagesCarousel handleBookItem={handleBookItem} />
 
       {/* 6. WHY CHOOSE US (8 CLINICAL EXCELLENCE PILLARS) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
