@@ -26,17 +26,24 @@
       },
       {
         "id": "clinova-h1",
-        "title": "Dengue & Fever Investigation Profiles",
-        "image": "/images/Posters/img4_h.png",
-        "aspect": "h",
-        "badge": "Clinical Panel"
-      },
-      {
-        "id": "clinova-h2",
         "title": "Clinova Laboratory Services & Quality Standards",
         "image": "/images/Certifiactes_sampel/cerf3_h.png",
         "aspect": "h",
         "badge": "Quality Standard"
+      },
+      {
+        "id": "clinova-h2",
+        "title": "Molecular Reference Investigation Standards",
+        "image": "/images/Certifiactes_sampel/cerf4_h.png",
+        "aspect": "h",
+        "badge": "Clinical Panel"
+      },
+      {
+        "id": "clinova-h3",
+        "title": "Specialized Molecular & Immunological Testing",
+        "image": "/images/Posters/img4_h.png",
+        "aspect": "h",
+        "badge": "Reference Lab"
       }
     ],
     "featured": true,
@@ -62,10 +69,10 @@
     "gallery": [
       {
         "id": "niptr-v1",
-        "title": "Maternal Fetal Genetic Screening Poster",
-        "image": "/images/Posters/img7_v.png",
+        "title": "NIPTR Genetic Testing Accreditation Certificate",
+        "image": "/images/Certifiactes_sampel/cerf2_v.png",
         "aspect": "v",
-        "badge": "Specialty Panel"
+        "badge": "Accreditation"
       },
       {
         "id": "niptr-h1",
@@ -76,6 +83,13 @@
       },
       {
         "id": "niptr-h2",
+        "title": "cfDNA NextGen Sequencing Quality Protocols",
+        "image": "/images/Certifiactes_sampel/cerf3_h.png",
+        "aspect": "h",
+        "badge": "Quality Protocol"
+      },
+      {
+        "id": "niptr-h3",
         "title": "Advanced Clinical Health Profiles",
         "image": "/images/Posters/img2_h.png",
         "aspect": "h",

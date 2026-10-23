@@ -32,9 +32,7 @@ import {
   ThermometerSnowflake,
   QrCode,
   ShieldAlert,
-  ArrowUpRight,
-  ExternalLink,
-  FileText
+  ArrowUpRight
 } from "lucide-react";
 
 import { PATHOLOGY_TESTS } from "@/data/tests";
@@ -47,6 +45,7 @@ import { PincodeChecker } from "@/components/search/PincodeChecker";
 import { BookingModal } from "@/components/booking/BookingModal";
 import { ScrollingBanner } from "@/components/promotions/ScrollingBanner";
 import { FullBodyPackagesCarousel } from "@/components/packages/FullBodyPackagesCarousel";
+import { PackageSpotlightSlider } from "@/components/home/PackageSpotlightSlider";
 
 // ---------------------------------------------------------------------------
 // Inline Popular Tests Search Sub-Component (search + category dropdown only)
@@ -437,100 +436,9 @@ export default function HomePage() {
 
             </div>
 
-            {/* Right Column: High-End Live Diagnostic Hub Visual */}
+            {/* Right Column: Full Body Package Spotlight Slider */}
             <div className="lg:col-span-5">
-              <div className="relative mx-auto max-w-md bg-gradient-to-b from-slate-900/90 to-[#06212b]/95 p-6 sm:p-7 rounded-3xl border border-teal-500/30 shadow-2xl backdrop-blur-2xl space-y-6">
-                
-                {/* Header Strip with Live Status */}
-                <div className="flex items-center justify-between pb-4 border-b border-slate-800/80">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-teal-500/20 text-teal-300 flex items-center justify-center font-bold">
-                      <Microscope className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-bold text-white">Full Body Package Spotlight</h4>
-                      <p className="text-[11px] text-teal-300">Doctor Recommended Annual Profile</p>
-                    </div>
-                  </div>
-                  <span className="text-[11px] font-black px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                    62% OFF
-                  </span>
-                </div>
-
-                {/* Package Spotlight Details */}
-                <div className="space-y-4">
-                  <div>
-                    <h3 className="text-xl font-black text-white tracking-tight">Executive Full Body Health Checkup</h3>
-                    <p className="text-xs text-slate-300 mt-1 leading-relaxed">
-                      Comprehensive 78-parameter screening covering Heart, Liver, Kidneys, Thyroid, Sugar, Vitamin D3/B12, and Complete Hemogram.
-                    </p>
-                  </div>
-
-                  {/* Price Block */}
-                  <div className="bg-slate-950/70 rounded-2xl p-4 border border-slate-800 flex items-center justify-between">
-                    <div>
-                      <span className="text-[11px] text-slate-400 block font-medium">Package Offer Rate</span>
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-2xl sm:text-3xl font-black text-teal-300">₹1,499</span>
-                        <span className="text-xs text-slate-500 line-through">₹3,999</span>
-                      </div>
-                    </div>
-                    <div className="text-right">
-                      <span className="text-[11px] text-slate-400 block font-medium">Investigations</span>
-                      <span className="text-sm font-bold text-emerald-400">78 Total Tests</span>
-                    </div>
-                  </div>
-
-                  {/* Reassurances */}
-                  <div className="space-y-2 text-xs text-slate-300">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                      <span>Free Doorstep Home Sample Pickup Included</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                      <span>Verified Pathologist Report Delivered on WhatsApp</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                      <span>Complimentary Doctor Tele-Consultation</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Action CTAs (Requirement 1B: brochure PDF source material + booking) */}
-                <div className="space-y-2.5">
-                  <button
-                    onClick={() => handleBookItem("Executive Full Body Health Checkup", "package", 1499)}
-                    className="w-full py-3.5 rounded-xl bg-gradient-to-r from-teal-400 to-cyan-400 hover:from-teal-300 hover:to-cyan-300 text-slate-950 font-black text-sm transition shadow-lg shadow-teal-500/20 flex items-center justify-center gap-2 cursor-pointer"
-                  >
-                    <Sparkles className="w-4 h-4" />
-                    <span>Book Executive Package Now</span>
-                  </button>
-
-                  <a
-                    href="/images/Posters/img1_v.png"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full py-2.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/20 text-white text-xs font-bold transition flex items-center justify-center gap-2"
-                  >
-                    <FileText className="w-3.5 h-3.5 text-teal-300" />
-                    <span>View Official Package Poster</span>
-                    <ExternalLink className="w-3 h-3 text-slate-400" />
-                  </a>
-                </div>
-
-                {/* Mini Verified Review Snippet */}
-                <div className="pt-4 border-t border-slate-800/80 flex items-center gap-3 text-xs text-slate-400">
-                  <div className="flex text-amber-400">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-amber-400" />
-                    ))}
-                  </div>
-                  <span className="text-[11px] text-slate-300">Rated 4.9/5 from 12,000+ Verified Patients</span>
-                </div>
-
-              </div>
+              <PackageSpotlightSlider handleBookItem={handleBookItem} />
             </div>
 
           </div>
@@ -792,7 +700,7 @@ export default function HomePage() {
                     </div>
                   </div>
                   <span className="text-[10px] font-bold bg-blue-50 text-blue-800 border border-blue-200 px-2.5 py-1 rounded-full">
-                    3 Brochures
+                    Molecular Certified
                   </span>
                 </div>
 
@@ -807,26 +715,6 @@ export default function HomePage() {
                     </span>
                   ))}
                 </div>
-              </div>
-
-              <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
-                <a
-                  href="/images/Posters/img4_h.png"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs font-bold text-blue-700 hover:text-blue-900 flex items-center gap-1.5"
-                >
-                  <FileText className="w-3.5 h-3.5" />
-                  <span>Dengue & Fever Poster</span>
-                  <ExternalLink className="w-3 h-3" />
-                </a>
-
-                <Link
-                  href="/partners"
-                  className="px-4 py-2 rounded-xl bg-blue-700 hover:bg-blue-800 text-white font-bold text-xs transition shadow-xs"
-                >
-                  View All Clinova Docs
-                </Link>
               </div>
             </div>
 
@@ -859,26 +747,6 @@ export default function HomePage() {
                     </span>
                   ))}
                 </div>
-              </div>
-
-              <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
-                <a
-                  href="/images/Posters/img7_v.png"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs font-bold text-teal-700 hover:text-teal-900 flex items-center gap-1.5"
-                >
-                  <FileText className="w-3.5 h-3.5" />
-                  <span>NIPT Prenatal Poster</span>
-                  <ExternalLink className="w-3 h-3" />
-                </a>
-
-                <Link
-                  href="/partners"
-                  className="px-4 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs transition shadow-xs"
-                >
-                  View NIPT Info
-                </Link>
               </div>
             </div>
           </div>
