@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Sparkles, Check, ArrowRight, ShieldCheck, Clock, FileCheck } from "lucide-react";
+import { Sparkles, Check, ArrowRight, ShieldCheck, Clock, FileCheck, Building2, Users } from "lucide-react";
 import { HEALTH_PACKAGES, PACKAGE_CATEGORIES } from "@/data/packages";
 import { PackageComparisonTable } from "@/components/packages/PackageComparisonTable";
 import { BookingModal } from "@/components/booking/BookingModal";
@@ -32,9 +32,44 @@ export default function HealthPackagesPage() {
             Preventative Diagnostic Profiles
           </span>
           <h1 className="text-4xl sm:text-5xl font-black text-white">Full Body Health Checkup Packages</h1>
-          <p className="text-slate-300 text-base max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-slate-300 text-base max-w-2xl mx-auto leading-relaxed">
             All-inclusive diagnostic screening bundles designed for complete organ evaluation, metabolic health, and early disease prevention.
           </p>
+
+          {/* CORPORATE & GROUP BOOKING PROMOTIONAL BANNER */}
+          <div className="pt-6 max-w-4xl mx-auto text-left">
+            <div className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-teal-900/90 via-slate-900/95 to-cyan-950/90 border border-teal-500/40 p-6 sm:p-8 shadow-2xl backdrop-blur-md">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                <div className="space-y-2">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-400/10 border border-teal-400/30 text-teal-300 text-[11px] font-bold uppercase tracking-wider">
+                    <Building2 className="w-3.5 h-3.5" />
+                    <span>Corporate Wellness &amp; Health Camps</span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+                    Special Health Packages for Groups &amp; Corporates
+                  </h2>
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl">
+                    Explore special pricing for corporate wellness programs, health camps, and group health checkups.
+                  </p>
+                  <div className="flex flex-wrap gap-2 pt-1 text-[11px] text-teal-200">
+                    <span className="bg-white/10 px-2.5 py-0.5 rounded-full border border-white/10">• Employee Health Checkups</span>
+                    <span className="bg-white/10 px-2.5 py-0.5 rounded-full border border-white/10">• On-site Health Camps</span>
+                    <span className="bg-white/10 px-2.5 py-0.5 rounded-full border border-white/10">• Preventive Screening Drives</span>
+                  </div>
+                </div>
+
+                <div className="flex-shrink-0">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-teal-400 to-cyan-400 hover:from-teal-300 hover:to-cyan-300 text-slate-950 font-black text-xs sm:text-sm shadow-xl transition-all hover:scale-105 cursor-pointer whitespace-nowrap"
+                  >
+                    <span>Contact Us</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

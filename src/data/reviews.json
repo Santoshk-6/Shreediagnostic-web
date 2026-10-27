@@ -1,0 +1,182 @@
+[
+  {
+    "id": "TEST-001",
+    "reviewerName": "Aarav Sharma",
+    "reviewContent": "I had a smooth experience from registration to blood collection. The staff were friendly, and the sample was collected quickly with very little discomfort.",
+    "rating": 5,
+    "sourceLabel": "Patient Feedback",
+    "qualifications": "B.Com. (profile)",
+    "role": "Patient"
+  },
+  {
+    "id": "TEST-002",
+    "reviewerName": "Priya Kulkarni",
+    "reviewContent": "I was a little nervous about the blood test, but the staff made me feel comfortable throughout. The collection was gentle, and everything was explained beforehand.",
+    "rating": 5,
+    "sourceLabel": "Patient Feedback",
+    "qualifications": "B.Sc. (profile)",
+    "role": "Patient"
+  },
+  {
+    "id": "TEST-003",
+    "reviewerName": "Rahul Patil",
+    "reviewContent": "Booking my appointment was easy, and I didn't have to wait long after arriving. The team was organised, and the entire process went smoothly.",
+    "rating": 4,
+    "sourceLabel": "Patient Feedback",
+    "qualifications": "B.A. (profile)",
+    "role": "Patient"
+  },
+  {
+    "id": "TEST-004",
+    "reviewerName": "Sneha Deshmukh",
+    "reviewContent": "The centre was clean and well maintained, which made me feel comfortable. The staff followed proper procedures during sample collection and handled everything professionally.",
+    "rating": 5,
+    "sourceLabel": "Patient Feedback",
+    "qualifications": "B.Sc. (profile)",
+    "role": "Patient"
+  },
+  {
+    "id": "TEST-005",
+    "reviewerName": "Rohan Joshi",
+    "reviewContent": "I received clear instructions about fasting before my blood test. The staff also explained when I could expect my reports, so I knew what to plan for.",
+    "rating": 4,
+    "sourceLabel": "Patient Feedback",
+    "qualifications": "M.Com. (profile)",
+    "role": "Patient"
+  },
+  {
+    "id": "TEST-006",
+    "reviewerName": "Ananya Iyer",
+    "reviewContent": "The person collecting my blood was patient and reassuring. It was a quick process, and I barely felt the needle, which made the experience much better than expected.",
+    "rating": 5,
+    "sourceLabel": "Patient Feedback",
+    "qualifications": "B.Tech. (profile)",
+    "role": "Patient"
+  },
+  {
+    "id": "TEST-007",
+    "reviewerName": "Vikram Rao",
+    "reviewContent": "I visited for a routine health check-up and found the process easy to follow. From registration to giving my samples, the staff guided me at every step.",
+    "rating": 4,
+    "sourceLabel": "Patient Feedback",
+    "qualifications": "M.Sc. (profile)",
+    "role": "Patient"
+  },
+  {
+    "id": "TEST-008",
+    "reviewerName": "Kavya Nair",
+    "reviewContent": "I appreciated how politely the staff answered my questions about the tests. They explained the preparation requirements clearly and helped me understand what I needed to do before visiting.",
+    "rating": 5,
+    "sourceLabel": "Patient Feedback",
+    "qualifications": "B.A. (profile)",
+    "role": "Patient"
+  },
+  {
+    "id": "TEST-009",
+    "reviewerName": "Aditya Verma",
+    "reviewContent": "The appointment process was convenient, and the instructions shared beforehand were helpful. I knew where to go, what to bring, and how to access my reports afterwards.",
+    "rating": 4,
+    "sourceLabel": "Patient Feedback",
+    "qualifications": "B.Com. (profile)",
+    "role": "Patient"
+  },
+  {
+    "id": "TEST-010",
+    "reviewerName": "Meera Shah",
+    "reviewContent": "I was worried about getting a blood test, but the staff handled it calmly and professionally. The sample collection was quick, and I felt at ease throughout the visit.",
+    "rating": 5,
+    "sourceLabel": "Patient Feedback",
+    "qualifications": "M.A. (profile)",
+    "role": "Patient"
+  },
+  {
+    "id": "TEST-011",
+    "reviewerName": "Siddharth Gupta",
+    "reviewContent": "The staff explained the different steps of my health check-up without making things confusing. Registration and sample collection were both handled in an organised manner.",
+    "rating": 4,
+    "sourceLabel": "Patient Feedback",
+    "qualifications": "B.Sc. (profile)",
+    "role": "Patient"
+  },
+  {
+    "id": "TEST-012",
+    "reviewerName": "Pooja Menon",
+    "reviewContent": "I had questions about whether I needed to fast before my tests, and the team clarified everything patiently. Their guidance helped me arrive prepared for my appointment.",
+    "rating": 5,
+    "sourceLabel": "Patient Feedback",
+    "qualifications": "B.Com. (profile)",
+    "role": "Patient"
+  },
+  {
+    "id": "TEST-013",
+    "reviewerName": "Kunal Desai",
+    "reviewContent": "The visit was straightforward, and the waiting time was reasonable. The staff were courteous, and I received clear information about the expected report delivery time.",
+    "rating": 4,
+    "sourceLabel": "Patient Feedback",
+    "qualifications": "BBA (profile)",
+    "role": "Patient"
+  },
+  {
+    "id": "TEST-014",
+    "reviewerName": "Ishita Banerjee",
+    "reviewContent": "I liked how the team explained the process before collecting my blood sample. They were gentle and professional, and the visit was less stressful than I had anticipated.",
+    "rating": 5,
+    "sourceLabel": "Patient Feedback",
+    "qualifications": "M.Sc. (profile)",
+    "role": "Patient"
+  },
+  {
+    "id": "TEST-015",
+    "reviewerName": "Manish Yadav",
+    "reviewContent": "Getting my tests done here was convenient, especially because the booking instructions were clear. I also appreciated knowing how and when I could check my reports.",
+    "rating": 4,
+    "sourceLabel": "Patient Feedback",
+    "qualifications": "B.A. (profile)",
+    "role": "Patient"
+  },
+  {
+    "id": "TEST-016",
+    "reviewerName": "Neha Reddy",
+    "reviewContent": "The staff were attentive and made sure I understood the instructions for my tests. Sample collection was completed efficiently, without unnecessary delays.",
+    "rating": 5,
+    "sourceLabel": "Patient Feedback",
+    "qualifications": "B.Com. (profile)",
+    "role": "Patient"
+  },
+  {
+    "id": "TEST-017",
+    "reviewerName": "Arjun Mishra",
+    "reviewContent": "I visited for a few blood investigations and found the overall experience well organised. The team answered my questions and explained the next steps after collection.",
+    "rating": 4,
+    "sourceLabel": "Patient Feedback",
+    "qualifications": "B.Tech. (profile)",
+    "role": "Patient"
+  },
+  {
+    "id": "TEST-018",
+    "reviewerName": "Swati Pawar",
+    "reviewContent": "Everything was explained in simple language, including test preparation and report availability. I appreciated the polite communication and the smooth handling of my appointment.",
+    "rating": 5,
+    "sourceLabel": "Patient Feedback",
+    "qualifications": "B.Sc. (profile)",
+    "role": "Patient"
+  },
+  {
+    "id": "TEST-019",
+    "reviewerName": "Nikhil Shetty",
+    "reviewContent": "The staff made the registration process easy and guided me through the required tests. Blood collection was handled efficiently, and I was informed about what would happen next.",
+    "rating": 4,
+    "sourceLabel": "Patient Feedback",
+    "qualifications": "M.Com. (profile)",
+    "role": "Patient"
+  },
+  {
+    "id": "TEST-020",
+    "reviewerName": "Ritika Sinha",
+    "reviewContent": "Overall, the experience was comfortable and hassle-free. The team was approachable, the instructions were easy to understand, and I knew what to expect at each stage of the visit.",
+    "rating": 5,
+    "sourceLabel": "Patient Feedback",
+    "qualifications": "M.A. (profile)",
+    "role": "Patient"
+  }
+]

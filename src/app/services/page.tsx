@@ -13,7 +13,6 @@ import {
 } from "lucide-react";
 import { PATHOLOGY_TESTS, TEST_CATEGORIES } from "@/data/tests";
 import { BookingModal } from "@/components/booking/BookingModal";
-import { GoogleDisplayBanner } from "@/components/promotions/GoogleDisplayBanner";
 
 export default function ServicesPage() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -130,10 +129,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* IN-CONTENT GOOGLE DISPLAY PROMOTIONAL BANNER */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <GoogleDisplayBanner aspect="h" pageContext="services" />
-      </div>
 
       {/* FULL TEST LISTING DIRECTORY (140+ Tests) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">

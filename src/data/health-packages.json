@@ -100,216 +100,959 @@
     ]
   },
   {
-    "id": "pkg-2",
-    "slug": "advanced-diabetes-care-package",
-    "name": "Advanced Diabetes Care Package",
-    "category": "Diabetes Packages",
-    "tagline": "Total Glycemic & Diabetic Complication Risk Assessment",
-    "description": "Designed specifically for prediabetic and diabetic individuals to monitor blood sugar control and detect early signs of kidney or nerve complications.",
-    "price": 899,
-    "originalPrice": 2200,
-    "discountPercentage": 59,
-    "testCount": 42,
-    "turnaroundTime": "Same Day (8 Hours)",
-    "fastingRequirement": "10-12 Hours Fasting Required",
-    "recommendedFor": "Diabetic / Prediabetic Patients & Annual Monitoring",
-    "isPopular": true,
-    "includedCategories": [
-      {
-        "categoryName": "Glycemic Monitoring",
-        "testsIncluded": [
-          "Fasting Blood Sugar (FBS)",
-          "Post Prandial Sugar (PPBS)",
-          "HbA1c Glycated Hemoglobin",
-          "Average Blood Glucose"
-        ]
-      },
-      {
-        "categoryName": "Kidney Health & Microalbumin",
-        "testsIncluded": [
-          "Serum Creatinine",
-          "Blood Urea Nitrogen",
-          "Urine Microalbumin",
-          "Urine Albumin Creatinine Ratio"
-        ]
-      },
-      {
-        "categoryName": "Lipid & Cardiac Risk",
-        "testsIncluded": [
-          "Total Cholesterol",
-          "Triglycerides",
-          "HDL",
-          "LDL"
-        ]
-      }
-    ]
-  },
-  {
-    "id": "pkg-3",
-    "slug": "master-thyroid-metabolic-package",
-    "name": "Master Thyroid & Metabolic Package",
-    "category": "Thyroid Packages",
-    "tagline": "Detailed Thyroid Antibody & Hormonal Evaluation",
-    "description": "Evaluates active thyroid hormones, TSH, and Anti-TPO antibodies to diagnose autoimmune thyroid disorders like Hashimoto's or Graves' disease.",
-    "price": 999,
-    "originalPrice": 2400,
-    "discountPercentage": 58,
-    "testCount": 6,
+    "id": "pkg-anaemia-mini",
+    "slug": "anaemia-mini-profile",
+    "name": "Anaemia Mini Profile",
+    "category": "Other Diagnostic Packages",
+    "tagline": "Iron, Ferritin, Transferrin & Vitamin B12 / Folate Evaluation",
+    "description": "Essential diagnostic profile designed to evaluate iron deficiency, microcytic anemia, serum ferritin reserves, transferrin saturation, and vitamin B12/folate levels.",
+    "price": 1200,
+    "originalPrice": 1800,
+    "discountPercentage": 33,
+    "testCount": 7,
     "turnaroundTime": "24 Hours",
-    "fastingRequirement": "8-10 Hours Fasting Recommended",
-    "recommendedFor": "Individuals experiencing weight fluctuations, fatigue, hair loss",
+    "fastingRequirement": "10-12 Hours Fasting Required",
+    "recommendedFor": "Individuals experiencing chronic fatigue, weakness, dizziness, low hemoglobin",
     "isPopular": false,
     "includedCategories": [
       {
-        "categoryName": "Thyroid Hormones",
+        "categoryName": "Iron & Ferritin Parameters",
+        "testsIncluded": [
+          "Serum Iron",
+          "Serum Ferritin",
+          "Total Iron Binding Capacity (TIBC)",
+          "% Transferrin Saturation",
+          "Transferrin"
+        ]
+      },
+      {
+        "categoryName": "Vitamins & Nutritional Factors",
+        "testsIncluded": [
+          "Vitamin B12",
+          "Serum Folate"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pkg-arthritis",
+    "slug": "arthritis-profile",
+    "name": "Arthritis Profile",
+    "category": "Senior Citizen Packages",
+    "tagline": "Comprehensive Joint, Uric Acid & Autoimmune Inflammation Screening",
+    "description": "Evaluates rheumatoid factor, Anti-CCP, ANA, ASO, and uric acid alongside complete hemogram and urine analysis to differentiate rheumatoid arthritis, gout, and systemic inflammation.",
+    "price": 2200,
+    "originalPrice": 3500,
+    "discountPercentage": 37,
+    "testCount": 10,
+    "turnaroundTime": "24-48 Hours",
+    "fastingRequirement": "8-10 Hours Fasting Recommended",
+    "recommendedFor": "Patients with joint pain, morning stiffness, swelling, or suspected autoimmune arthritis",
+    "isPopular": false,
+    "includedCategories": [
+      {
+        "categoryName": "Autoimmune & Inflammatory Markers",
+        "testsIncluded": [
+          "Anti-CCP",
+          "C-Reactive Protein (CRP)",
+          "Antinuclear Antibodies (ANA)",
+          "ASO Titre",
+          "Rheumatoid Factor (RA Factor)"
+        ]
+      },
+      {
+        "categoryName": "Hematology & Metabolic Parameters",
+        "testsIncluded": [
+          "Complete Blood Count (CBC)",
+          "Erythrocyte Sedimentation Rate (ESR)",
+          "Cell Counter / Microscopy",
+          "Serum Uric Acid",
+          "Complete Urine Examination"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pkg-breast-cancer",
+    "slug": "breast-cancer-profile",
+    "name": "Breast Cancer Profile",
+    "category": "Women's Health Packages",
+    "tagline": "High-Sensitivity Chemiluminescence Tumor Marker Evaluation",
+    "description": "Specialized serum tumor marker evaluation measuring CA 15.3, Carcinoembryonic Antigen (CEA), Beta HCG, and Acid Phosphatase Total to support clinical oncology screening.",
+    "price": 2200,
+    "originalPrice": 3800,
+    "discountPercentage": 42,
+    "testCount": 4,
+    "turnaroundTime": "24-48 Hours",
+    "fastingRequirement": "Fasting Not Strictly Required",
+    "recommendedFor": "Women undergoing diagnostic follow-up, high-risk screening, or oncologist consultation",
+    "isPopular": false,
+    "includedCategories": [
+      {
+        "categoryName": "Serum Tumor Markers (Chemiluminescence)",
+        "testsIncluded": [
+          "CA 15.3 (Cancer Antigen 15-3)",
+          "Carcinoembryonic Antigen (CEA)",
+          "Beta HCG",
+          "Acid Phosphatase Total"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pkg-cardiac-profile",
+    "slug": "cardiac-profile",
+    "name": "Cardiac Profile",
+    "category": "Full Body Checkup",
+    "tagline": "Essential Cardiac Enzymes & Total Cholesterol Screening",
+    "description": "Targeted heart health panel evaluating total cholesterol, CPK, LDH, and SGOT enzymes for baseline myocardial tissue status and metabolic risk.",
+    "price": 1500,
+    "originalPrice": 2400,
+    "discountPercentage": 38,
+    "testCount": 4,
+    "turnaroundTime": "12-24 Hours",
+    "fastingRequirement": "10-12 Hours Fasting Required",
+    "recommendedFor": "Individuals wanting baseline heart enzyme and lipid screening",
+    "isPopular": false,
+    "includedCategories": [
+      {
+        "categoryName": "Cardiac Enzymes & Lipids",
+        "testsIncluded": [
+          "Cholesterol - Total",
+          "SGOT (AST)",
+          "Lactate Dehydrogenase (LDH)",
+          "Creatine Phosphokinase (CPK)"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pkg-cardiac-risk-profile",
+    "slug": "cardiac-risk-profile",
+    "name": "Cardiac Risk Profile",
+    "category": "Full Body Checkup",
+    "tagline": "Advanced Myocardial Strain & Cardiovascular Risk Biomarkers",
+    "description": "Comprehensive cardiac risk panel measuring Troponin I & T, BNP, hs-CRP, Homocysteine, Myoglobin, CK-MB, and CK-NAC for early detection of ischemic heart disease.",
+    "price": 6000,
+    "originalPrice": 9500,
+    "discountPercentage": 37,
+    "testCount": 9,
+    "turnaroundTime": "24 Hours",
+    "fastingRequirement": "10-12 Hours Fasting Required",
+    "recommendedFor": "Individuals with chest discomfort history, hypertension, family cardiac history, high stress",
+    "isPopular": true,
+    "includedCategories": [
+      {
+        "categoryName": "High-Sensitivity Cardiac Markers",
+        "testsIncluded": [
+          "Troponin I & T",
+          "B-Type Natriuretic Peptide (BNP)",
+          "High Sensitivity CRP (hs-CRP)",
+          "Serum Homocysteine",
+          "Serum Myoglobin"
+        ]
+      },
+      {
+        "categoryName": "Myocardial Enzymes",
+        "testsIncluded": [
+          "CK-MB",
+          "CK-NAC",
+          "Lactate Dehydrogenase (LDH)",
+          "SGOT (AST)"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pkg-diabetes-maxi",
+    "slug": "diabetes-monitoring-maxi-profile",
+    "name": "Diabetes Monitoring Maxi Profile",
+    "category": "Diabetes Packages",
+    "tagline": "Gold Standard HPLC Glycemic, C-Peptide, Insulin & Microalbumin Panel",
+    "description": "Designed for thorough diabetes management. Features HbA1c by HPLC, Fasting/PP Glucose, Serum Insulin, C-Peptide, Microalbuminuria, BUN, Creatinine, and Lipid Profile.",
+    "price": 2700,
+    "originalPrice": 4200,
+    "discountPercentage": 36,
+    "testCount": 10,
+    "turnaroundTime": "Same Day (8-12 Hours)",
+    "fastingRequirement": "10-12 Hours Fasting Required for Fasting Sample",
+    "recommendedFor": "Patients with Type 1 or Type 2 Diabetes, metabolic syndrome, or monitoring therapy",
+    "isPopular": true,
+    "includedCategories": [
+      {
+        "categoryName": "Glycemic & Beta Cell Function",
+        "testsIncluded": [
+          "Glucose Fasting & Post Prandial (F/PP)",
+          "HbA1c - HPLC",
+          "Serum Insulin",
+          "C-Peptide"
+        ]
+      },
+      {
+        "categoryName": "Diabetic Nephropathy & Organ Parameters",
+        "testsIncluded": [
+          "Microalbuminuria (Urine 5mL)",
+          "Lipid Profile",
+          "Serum Creatinine",
+          "Blood Urea Nitrogen (BUN)"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pkg-infertility-iv",
+    "slug": "infertility-profile-iv",
+    "name": "Infertility Profile - IV",
+    "category": "Women's Health Packages",
+    "tagline": "Core Pituitary & Ovarian Reproductive Hormone Evaluation",
+    "description": "Baseline fertility assessment measuring LH, FSH, Prolactin, Estradiol (E2), and Total Testosterone to evaluate follicular development and ovulatory balance.",
+    "price": 1550,
+    "originalPrice": 2600,
+    "discountPercentage": 40,
+    "testCount": 5,
+    "turnaroundTime": "24 Hours",
+    "fastingRequirement": "Morning Sample Recommended (Day 2-3 of Cycle for Females)",
+    "recommendedFor": "Couples planning pregnancy, women evaluating irregular cycles or ovulatory disorders",
+    "isPopular": false,
+    "includedCategories": [
+      {
+        "categoryName": "Reproductive Hormones",
+        "testsIncluded": [
+          "Luteinizing Hormone (LH)",
+          "Follicle Stimulating Hormone (FSH)",
+          "Prolactin (PRL)",
+          "Testosterone (Total)",
+          "Estradiol (E2)"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pkg-general-health-check",
+    "slug": "general-health-check",
+    "name": "General Health Check",
+    "category": "Full Body Checkup",
+    "tagline": "Vital Organs, Blood Picture, Lipids & Viral Serology Clearance",
+    "description": "Essential preventive health check covering Kidney parameters (Creatinine, Urea), Lipid Profile, Complete Blood Picture, ESR, Blood Grouping, Urine Examination, HIV, and HBsAg.",
+    "price": 1500,
+    "originalPrice": 2800,
+    "discountPercentage": 46,
+    "testCount": 8,
+    "turnaroundTime": "Same Day (8-12 Hours)",
+    "fastingRequirement": "10-12 Hours Fasting Required",
+    "recommendedFor": "Routine annual health assessment for all age groups",
+    "isPopular": true,
+    "includedCategories": [
+      {
+        "categoryName": "Organ Function & Metabolic Profile",
+        "testsIncluded": [
+          "Serum Creatinine",
+          "Blood Urea",
+          "Lipid Profile (Full)",
+          "Complete Urine Examination"
+        ]
+      },
+      {
+        "categoryName": "Hematology & Viral Serologies",
+        "testsIncluded": [
+          "Complete Blood Picture (CBP)",
+          "ESR",
+          "ABO Blood Grouping & Rh Factor",
+          "HIV 1 & 2 Screen",
+          "HBsAg (Hepatitis B Surface Antigen)"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pkg-hepatitis-profile",
+    "slug": "hepatitis-profile",
+    "name": "Hepatitis Profile",
+    "category": "Other Diagnostic Packages",
+    "tagline": "Comprehensive Viral Hepatitis A, B, C & E Diagnostic Screen",
+    "description": "Complete serological panel testing for acute, chronic, and immunity markers: HAV-IgM/Total, Anti-HBe, HBeAg, Anti-HBs, HBsAg, HCV Antibody, Anti-HBc (IgM/Total), and HEV (IgM/IgG).",
+    "price": 3500,
+    "originalPrice": 5500,
+    "discountPercentage": 36,
+    "testCount": 11,
+    "turnaroundTime": "24-48 Hours",
+    "fastingRequirement": "Fasting Not Strictly Required",
+    "recommendedFor": "Patients with jaundice, elevated liver enzymes, viral hepatitis exposure, pre-vaccination assessment",
+    "isPopular": false,
+    "includedCategories": [
+      {
+        "categoryName": "Hepatitis B Markers",
+        "testsIncluded": [
+          "HBsAg",
+          "Anti HBs",
+          "HBeAg",
+          "Anti HBe",
+          "Anti HBc - IgM",
+          "HBcAb - Total"
+        ]
+      },
+      {
+        "categoryName": "Hepatitis A, C & E Markers",
+        "testsIncluded": [
+          "HAV - IgM",
+          "HAV - Total",
+          "HCV Antibody",
+          "HEV - IgM",
+          "HEV - IgG"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pkg-hiv-early-detection",
+    "slug": "hiv-early-detection-profile",
+    "name": "HIV-Early Detection Profile",
+    "category": "Other Diagnostic Packages",
+    "tagline": "4th Generation Dual Antibody & P24 Antigen Early Screen",
+    "description": "Ultra-sensitive 4th-generation assay identifying HIV-1 and HIV-2 antibodies alongside the P24 capsid antigen, significantly narrowing the diagnostic window period.",
+    "price": 4400,
+    "originalPrice": 6000,
+    "discountPercentage": 27,
+    "testCount": 2,
+    "turnaroundTime": "24 Hours",
+    "fastingRequirement": "No Fasting Required",
+    "recommendedFor": "Post-exposure assessment, early detection window, high clinical confidentiality",
+    "isPopular": false,
+    "includedCategories": [
+      {
+        "categoryName": "Early Detection Serology",
+        "testsIncluded": [
+          "HIV-1 & HIV-2 Antibody",
+          "HIV-1 P24 Antigen"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pkg-hiv-profile",
+    "slug": "hiv-profile",
+    "name": "HIV Profile",
+    "category": "Other Diagnostic Packages",
+    "tagline": "Confirmatory Western Blot, CD4/CD8 Count & RT-PCR Viral Load",
+    "description": "Comprehensive reference panel offering Western Blot confirmation, CD3/CD4/CD8 immune staging, and quantitative RT-Real Time PCR viral load measurement.",
+    "price": 6500,
+    "originalPrice": 9500,
+    "discountPercentage": 32,
+    "testCount": 4,
+    "turnaroundTime": "48-72 Hours",
+    "fastingRequirement": "No Fasting Required",
+    "recommendedFor": "Patients requiring definitive confirmation, immune staging, or therapy response tracking",
+    "isPopular": false,
+    "includedCategories": [
+      {
+        "categoryName": "Molecular & Flow Cytometry Staging",
+        "testsIncluded": [
+          "HIV Western Blot",
+          "CD3 / CD4 / CD8 Flow Cytometry",
+          "HIV-1 Viral Load (Quantitative)",
+          "RT - Real Time PCR"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pkg-infectious-profile",
+    "slug": "infectious-profile",
+    "name": "Infectious Profile",
+    "category": "Other Diagnostic Packages",
+    "tagline": "Rapid Blood-Borne Infection Screen (HIV, HBsAg, HCV, VDRL)",
+    "description": "Standard four-parameter infection panel screening for major blood-borne and sexually transmitted pathogens: HIV 1&2, Hepatitis B Surface Antigen, Hepatitis C Antibody, and Syphilis (VDRL).",
+    "price": 1000,
+    "originalPrice": 1800,
+    "discountPercentage": 44,
+    "testCount": 4,
+    "turnaroundTime": "Same Day (6-8 Hours)",
+    "fastingRequirement": "No Fasting Required",
+    "recommendedFor": "Pre-operative fitness, pre-marital checkup, healthcare employment, or routine blood screening",
+    "isPopular": true,
+    "includedCategories": [
+      {
+        "categoryName": "Blood-Borne Infection Serologies",
+        "testsIncluded": [
+          "HIV 1 & 2 Antibody Screen",
+          "Hepatitis B Surface Antigen (HBsAg)",
+          "Hepatitis C Virus Antibody (HCV)",
+          "VDRL / RPR for Syphilis"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pkg-infertility-male",
+    "slug": "infertility-male-profile",
+    "name": "Infertility Male Profile",
+    "category": "Men's Health Packages",
+    "tagline": "Comprehensive Male Hormones, Semen Analysis & Chlamydia Screen",
+    "description": "Holistic male fertility evaluation combining pituitary and androgen hormones, semen routine and culture, sperm antibodies, Chlamydia serologies, CBC, sugars, and renal profile.",
+    "price": 4500,
+    "originalPrice": 7000,
+    "discountPercentage": 36,
+    "testCount": 12,
+    "turnaroundTime": "24-48 Hours",
+    "fastingRequirement": "10-12 Hours Fasting Required; 3-5 Days Abstinence for Semen Sample",
+    "recommendedFor": "Men investigating reproductive health, couples evaluating conception difficulties",
+    "isPopular": false,
+    "includedCategories": [
+      {
+        "categoryName": "Hormones & Immunology",
+        "testsIncluded": [
+          "FSH",
+          "LH",
+          "Prolactin",
+          "Total Testosterone",
+          "Sperm Antibody",
+          "Chlamydia IgG / IgA"
+        ]
+      },
+      {
+        "categoryName": "Semen & Urine Investigations",
+        "testsIncluded": [
+          "Semen Routine Examination & Culture",
+          "Urine Routine & Culture (Spot 10mL)",
+          "Spectrophotometry / Culture"
+        ]
+      },
+      {
+        "categoryName": "Hematology & Metabolic Vitals",
+        "testsIncluded": [
+          "Complete Blood Count (CBC)",
+          "Fasting Blood Sugar (FBS)",
+          "Post Prandial Blood Sugar (PPBS)",
+          "Serum Creatinine",
+          "Blood Urea Nitrogen (BUN)"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pkg-infertility-female",
+    "slug": "infertility-female-profile",
+    "name": "Infertility Female Profile",
+    "category": "Women's Health Packages",
+    "tagline": "AMH Ovarian Reserve, Gonadotropins, Chlamydia & Complete Vitals",
+    "description": "In-depth female fertility workup measuring Anti-Mullerian Hormone (AMH), FSH, LH, Prolactin, TSH, Sperm Antibodies, Chlamydia serologies, CBC, Blood Grouping, and metabolic vitals.",
+    "price": 6200,
+    "originalPrice": 9500,
+    "discountPercentage": 35,
+    "testCount": 13,
+    "turnaroundTime": "24-48 Hours",
+    "fastingRequirement": "10-12 Hours Fasting Required",
+    "recommendedFor": "Women planning conception, assessing ovarian reserve, or investigating recurrent implantation issues",
+    "isPopular": true,
+    "includedCategories": [
+      {
+        "categoryName": "Ovarian Reserve & Hormones",
+        "testsIncluded": [
+          "Anti-Mullerian Hormone (AMH)",
+          "FSH",
+          "LH",
+          "Prolactin",
+          "TSH",
+          "Sperm Antibody",
+          "Chlamydia IgG / IgA"
+        ]
+      },
+      {
+        "categoryName": "Hematology & Blood Group",
+        "testsIncluded": [
+          "Complete Blood Count (CBC)",
+          "Blood Grouping & Rh Factor"
+        ]
+      },
+      {
+        "categoryName": "Metabolic & Urine Evaluation",
+        "testsIncluded": [
+          "Fasting Blood Sugar (FBS)",
+          "Post Prandial Blood Sugar (PPBS)",
+          "Serum Creatinine",
+          "Blood Urea Nitrogen (BUN)",
+          "Urine Routine & Culture"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pkg-menopause-maxi",
+    "slug": "menopause-maxi-profile",
+    "name": "Menopause Maxi Profile",
+    "category": "Women's Health Packages",
+    "tagline": "Hormonal Transition, Bone Minerals, Thyroid & Lipid Panel",
+    "description": "Comprehensive evaluation designed for perimenopausal and menopausal women. Evaluates estrogen decline (E2), gonadotropins (FSH, LH), thyroid health, bone minerals (Calcium, Phosphorus), and lipids.",
+    "price": 1800,
+    "originalPrice": 3200,
+    "discountPercentage": 44,
+    "testCount": 10,
+    "turnaroundTime": "24 Hours",
+    "fastingRequirement": "10-12 Hours Fasting Required",
+    "recommendedFor": "Women aged 40+ experiencing hot flushes, mood changes, irregular cycles, or joint stiffness",
+    "isPopular": false,
+    "includedCategories": [
+      {
+        "categoryName": "Menopausal Hormones & Thyroid",
+        "testsIncluded": [
+          "FSH",
+          "LH",
+          "Estradiol (E2)",
+          "TSH",
+          "Free T4"
+        ]
+      },
+      {
+        "categoryName": "Bone Minerals & Lipid Profile",
+        "testsIncluded": [
+          "Serum Calcium",
+          "Phosphorous",
+          "Serum Albumin",
+          "Alkaline Phosphatase (ALP)",
+          "Lipid Profile"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pkg-obesity-profile",
+    "slug": "obesity-profile",
+    "name": "Obesity Profile",
+    "category": "Full Body Checkup",
+    "tagline": "Adipokines (Leptin, Adiponectin), Cortisol & Metabolic Panel",
+    "description": "Specialized profile examining hormonal and adipokine drivers of weight gain: Adiponectin, Leptin, Morning Cortisol, Thyroid Profile, FBS, Lipids, Electrolytes, Creatinine, and Uric Acid.",
+    "price": 5500,
+    "originalPrice": 8500,
+    "discountPercentage": 35,
+    "testCount": 14,
+    "turnaroundTime": "24-48 Hours",
+    "fastingRequirement": "10-12 Hours Fasting Required (Morning Sample)",
+    "recommendedFor": "Individuals struggling with unexplained weight gain, metabolic syndrome, or pre-bariatric workup",
+    "isPopular": false,
+    "includedCategories": [
+      {
+        "categoryName": "Adipokines & Stress Hormones",
+        "testsIncluded": [
+          "Serum Adiponectin",
+          "Serum Leptin",
+          "Serum Cortisol (Morning)"
+        ]
+      },
+      {
+        "categoryName": "Thyroid & Glycemic Vitals",
         "testsIncluded": [
           "Total T3",
           "Total T4",
-          "Free T3",
-          "Free T4",
-          "TSH High Sensitivity"
+          "TSH",
+          "Fasting Blood Sugar (FBS)"
         ]
       },
       {
-        "categoryName": "Autoimmune Thyroid Marker",
+        "categoryName": "Lipids, Renal & Electrolytes",
         "testsIncluded": [
-          "Anti-TPO Antibody"
-        ]
-      }
-    ]
-  },
-  {
-    "id": "pkg-4",
-    "slug": "active-mens-health-package",
-    "name": "Active Men's Health Package",
-    "category": "Men's Health Packages",
-    "tagline": "Tailored Wellness & Vitality Screening for Men",
-    "description": "Addresses prostate health, testosterone levels, cardiovascular performance, bone strength, and liver/kidney vitality.",
-    "price": 1899,
-    "originalPrice": 4500,
-    "discountPercentage": 57,
-    "testCount": 65,
-    "turnaroundTime": "24 Hours",
-    "fastingRequirement": "10-12 Hours Fasting Required",
-    "recommendedFor": "Men Aged 30+",
-    "isPopular": true,
-    "includedCategories": [
-      {
-        "categoryName": "Hormones & Prostate",
-        "testsIncluded": [
-          "Total Testosterone",
-          "PSA (Prostate Specific Antigen)"
-        ]
-      },
-      {
-        "categoryName": "Vitamins & Minerals",
-        "testsIncluded": [
-          "Vitamin D3",
-          "Vitamin B12",
-          "Serum Calcium"
-        ]
-      },
-      {
-        "categoryName": "Full Organ Screening",
-        "testsIncluded": [
-          "CBC",
           "Lipid Profile",
-          "LFT",
-          "KFT",
-          "HbA1c",
-          "Urine Routine"
+          "Serum Electrolytes (Na, K, Cl)",
+          "Serum Creatinine",
+          "Serum Calcium",
+          "Phosphorus",
+          "Serum Uric Acid",
+          "Complete Urine Examination"
         ]
       }
     ]
   },
   {
-    "id": "pkg-5",
-    "slug": "wellness-womens-health-package",
-    "name": "Wellness Women's Health Package",
-    "category": "Women's Health Packages",
-    "tagline": "Comprehensive Screening for Hormonal & Bone Health",
-    "description": "Formulated for women to evaluate anemia risk, thyroid wellness, bone density markers, reproductive hormones, and metabolic health.",
-    "price": 1899,
-    "originalPrice": 4500,
-    "discountPercentage": 57,
-    "testCount": 68,
-    "turnaroundTime": "24 Hours",
+    "id": "pkg-osteoporosis-maxi",
+    "slug": "osteoporosis-maxi-profile",
+    "name": "Osteoporosis Maxi Profile",
+    "category": "Senior Citizen Packages",
+    "tagline": "Advanced Bone Turnover Markers, Vitamin D, PTH & Beta-Crosslaps",
+    "description": "High-precision assessment of bone density and turnover: Parathyroid Hormone (PTH), 25-OH Vitamin D, Osteocalcin, P1NP, Beta-2 Crosslaps, DPD, Estradiol, Calcium, and Phosphorus.",
+    "price": 7200,
+    "originalPrice": 11000,
+    "discountPercentage": 35,
+    "testCount": 10,
+    "turnaroundTime": "48 Hours",
     "fastingRequirement": "10-12 Hours Fasting Required",
-    "recommendedFor": "Women Aged 25+",
+    "recommendedFor": "Post-menopausal women, senior citizens, patients with osteoporosis or fracture history",
+    "isPopular": false,
+    "includedCategories": [
+      {
+        "categoryName": "Bone Formation & Resorption Markers",
+        "testsIncluded": [
+          "Osteocalcin",
+          "P1NP (Procollagen Type 1 N-Terminal Propeptide)",
+          "Beta-2 Crosslaps",
+          "Deoxypyridinoline (DPD)",
+          "Alkaline Phosphatase - Bone Fraction"
+        ]
+      },
+      {
+        "categoryName": "Hormones & Minerals",
+        "testsIncluded": [
+          "25-OH Vitamin D",
+          "Parathyroid Hormone (PTH)",
+          "Estradiol (E2)",
+          "Serum Calcium",
+          "Serum Phosphorus",
+          "Alkaline Phosphatase - Total"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pkg-parathyroid-profile",
+    "slug": "parathyroid-profile",
+    "name": "Parathyroid Profile",
+    "category": "Other Diagnostic Packages",
+    "tagline": "Intact PTH, Ionised Calcium, Urine Calcium & Magnesium Panel",
+    "description": "Diagnostic evaluation for hyper- or hypoparathyroidism correlating intact PTH hormone with total serum calcium, ionised calcium, urine calcium, magnesium, and alkaline phosphatase.",
+    "price": 2200,
+    "originalPrice": 3600,
+    "discountPercentage": 39,
+    "testCount": 8,
+    "turnaroundTime": "24 Hours",
+    "fastingRequirement": "8-10 Hours Fasting Recommended",
+    "recommendedFor": "Patients with abnormal calcium levels, kidney stones, bone pain, or parathyroid adenoma suspicion",
+    "isPopular": false,
+    "includedCategories": [
+      {
+        "categoryName": "Parathyroid & Calcium Dynamics",
+        "testsIncluded": [
+          "Parathyroid Hormone (PTH)",
+          "Serum Calcium",
+          "Ionised Calcium",
+          "Urine Calcium (24hr / Spot)"
+        ]
+      },
+      {
+        "categoryName": "Proteins & Mineral Cofactors",
+        "testsIncluded": [
+          "Serum Magnesium",
+          "Alkaline Phosphatase (ALP)",
+          "Total Protein",
+          "Serum Creatinine"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pkg-pancreatic-profile",
+    "slug": "pancreatic-profile",
+    "name": "Pancreatic Profile",
+    "category": "Other Diagnostic Packages",
+    "tagline": "Serum Amylase, Lipase, Bilirubin & Complete Hemogram",
+    "description": "Essential diagnostic profile to assess acute or chronic pancreatic inflammation, measuring serum amylase and lipase with CBC, serum calcium, and bilirubin.",
+    "price": 1500,
+    "originalPrice": 2400,
+    "discountPercentage": 38,
+    "testCount": 5,
+    "turnaroundTime": "Same Day (8-12 Hours)",
+    "fastingRequirement": "Fasting Preferred (8 Hours)",
+    "recommendedFor": "Patients presenting with severe upper abdominal pain, nausea, or pancreatitis follow-up",
+    "isPopular": false,
+    "includedCategories": [
+      {
+        "categoryName": "Pancreatic Enzymes & Chemistry",
+        "testsIncluded": [
+          "Serum Amylase",
+          "Serum Lipase",
+          "Serum Calcium",
+          "Serum Bilirubin (Total & Direct)",
+          "Complete Blood Count (CBC)"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pkg-prostate-cancer",
+    "slug": "prostate-cancer-profile",
+    "name": "Prostate Cancer Profile",
+    "category": "Men's Health Packages",
+    "tagline": "Total & Free PSA, PSA Ratio, Prostatic Acid Phosphatase & Beta-2M",
+    "description": "Dedicated screening for benign prostatic hyperplasia (BPH) and prostate malignancies. Measures Total PSA, Free PSA, Free/Total Ratio, Prostatic Acid Phosphatase, Ferritin, and Beta-2 Microglobulin.",
+    "price": 2500,
+    "originalPrice": 4200,
+    "discountPercentage": 40,
+    "testCount": 5,
+    "turnaroundTime": "24 Hours",
+    "fastingRequirement": "No Fasting Required (Avoid vigorous exercise / cycling prior to test)",
+    "recommendedFor": "Men aged 45+ or those experiencing urinary frequency, hesitancy, or weak stream",
     "isPopular": true,
     "includedCategories": [
       {
-        "categoryName": "Anemia & Bone Wellness",
+        "categoryName": "Prostate Tumor Markers",
+        "testsIncluded": [
+          "PSA - Total",
+          "PSA - Free",
+          "Total PSA / Free PSA Ratio",
+          "Prostatic Acid Phosphatase (PAP)"
+        ]
+      },
+      {
+        "categoryName": "Oncology Screening Biomarkers",
+        "testsIncluded": [
+          "Beta 2-Microglobulin",
+          "Serum Ferritin"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pkg-pre-operative-maxi",
+    "slug": "pre-operative-maxi-profile",
+    "name": "Pre-Operative Maxi Profile",
+    "category": "Full Body Checkup",
+    "tagline": "Mandatory Pre-Surgical Diagnostic Safety & Fitness Clearance",
+    "description": "Comprehensive pre-anesthesia profile including Blood Grouping, Complete Blood Count, Urine Routine, Renal function (BUN, Creatinine), Fasting Glucose, and Viral Screening (HIV, HBsAg, HCV).",
+    "price": 2200,
+    "originalPrice": 3800,
+    "discountPercentage": 42,
+    "testCount": 10,
+    "turnaroundTime": "Same Day (8-12 Hours)",
+    "fastingRequirement": "10-12 Hours Fasting Required",
+    "recommendedFor": "Patients scheduled for surgical interventions, daycare procedures, or endoscopic surgeries",
+    "isPopular": false,
+    "includedCategories": [
+      {
+        "categoryName": "Hematology & Blood Bank Safety",
+        "testsIncluded": [
+          "Complete Blood Count (CBC)",
+          "Cell Counter / Microscopy",
+          "Blood Grouping & Rh Factor"
+        ]
+      },
+      {
+        "categoryName": "Metabolic, Renal & Viral Clearance",
+        "testsIncluded": [
+          "Fasting Blood Sugar (FBS)",
+          "Blood Urea Nitrogen (BUN)",
+          "Serum Creatinine",
+          "Complete Urine Examination",
+          "HIV 1 & 2 Screen",
+          "HBsAg (Hepatitis B)",
+          "Anti-HCV (Hepatitis C)"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pkg-std-maxi",
+    "slug": "sexually-transmitted-diseases-std-maxi-profile",
+    "name": "Sexually transmitted Diseases (STD) Maxi Profile",
+    "category": "Other Diagnostic Packages",
+    "tagline": "Molecular Multiplex PCR for HPV, Chlamydia, HSV & HIV-1 RNA",
+    "description": "Ultra-sensitive molecular nucleic acid amplification (NAAT/PCR) detecting high-risk Human Papillomavirus (HPV) DNA, Chlamydia Trachomatis DNA, Herpes Simplex Virus (HSV) DNA, and HIV-1 RNA across 24 parameters.",
+    "price": 14500,
+    "originalPrice": 21000,
+    "discountPercentage": 31,
+    "testCount": 24,
+    "turnaroundTime": "48-72 Hours",
+    "fastingRequirement": "No Fasting Required",
+    "recommendedFor": "Complete confidential sexual health screening, molecular pathogen verification",
+    "isPopular": false,
+    "includedCategories": [
+      {
+        "categoryName": "Multiplex Molecular PCR / NAAT",
+        "testsIncluded": [
+          "HPV - DNA (High Risk & Low Risk Genotypes)",
+          "Chlamydia Trachomatis DNA",
+          "Herpes Simplex Virus (HSV) 1 & 2 DNA",
+          "HIV-1 RNA (Quantitative / Qualitative)"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pkg-thalassemia",
+    "slug": "thalassemia-profile",
+    "name": "Thalassemia Profile",
+    "category": "Other Diagnostic Packages",
+    "tagline": "HPLC Hemoglobin Electrophoresis, Iron & Cardiolipin Antibodies",
+    "description": "Definitive profile for hemoglobinopathies: Hemoglobin Electrophoresis by HPLC, Iron Profile (Iron, TIBC, %Transferrin), Vitamin B12, and Anti-Cardiolipin Antibodies.",
+    "price": 1650,
+    "originalPrice": 2800,
+    "discountPercentage": 41,
+    "testCount": 6,
+    "turnaroundTime": "24-48 Hours",
+    "fastingRequirement": "10-12 Hours Fasting Required",
+    "recommendedFor": "Pre-marital screening, family history of thalassemia, microcytic hypochromic anemia unresponsive to iron",
+    "isPopular": false,
+    "includedCategories": [
+      {
+        "categoryName": "Hemoglobin Variant Analysis",
+        "testsIncluded": [
+          "Hemoglobin Electrophoresis (HPLC / Hb Variants)",
+          "Anti-Cardiolipin Antibodies"
+        ]
+      },
+      {
+        "categoryName": "Iron Metabolism & Vitamin B12",
         "testsIncluded": [
           "Serum Iron",
           "Total Iron Binding Capacity (TIBC)",
-          "Ferritin",
-          "Vitamin D3",
-          "Serum Calcium"
-        ]
-      },
-      {
-        "categoryName": "Hormone & Thyroid Profile",
-        "testsIncluded": [
-          "Thyroid Profile (T3, T4, TSH)",
-          "Fasting Blood Sugar",
-          "HbA1c"
-        ]
-      },
-      {
-        "categoryName": "Comprehensive Organ Panels",
-        "testsIncluded": [
-          "CBC",
-          "Lipid Profile",
-          "Liver Function Test",
-          "Kidney Function Test"
+          "% Transferrin Saturation",
+          "Vitamin B12"
         ]
       }
     ]
   },
   {
-    "id": "pkg-6",
-    "slug": "senior-citizen-golden-care-package",
-    "name": "Senior Citizen Golden Care Package",
-    "category": "Senior Citizen Packages",
-    "tagline": "Holistic Health Protection & Chronic Illness Screening for Seniors",
-    "description": "Specialized multi-system package evaluating cardiac function, joint markers, renal filtration, diabetes, and essential vitamins in elderly adults.",
-    "price": 2199,
-    "originalPrice": 5500,
-    "discountPercentage": 60,
-    "testCount": 82,
-    "turnaroundTime": "24 Hours",
-    "fastingRequirement": "10-12 Hours Fasting Required",
-    "recommendedFor": "Seniors Aged 60+",
+    "id": "pkg-thyroid-comprehensive",
+    "slug": "thyroid-comprehensive-profile",
+    "name": "Thyroid Comprehensive Profile",
+    "category": "Thyroid Packages",
+    "tagline": "Total, Free & Autoimmune Antibodies (Anti-TPO & Anti-TG)",
+    "description": "Complete 7-parameter thyroid evaluation measuring active hormones and autoimmune markers: T3, T4, TSH, Free T3 (FT3), Free T4 (FT4), Anti-Thyroperoxidase (ATPO), and Anti-Thyroglobulin (ATG).",
+    "price": 1500,
+    "originalPrice": 2600,
+    "discountPercentage": 42,
+    "testCount": 7,
+    "turnaroundTime": "Same Day (8-12 Hours)",
+    "fastingRequirement": "Overnight Fasting Recommended (Morning Sample)",
+    "recommendedFor": "Suspected Hashimoto's thyroiditis, Graves' disease, nodules, or refractory thyroid disorders",
     "isPopular": true,
     "includedCategories": [
       {
-        "categoryName": "Joint & Cardiac Markers",
+        "categoryName": "Total & Free Thyroid Hormones",
         "testsIncluded": [
-          "High Sensitivity CRP (hs-CRP)",
-          "Rheumatoid Factor (RA Factor)",
-          "Uric Acid",
-          "Serum Calcium",
-          "Phosphorus"
+          "Total T3",
+          "Total T4",
+          "TSH (Ultrasensitive)",
+          "Free T3 (FT3)",
+          "Free T4 (FT4)"
         ]
       },
       {
-        "categoryName": "Essential Vitamins & Hormones",
+        "categoryName": "Autoimmune Thyroid Antibodies",
         "testsIncluded": [
-          "Vitamin D3",
-          "Vitamin B12",
-          "Thyroid TSH"
+          "Anti-TPO Antibody (ATPO)",
+          "Anti-Thyroglobulin Antibody (ATG)"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pkg-torch-10",
+    "slug": "torch-10-profile",
+    "name": "TORCH 10 Profile (IgG & IgM)",
+    "category": "Women's Health Packages",
+    "tagline": "Antenatal Congenital Infection Screen (Toxo, Rubella, CMV, HSV)",
+    "description": "Critical prenatal antibody panel testing both IgG and IgM for Toxoplasmosis, Rubella, Cytomegalovirus (CMV), and Herpes Simplex Virus 1 & 2 to prevent congenital complications.",
+    "price": 2200,
+    "originalPrice": 3800,
+    "discountPercentage": 42,
+    "testCount": 10,
+    "turnaroundTime": "24-48 Hours",
+    "fastingRequirement": "No Fasting Required",
+    "recommendedFor": "Pre-conception checkup, early pregnancy screening, recurrent pregnancy loss workup",
+    "isPopular": true,
+    "includedCategories": [
+      {
+        "categoryName": "TORCH Specific Antibodies (IgG & IgM)",
+        "testsIncluded": [
+          "Toxoplasma Gondii IgG & IgM",
+          "Rubella Virus IgG & IgM",
+          "Cytomegalovirus (CMV) IgG & IgM",
+          "Herpes Simplex Virus 1 (HSV-1) IgG & IgM",
+          "Herpes Simplex Virus 2 (HSV-2) IgG & IgM"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pkg-vitamin-b-complex",
+    "slug": "vitamin-b-complex-profile",
+    "name": "Vitamin B Complex profile",
+    "category": "Other Diagnostic Packages",
+    "tagline": "Complete Water-Soluble B-Vitamin Coenzyme Assessment",
+    "description": "Comprehensive profiling of essential B vitamins vital for cellular energy, nerve health, and RBC synthesis: Vitamin B1 (Thiamine), B2 (Riboflavin), B6 (Pyridoxine), B9 (Folate), and B12 (Cobalamin).",
+    "price": 5400,
+    "originalPrice": 8500,
+    "discountPercentage": 36,
+    "testCount": 5,
+    "turnaroundTime": "48 Hours",
+    "fastingRequirement": "10-12 Hours Fasting Required",
+    "recommendedFor": "Neuropathy, chronic fatigue, malabsorption, vegetarian diets, or memory concerns",
+    "isPopular": false,
+    "includedCategories": [
+      {
+        "categoryName": "B-Complex Vitamins",
+        "testsIncluded": [
+          "Vitamin B1 (Thiamine)",
+          "Vitamin B2 (Riboflavin)",
+          "Vitamin B6 (Pyridoxal Phosphate)",
+          "Vitamin B9 (Folic Acid)",
+          "Vitamin B12 (Cyanocobalamin)"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pkg-clinova-ayush-3",
+    "slug": "clinova-ayush-profile-3",
+    "name": "CLINOVA AYUSH PROFILE 3",
+    "category": "Full Body Checkup",
+    "tagline": "Master Wellness Profile with Vitamin D, B12, HbA1c & Iron",
+    "description": "Accredited multi-organ preventive health check covering Lipid Profile, Kidney Basic Screen, Liver Function Test, Iron Profile, Thyroid Profile I, HbA1c, Hemogram, Calcium, Vitamin-B12, and 25-Hydroxy Vitamin D Total.",
+    "price": 2500,
+    "originalPrice": 4500,
+    "discountPercentage": 44,
+    "testCount": 11,
+    "turnaroundTime": "24 Hours",
+    "fastingRequirement": "10-12 Hours Fasting Required",
+    "recommendedFor": "Men & women wanting an all-inclusive wellness checkup with vitamins and HbA1c",
+    "isPopular": true,
+    "includedCategories": [
+      {
+        "categoryName": "Metabolic & Vitamin Screening",
+        "testsIncluded": [
+          "HbA1c - Glycated Hemoglobin",
+          "Vitamin-B12",
+          "25-Hydroxy Vitamin D Total (D2 & D3)",
+          "Serum Calcium"
         ]
       },
       {
-        "categoryName": "Complete Body Vitality",
+        "categoryName": "Core Organ Profiles",
         "testsIncluded": [
-          "CBC Hemogram",
-          "Full Lipid Profile",
-          "LFT",
-          "KFT",
+          "Lipid Profile",
+          "Kidney Basic Screen",
+          "Liver Function Test (LFT)",
+          "Iron Profile",
+          "Thyroid Profile I",
+          "Complete Hemogram (Cell Counter / Microscopy)"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pkg-clinova-ayush-2",
+    "slug": "clinova-ayush-profile-2",
+    "name": "CLINOVA AYUSH PROFILE 2",
+    "category": "Full Body Checkup",
+    "tagline": "Preventative Organ Health, Hemogram & Glycemic Screen",
+    "description": "Foundational clinical profile evaluating Lipid Profile, Kidney Basic Screen, Liver Function Test, Iron Profile, Thyroid Profile I, HbA1c, Hemogram, and Calcium.",
+    "price": 1600,
+    "originalPrice": 3000,
+    "discountPercentage": 47,
+    "testCount": 9,
+    "turnaroundTime": "24 Hours",
+    "fastingRequirement": "10-12 Hours Fasting Required",
+    "recommendedFor": "Annual preventative screening covering all major vital organ functions",
+    "isPopular": true,
+    "includedCategories": [
+      {
+        "categoryName": "Organ Function & Metabolic Vitals",
+        "testsIncluded": [
+          "Lipid Profile",
+          "Kidney Basic Screen",
+          "Liver Function Test (LFT)",
+          "Iron Profile",
+          "Thyroid Profile I",
           "HbA1c",
-          "Urine Routine"
+          "Serum Calcium",
+          "Complete Hemogram (Cell Counter / Microscopy)"
         ]
       }
     ]

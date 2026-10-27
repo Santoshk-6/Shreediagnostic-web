@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { usePathname } from "next/navigation";
-import { X, Calendar } from "lucide-react";
+import { X, Calendar, ChevronLeft, ChevronRight } from "lucide-react";
 import promotionsData from "@/data/promotions.json";
 
 interface Promotion {
@@ -24,59 +24,19 @@ const POPUP_ELIGIBLE_PROMOS = ALL_PROMOTIONS.filter(
 );
 const TOTAL_POSTERS = POPUP_ELIGIBLE_PROMOS.length;
 
-// Timing configuration for the advertisement popup
-const INITIAL_AUTO_POPUP_DELAY_MS = 3500; // 3.5 seconds after page load
-const REVISIT_RESHOW_INTERVAL_MS = 45000;  // 45 seconds interval before showing again
-const SESSION_DISMISSED_KEY = "sdc_promo_popup_dismissed_session";
-const LAST_SHOWN_TIME_KEY = "sdc_google_ad_last_shown_time";
-const LAST_PROMO_INDEX_KEY = "sdc_google_ad_last_promo_idx";
+// Exact required timings
+const INITIAL_DELAY_MS = 3500;    // 3.5 seconds initial delay after page load
+const REAPPEAR_INTERVAL_MS = 45000; // Popup reappears every 45 seconds
+const SLIDE_INTERVAL_MS = 25000;   // Slider automatically moves to next slide every 25 seconds
 
-/**
- * Pure helper to pick a single separate, random advertisement index for the given route
- * (Filtered strictly to _v and _h images)
- */
-function pickRandomAdIndex(currentPath: string): number {
-  if (TOTAL_POSTERS === 0) return 0;
+function getNextIndex(currentIdx: number): number {
+  if (TOTAL_POSTERS <= 1) return 0;
+  return (currentIdx + 1) % TOTAL_POSTERS;
+}
 
-  let pageKey = "home";
-  if (currentPath.startsWith("/services")) pageKey = "services";
-  else if (currentPath.startsWith("/health-packages")) pageKey = "health-packages";
-  else if (currentPath.startsWith("/home-sample-collection")) pageKey = "home-sample-collection";
-  else if (currentPath.startsWith("/partners")) pageKey = "partners";
-  else if (currentPath.startsWith("/contact")) pageKey = "contact";
-  else if (currentPath.startsWith("/about")) pageKey = "about";
-
-  // Find candidate posters that target this page
-  const targetedIndices: number[] = [];
-  POPUP_ELIGIBLE_PROMOS.forEach((promo, idx) => {
-    const pages = promo.showOnPages || ["all"];
-    if (pages.includes(pageKey)) {
-      targetedIndices.push(idx);
-    }
-  });
-
-  const candidateIndices =
-    targetedIndices.length > 0 ? targetedIndices : POPUP_ELIGIBLE_PROMOS.map((_, i) => i);
-
-  // Retrieve last shown index to guarantee showing a DIFFERENT separate poster
-  let lastIndex = -1;
-  try {
-    const stored = sessionStorage.getItem(LAST_PROMO_INDEX_KEY);
-    if (stored !== null) lastIndex = parseInt(stored, 10);
-  } catch {}
-
-  // Exclude last shown index if possible
-  const filtered = candidateIndices.filter((idx) => idx !== lastIndex);
-  const pool = filtered.length > 0 ? filtered : candidateIndices;
-
-  // Pick one random poster
-  const randomIndex = pool[Math.floor(Math.random() * pool.length)];
-
-  try {
-    sessionStorage.setItem(LAST_PROMO_INDEX_KEY, randomIndex.toString());
-  } catch {}
-
-  return randomIndex;
+function getPrevIndex(currentIdx: number): number {
+  if (TOTAL_POSTERS <= 1) return 0;
+  return (currentIdx - 1 + TOTAL_POSTERS) % TOTAL_POSTERS;
 }
 
 export const PromoPopup = () => {
@@ -86,13 +46,9 @@ export const PromoPopup = () => {
     TOTAL_POSTERS > 0 ? Math.floor(Math.random() * TOTAL_POSTERS) : 0
   );
 
-  // When visitor closes popup, suppress it for remainder of that browser session
+  // Close the popup when user clicks X or backdrop
   const close = useCallback(() => {
     setVisible(false);
-    try {
-      sessionStorage.setItem(SESSION_DISMISSED_KEY, "true");
-      sessionStorage.setItem(LAST_SHOWN_TIME_KEY, Date.now().toString());
-    } catch {}
   }, []);
 
   // Keyboard navigation: Escape key to close
@@ -105,72 +61,73 @@ export const PromoPopup = () => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [visible, close]);
 
-  // Listen for manual trigger events (dispatched from banners or buttons)
+  // Listen for manual trigger events (e.g. from buttons/banners)
   useEffect(() => {
     const handleManualOpen = () => {
-      setCurrentIndex(pickRandomAdIndex(pathname));
+      setCurrentIndex((prev) => getNextIndex(prev));
       setVisible(true);
     };
     window.addEventListener("open-promo-popup", handleManualOpen);
     return () => window.removeEventListener("open-promo-popup", handleManualOpen);
+  }, []);
+
+  // Initial delay (3.5s) to display popup on page load
+  useEffect(() => {
+    if (pathname.startsWith("/services")) return;
+
+    const initialTimer = setTimeout(() => {
+      setCurrentIndex((prev) => getNextIndex(prev));
+      setVisible(true);
+    }, INITIAL_DELAY_MS);
+
+    return () => clearTimeout(initialTimer);
   }, [pathname]);
 
-  // Automatic advertisement display logic
+  // Reappear every 45 seconds while visitor remains on the website
   useEffect(() => {
-    const checkAndShow = () => {
-      if (visible) return;
+    if (pathname.startsWith("/services")) return;
 
-      // Suppress if user closed popup during this browser session
-      try {
-        if (sessionStorage.getItem(SESSION_DISMISSED_KEY) === "true") {
-          return;
-        }
-      } catch {}
-
-      let lastShownTime = 0;
-      try {
-        const stored = sessionStorage.getItem(LAST_SHOWN_TIME_KEY);
-        if (stored) lastShownTime = parseInt(stored, 10) || 0;
-      } catch {}
-
-      const now = Date.now();
-      const elapsed = now - lastShownTime;
-
-      // Allow if first visit or if cooldown interval has passed
-      if (lastShownTime !== 0 && elapsed < REVISIT_RESHOW_INTERVAL_MS) {
-        return;
-      }
-
-      // Avoid interrupting the user while typing in forms
+    const reappearTimer = setInterval(() => {
+      // Do not interrupt if user is actively filling an input
       const activeElem = document.activeElement;
-      const isUserTypingInForm =
+      const isTyping =
         activeElem &&
         (activeElem.tagName === "INPUT" ||
           activeElem.tagName === "TEXTAREA" ||
           activeElem.tagName === "SELECT" ||
           activeElem.getAttribute("contenteditable") === "true");
 
-      if (isUserTypingInForm) {
-        return;
-      }
+      if (isTyping) return;
 
-      try {
-        sessionStorage.setItem(LAST_SHOWN_TIME_KEY, now.toString());
-      } catch {}
-
-      // Pick one fresh separate random ad (strictly _v or _h)
-      setCurrentIndex(pickRandomAdIndex(pathname));
+      // Reopen with the next promotional slide
+      setCurrentIndex((prev) => getNextIndex(prev));
       setVisible(true);
-    };
+    }, REAPPEAR_INTERVAL_MS);
 
-    const initialTimer = setTimeout(checkAndShow, INITIAL_AUTO_POPUP_DELAY_MS);
-    const periodicTimer = setInterval(checkAndShow, REVISIT_RESHOW_INTERVAL_MS);
+    return () => clearInterval(reappearTimer);
+  }, [pathname]);
 
-    return () => {
-      clearTimeout(initialTimer);
-      clearInterval(periodicTimer);
-    };
-  }, [pathname, visible]);
+  // While popup is open: automatically advance slide every 25 seconds
+  useEffect(() => {
+    if (!visible || TOTAL_POSTERS <= 1) return;
+
+    const slideTimer = setInterval(() => {
+      setCurrentIndex((prev) => getNextIndex(prev));
+    }, SLIDE_INTERVAL_MS);
+
+    return () => clearInterval(slideTimer);
+  }, [visible]);
+
+  // Manual next/prev controls
+  const handleNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCurrentIndex((prev) => getNextIndex(prev));
+  };
+
+  const handlePrev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCurrentIndex((prev) => getPrevIndex(prev));
+  };
 
   if (!visible || TOTAL_POSTERS === 0) return null;
 
@@ -180,12 +137,10 @@ export const PromoPopup = () => {
   // Dynamic Google Ad Container sizing based on poster format:
   // v = Vertical (skyscraper format, e.g. 3:4.2)
   // h = Horizontal (leaderboard format, e.g. 16:7.5)
-  // (Square _s images are excluded from popup)
   const getAspectClasses = () => {
     if (aspect === "v") {
       return "max-w-[430px] w-full max-h-[88vh] aspect-[3/4.2] sm:aspect-[0.72]";
     }
-    // "h" or landscape
     return "max-w-4xl w-full max-h-[75vh] aspect-[16/7.5] sm:aspect-[2.1]";
   };
 
@@ -206,7 +161,7 @@ export const PromoPopup = () => {
       role="dialog"
       aria-label="Shree Diagnostic Advertisement"
     >
-      {/* Single Static Google Display Advertisement Card (No Slider, No PDFs) */}
+      {/* Floating Advertisement Modal */}
       <div
         className={`relative ${getAspectClasses()} bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-200/90 my-auto flex flex-col group animate-in fade-in zoom-in-95 duration-200 select-none cursor-pointer`}
         onClick={(e) => {
@@ -215,7 +170,7 @@ export const PromoPopup = () => {
         }}
         title={`Sponsored: ${currentPromo.title} — Click to Book Test`}
       >
-        {/* Google Ad Header: Ad Label on Left, Close Button on Right */}
+        {/* Ad Header: Badge & Close Button */}
         <div className="absolute top-2.5 left-3 right-3 z-30 flex items-center justify-between pointer-events-none">
           {/* Ad Label & Brand attribution */}
           <div className="flex items-center gap-1.5 bg-black/65 backdrop-blur-md px-2.5 py-1 rounded-full text-white pointer-events-auto border border-white/15 shadow-md">
@@ -224,6 +179,9 @@ export const PromoPopup = () => {
             </span>
             <span className="text-[11px] font-bold text-white/95">
               Shree Diagnostic
+            </span>
+            <span className="text-[9px] text-slate-300 ml-1">
+              ({currentIndex + 1}/{TOTAL_POSTERS})
             </span>
           </div>
 
@@ -240,13 +198,49 @@ export const PromoPopup = () => {
           </button>
         </div>
 
-        {/* Poster Image — uses object-contain to preserve 100% full image proportions without text cropping */}
+        {/* Poster Image — object-contain ensures 100% full image proportions without text cropping */}
         <div className="relative w-full h-full overflow-hidden bg-slate-950 flex items-center justify-center">
           <img
             src={currentPromo.image}
             alt={currentPromo.title}
             className="w-full h-full object-contain object-center group-hover:scale-[1.01] transition-transform duration-300"
           />
+
+          {/* Manual Slider Navigation Arrows */}
+          {TOTAL_POSTERS > 1 && (
+            <>
+              <button
+                onClick={handlePrev}
+                aria-label="Previous promotional slide"
+                className="absolute left-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 hover:bg-teal-700 text-white flex items-center justify-center transition opacity-0 group-hover:opacity-100 border border-white/20 shadow-md cursor-pointer pointer-events-auto"
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+              <button
+                onClick={handleNext}
+                aria-label="Next promotional slide"
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 hover:bg-teal-700 text-white flex items-center justify-center transition opacity-0 group-hover:opacity-100 border border-white/20 shadow-md cursor-pointer pointer-events-auto"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </>
+          )}
+
+          {/* Slide Indicator Dots at Bottom Left */}
+          {TOTAL_POSTERS > 1 && (
+            <div className="absolute bottom-3 left-4 z-20 flex items-center gap-1 bg-black/60 backdrop-blur-md px-2 py-1 rounded-full border border-white/10 pointer-events-none">
+              {POPUP_ELIGIBLE_PROMOS.map((_, idx) => (
+                <span
+                  key={idx}
+                  className={`rounded-full transition-all ${
+                    idx === currentIndex
+                      ? "w-3.5 h-1.5 bg-teal-400"
+                      : "w-1.5 h-1.5 bg-white/40"
+                  }`}
+                />
+              ))}
+            </div>
+          )}
 
           {/* Bottom Right: Call-to-Action Pill */}
           <div className="absolute bottom-2.5 right-3 z-20 pointer-events-none">

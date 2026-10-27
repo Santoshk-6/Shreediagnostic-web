@@ -14,6 +14,8 @@ export const PackageComparisonTable = () => {
     setBookingModalOpen(true);
   };
 
+  const popularPackages = HEALTH_PACKAGES.filter((p) => p.isPopular).slice(0, 6);
+
   const comparisonFeatures = [
     { label: "Total Tests Included", key: "testCount", format: (val: any) => `${val} Parameters` },
     { label: "Complete Blood Count (CBC)", check: true },
@@ -51,7 +53,7 @@ export const PackageComparisonTable = () => {
               <th className="p-4 text-xs font-bold text-slate-500 uppercase tracking-wider w-1/4">
                 Package Feature
               </th>
-              {HEALTH_PACKAGES.map((pkg) => (
+              {popularPackages.map((pkg) => (
                 <th key={pkg.id} className="p-4 text-center min-w-[170px]">
                   <div className="space-y-1">
                     {pkg.isPopular && (
@@ -77,7 +79,7 @@ export const PackageComparisonTable = () => {
             {/* Row 1: Parameter Count */}
             <tr>
               <td className="p-4 font-bold text-slate-800 bg-slate-50/40">Total Parameters</td>
-              {HEALTH_PACKAGES.map((pkg) => (
+              {popularPackages.map((pkg) => (
                 <td key={pkg.id} className="p-4 text-center font-extrabold text-teal-800">
                   {pkg.testCount} Tests
                 </td>
@@ -87,7 +89,7 @@ export const PackageComparisonTable = () => {
             {/* Row 2: CBC */}
             <tr>
               <td className="p-4 text-slate-700">Complete Blood Count (CBC)</td>
-              {HEALTH_PACKAGES.map((pkg) => (
+              {popularPackages.map((pkg) => (
                 <td key={pkg.id} className="p-4 text-center">
                   <Check className="w-5 h-5 text-emerald-600 mx-auto" />
                 </td>
@@ -97,7 +99,7 @@ export const PackageComparisonTable = () => {
             {/* Row 3: Lipid Profile */}
             <tr>
               <td className="p-4 text-slate-700">Lipid Profile (Cholesterol)</td>
-              {HEALTH_PACKAGES.map((pkg) => (
+              {popularPackages.map((pkg) => (
                 <td key={pkg.id} className="p-4 text-center">
                   <Check className="w-5 h-5 text-emerald-600 mx-auto" />
                 </td>
@@ -107,7 +109,7 @@ export const PackageComparisonTable = () => {
             {/* Row 4: Liver & Kidney */}
             <tr>
               <td className="p-4 text-slate-700">Liver (LFT) & Kidney (KFT)</td>
-              {HEALTH_PACKAGES.map((pkg) => (
+              {popularPackages.map((pkg) => (
                 <td key={pkg.id} className="p-4 text-center">
                   <Check className="w-5 h-5 text-emerald-600 mx-auto" />
                 </td>
@@ -136,7 +138,7 @@ export const PackageComparisonTable = () => {
             {/* Row 6: Report Time */}
             <tr>
               <td className="p-4 font-semibold text-slate-800 bg-slate-50/40">Report Turnaround</td>
-              {HEALTH_PACKAGES.map((pkg) => (
+              {popularPackages.map((pkg) => (
                 <td key={pkg.id} className="p-4 text-center text-slate-600 font-medium">
                   {pkg.turnaroundTime}
                 </td>

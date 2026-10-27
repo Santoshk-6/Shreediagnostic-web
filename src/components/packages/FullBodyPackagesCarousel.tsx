@@ -2,16 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
-import {
-  ChevronLeft,
-  ChevronRight,
-  CheckCircle2,
-  Sparkles,
-  ArrowRight,
-  ShieldCheck,
-  Clock,
-  Activity
-} from "lucide-react";
+import { ChevronLeft, ChevronRight, CheckCircle2, Sparkles, ArrowRight, ShieldCheck, Clock, Activity, Building2 } from "lucide-react";
 import { HEALTH_PACKAGES, HealthPackage } from "@/data/packages";
 
 interface FullBodyPackagesCarouselProps {
@@ -120,6 +111,39 @@ export const FullBodyPackagesCarousel: React.FC<FullBodyPackagesCarouselProps> =
             >
               <ChevronRight className="w-5 h-5" />
             </button>
+          </div>
+        </div>
+
+        {/* PROMOTIONAL BANNER: CORPORATE & GROUP BOOKINGS */}
+        <div className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-teal-900 via-slate-900 to-cyan-950 border border-teal-500/30 p-6 sm:p-7 shadow-xl text-white">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div className="space-y-2">
+              <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-teal-400/10 border border-teal-400/30 text-teal-300 text-[10px] font-bold uppercase tracking-wider">
+                <Building2 className="w-3 h-3" />
+                <span>Special Discounts &amp; Group Rates</span>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+                Special Health Packages for Groups &amp; Corporates
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-300 max-w-2xl leading-relaxed">
+                Explore special pricing for corporate wellness programs, on-site health camps, employee checkups, and community screening drives.
+              </p>
+              <div className="flex flex-wrap gap-2 pt-1 text-[11px] text-teal-200">
+                <span className="bg-white/10 px-2.5 py-0.5 rounded-full border border-white/10">• Corporate Employee Checkups</span>
+                <span className="bg-white/10 px-2.5 py-0.5 rounded-full border border-white/10">• On-site Health Camps</span>
+                <span className="bg-white/10 px-2.5 py-0.5 rounded-full border border-white/10">• Custom Group Packages</span>
+              </div>
+            </div>
+
+            <div className="flex-shrink-0">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-2xl bg-gradient-to-r from-teal-400 to-cyan-400 hover:from-teal-300 hover:to-cyan-300 text-slate-950 font-black text-xs sm:text-sm shadow-xl transition-all hover:scale-105 cursor-pointer whitespace-nowrap"
+              >
+                <span>Contact Us</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
         </div>
 

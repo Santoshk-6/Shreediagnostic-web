@@ -12,7 +12,6 @@ import {
   Award,
   Clock,
   CheckCircle2,
-  Star,
   Users,
   Building2,
   MapPin,
@@ -46,6 +45,7 @@ import { BookingModal } from "@/components/booking/BookingModal";
 import { ScrollingBanner } from "@/components/promotions/ScrollingBanner";
 import { FullBodyPackagesCarousel } from "@/components/packages/FullBodyPackagesCarousel";
 import { PackageSpotlightSlider } from "@/components/home/PackageSpotlightSlider";
+import { PatientReviewsSection } from "@/components/home/PatientReviewsSection";
 
 // ---------------------------------------------------------------------------
 // Inline Popular Tests Search Sub-Component (search + category dropdown only)
@@ -253,35 +253,6 @@ export default function HomePage() {
     { title: "Transparent Upfront Pricing", desc: "Clear pricing with zero hidden phlebotomy or sample transport fees.", icon: Sparkles }
   ];
 
-  const testimonials = [
-    {
-      name: "Sanjay Malhotra",
-      location: "Central Metro • Executive Checkup",
-      rating: 5,
-      review: "The phlebotomist arrived promptly at 6:45 AM, completely equipped with sterile vacuum collection tubes. Got my Full Body 78-parameter report on WhatsApp by 3:30 PM. Truly world-class laboratory service!",
-      date: "Verified Patient • 2 days ago",
-      initials: "SM",
-      avatarBg: "bg-teal-700"
-    },
-    {
-      name: "Dr. Priya Roy",
-      location: "MD (Internal Medicine) • Clinical Partner",
-      rating: 5,
-      review: "As a consultant physician, diagnostic precision is paramount for my clinical prescriptions. Shree Diagnostic Center delivers consistent calibration accuracy, especially on HbA1c and thyroid panels.",
-      date: "Consultant Physician • 1 week ago",
-      initials: "PR",
-      avatarBg: "bg-blue-700"
-    },
-    {
-      name: "Ramesh Sharma",
-      location: "Senior Citizen • Golden Care Package",
-      rating: 5,
-      review: "Booking home collection was so simple. The technician was gentle and patient with my elderly mother. The detailed PDF report included clear graphical reference ranges that were easy to understand.",
-      date: "Verified Patient • 2 weeks ago",
-      initials: "RS",
-      avatarBg: "bg-emerald-700"
-    }
-  ];
 
   return (
     <div className="space-y-20 pb-20 bg-slate-50/50">
@@ -613,52 +584,8 @@ export default function HomePage() {
       </section>
 
 
-      {/* 9. GOOGLE REVIEWS & TESTIMONIALS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        <div className="text-center max-w-2xl mx-auto space-y-2">
-          <div className="flex items-center justify-center gap-1 text-amber-400 mb-1">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-5 h-5 fill-amber-400" />
-            ))}
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            Rated 4.9/5 by 12,000+ Verified Patients
-          </h2>
-          <p className="text-slate-500 text-xs sm:text-sm">Real patient experiences on our sample collection hygiene and reporting precision.</p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-          {testimonials.map((t, idx) => (
-            <div key={idx} className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 shadow-sm hover:shadow-lg transition-all space-y-5 flex flex-col justify-between">
-              <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-1 text-amber-400">
-                    {[...Array(t.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-amber-400" />
-                    ))}
-                  </div>
-                  <span className="text-[10px] font-bold text-teal-800 bg-teal-50 px-2 py-0.5 rounded">
-                    Google Review
-                  </span>
-                </div>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed italic">
-                  "{t.review}"
-                </p>
-              </div>
-
-              <div className="pt-3 border-t border-slate-100 flex items-center gap-3">
-                <div className={`w-9 h-9 rounded-full ${t.avatarBg} text-white font-bold text-xs flex items-center justify-center`}>
-                  {t.initials}
-                </div>
-                <div>
-                  <h4 className="text-xs font-bold text-slate-900">{t.name}</h4>
-                  <span className="text-[10px] text-slate-400 block">{t.location}</span>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* 9. PATIENT REVIEWS & FEEDBACK */}
+      <PatientReviewsSection />
 
       {/* 10. OUR PARTNERS & SPECIALIZED ALLIANCES (Requirement 1A) */}
       <section className="bg-slate-50 py-16 sm:py-20 border-y border-slate-200/60">
@@ -805,6 +732,7 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
+
 
       {/* 12. FINAL HIGH-IMPACT CALL TO ACTION */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
