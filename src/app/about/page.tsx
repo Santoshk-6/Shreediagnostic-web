@@ -26,6 +26,7 @@ export default function AboutPage() {
   const [activeGalleryTab, setActiveGalleryTab] = useState<"all" | "lab" | "reception" | "equipment">("all");
 
   const teamMembers = [
+    // comments 
     {
       name: "Dr. Ananya Sharma",
       role: "Chief Pathologist & Medical Director",
