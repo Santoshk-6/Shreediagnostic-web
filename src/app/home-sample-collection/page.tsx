@@ -19,15 +19,19 @@ import {
   CreditCard,
   MessageCircle,
   ArrowRight,
-  ArrowLeft
+  ArrowLeft,
+  Loader2
 } from "lucide-react";
 import { PincodeChecker } from "@/components/search/PincodeChecker";
 import { PATHOLOGY_TESTS } from "@/data/tests";
 import { HEALTH_PACKAGES } from "@/data/packages";
+import { submitToWeb3Forms } from "@/lib/web3forms";
 
 export default function HomeSampleCollectionPage() {
   const [step, setStep] = useState<"form" | "payment" | "confirmation">("form");
   const [bookingId, setBookingId] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionError, setSubmissionError] = useState("");
   const [paymentChoice, setPaymentChoice] = useState<"upi" | "pay_on_collection">("pay_on_collection");
 
   const [formData, setFormData] = useState({
@@ -50,9 +54,39 @@ export default function HomeSampleCollectionPage() {
     return 1499;
   };
 
-  const handleStep1Submit = (e: React.FormEvent) => {
+  const handleStep1Submit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+    setSubmissionError("");
+
     const id = "HOME-" + Math.floor(100000 + Math.random() * 900000);
+    const price = getSelectedItemPrice();
+
+    // Send email notification via Web3Forms
+    const result = await submitToWeb3Forms({
+      subject: `New Home Collection Request – ${formData.selectedItem} [${id}]`,
+      from_name: formData.patientName || "Website Visitor",
+      "Order Reference ID": id,
+      "Patient Name": formData.patientName,
+      "Mobile Number": formData.phone,
+      "Email Address": formData.email || "Not provided",
+      "Selected Test / Package": formData.selectedItem,
+      "Estimated Price": `₹${price}`,
+      "Doorstep Address": formData.address,
+      "Area Pincode": formData.pincode,
+      "Collection Date": formData.date,
+      "Time Slot": formData.timeSlot,
+      "Special Instructions": formData.message || "None",
+    });
+
+    setIsSubmitting(false);
+
+    if (!result.success) {
+      setSubmissionError("Could not send confirmation email. Please retry or call us directly.");
+      // Still allow the user to proceed — email is non-critical
+    }
+
     setBookingId(id);
     setStep("payment");
   };
@@ -278,12 +312,28 @@ export default function HomeSampleCollectionPage() {
                 />
               </div>
 
+              {submissionError && (
+                <p className="text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded-xl px-4 py-2.5">
+                  ⚠ {submissionError}
+                </p>
+              )}
+
               <button
                 type="submit"
-                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-teal-700 to-cyan-700 hover:from-teal-800 hover:to-cyan-800 text-white font-bold text-sm shadow-md transition flex items-center justify-center gap-2 cursor-pointer"
+                disabled={isSubmitting}
+                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-teal-700 to-cyan-700 hover:from-teal-800 hover:to-cyan-800 disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold text-sm shadow-md transition flex items-center justify-center gap-2 cursor-pointer"
               >
-                <span>Continue to Step 2: Payment &amp; QR Code</span>
-                <ArrowRight className="w-4 h-4" />
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span>Submitting Request...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Continue to Step 2: Payment &amp; QR Code</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </>
+                )}
               </button>
             </form>
           )}

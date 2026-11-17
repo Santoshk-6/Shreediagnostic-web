@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 import { PATHOLOGY_TESTS } from "@/data/tests";
 import { HEALTH_PACKAGES } from "@/data/packages";
+import { submitToWeb3Forms } from "@/lib/web3forms";
 
 interface BookingModalProps {
   isOpen?: boolean;
@@ -65,6 +66,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   const [bookingId, setBookingId] = useState("");
   const [paymentChoice, setPaymentChoice] = useState<"upi" | "pay_on_collection">("pay_on_collection");
   const [submissionFailed, setSubmissionFailed] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const isModalOpen = isOpen || selfOpen;
 
@@ -143,21 +145,39 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
   // STEP 2 -> STEP 3 (Submission Processing) -> STEP 4 (Thank You Summary)
   const handleStartSubmission = (choice: "upi" | "pay_on_collection") => {
+    if (isSubmitting) return; // prevent duplicate submissions
     setPaymentChoice(choice);
     setStep("processing");
     setSubmissionFailed(false);
+    setIsSubmitting(true);
 
-    // Simulate reliable network booking dispatch
+    const generatedId = "SHREE-" + Math.floor(100000 + Math.random() * 900000);
+
+    // Fire Web3Forms email notification (non-blocking — booking is confirmed regardless)
+    submitToWeb3Forms({
+      subject: `New Booking Request – ${selectedItemName} [${generatedId}]`,
+      from_name: patientName || "Website Visitor",
+      "Booking Reference ID": generatedId,
+      "Patient Name": patientName,
+      "Mobile Number": phone,
+      "Email Address": email || "Not provided",
+      "Selected Test / Package": selectedItemName,
+      "Estimated Price": `₹${itemPrice}`,
+      "Collection Mode": collectionType === "home" ? "Doorstep Home Collection" : "Central Lab Walk-in",
+      "Area Pincode": pincode,
+      "Residential Address": collectionType === "home" ? address : "Walk-in (not applicable)",
+      "Preferred Date": preferredDate,
+      "Preferred Time Slot": preferredTime,
+      "Payment Method": choice === "upi" ? "Advance UPI" : "Pay on Collection",
+    }).catch(() => {
+      // Email failure is silent — booking flow is not interrupted
+    });
+
+    // After 1.4s, generate ID and transition to summary (email is fire-and-forget)
     setTimeout(() => {
-      try {
-        const generatedId = "SHREE-" + Math.floor(100000 + Math.random() * 900000);
-        setBookingId(generatedId);
-        // Successfully submitted -> transition to Step 4
-        setStep("summary");
-      } catch (err) {
-        setSubmissionFailed(true);
-        setStep("payment");
-      }
+      setBookingId(generatedId);
+      setStep("summary");
+      setIsSubmitting(false);
     }, 1400);
   };
 
@@ -606,7 +626,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   <button
                     type="button"
                     onClick={() => handleStartSubmission("upi")}
-                    className="w-full py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-sm transition flex items-center justify-center gap-1.5 cursor-pointer"
+                    disabled={isSubmitting}
+                    className="w-full py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold text-xs shadow-sm transition flex items-center justify-center gap-1.5 cursor-pointer"
                   >
                     <span>Proceed &amp; Submit (After UPI Scan)</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -641,7 +662,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   <button
                     type="button"
                     onClick={() => handleStartSubmission("pay_on_collection")}
-                    className="w-full py-2.5 rounded-xl border-2 border-slate-300 hover:border-slate-400 bg-slate-50 hover:bg-slate-100 text-slate-800 font-bold text-xs transition flex items-center justify-center gap-1.5 cursor-pointer"
+                    disabled={isSubmitting}
+                    className="w-full py-2.5 rounded-xl border-2 border-slate-300 hover:border-slate-400 disabled:opacity-60 disabled:cursor-not-allowed bg-slate-50 hover:bg-slate-100 text-slate-800 font-bold text-xs transition flex items-center justify-center gap-1.5 cursor-pointer"
                   >
                     <span>Submit &amp; Pay on Collection</span>
                     <ArrowRight className="w-3.5 h-3.5" />

@@ -18,10 +18,14 @@ import {
   ArrowRight
 } from "lucide-react";
 import { BookingModal } from "@/components/booking/BookingModal";
+import { Loader2, AlertCircle } from "lucide-react";
+import { submitToWeb3Forms } from "@/lib/web3forms";
 
 export default function ContactPage() {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const [formData, setFormData] = useState({
     name: "",
@@ -31,9 +35,29 @@ export default function ContactPage() {
     message: ""
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setFormSubmitted(true);
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+    setSubmitError("");
+
+    const result = await submitToWeb3Forms({
+      subject: `New Enquiry: ${formData.subject} – ${formData.name}`,
+      from_name: formData.name || "Website Visitor",
+      "Customer Name": formData.name,
+      "Phone Number": formData.phone,
+      "Email Address": formData.email || "Not provided",
+      "Enquiry Subject": formData.subject,
+      "Message": formData.message,
+    });
+
+    setIsSubmitting(false);
+
+    if (result.success) {
+      setFormSubmitted(true);
+    } else {
+      setSubmitError(result.message || "Submission failed. Please try again or call us directly.");
+    }
   };
 
   return (
@@ -244,12 +268,29 @@ export default function ContactPage() {
                 />
               </div>
 
+              {submitError && (
+                <div className="flex items-start gap-2 text-xs text-rose-700 bg-rose-50 border border-rose-200 rounded-xl px-4 py-2.5">
+                  <AlertCircle className="w-4 h-4 flex-shrink-0 mt-0.5" />
+                  <span>{submitError}</span>
+                </div>
+              )}
+
               <button
                 type="submit"
-                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-teal-700 to-cyan-700 hover:from-teal-800 hover:to-cyan-800 text-white font-bold text-sm shadow-md transition flex items-center justify-center gap-2"
+                disabled={isSubmitting}
+                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-teal-700 to-cyan-700 hover:from-teal-800 hover:to-cyan-800 disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold text-sm shadow-md transition flex items-center justify-center gap-2"
               >
-                <Send className="w-4 h-4" />
-                <span>Send Enquiry Message</span>
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span>Sending Message...</span>
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-4 h-4" />
+                    <span>Send Enquiry Message</span>
+                  </>
+                )}
               </button>
             </form>
           ) : (
