@@ -1,0 +1,20 @@
+[
+  {
+    "id": "TEST-CAL-001",
+    "patientName": "Rahul Verma",
+    "phone": "9876543210",
+    "email": "rahul@example.com",
+    "itemName": "Comprehensive Full Body Health Checkup",
+    "itemPrice": 1499,
+    "collectionType": "home",
+    "pincode": "110001",
+    "address": "B-12, Green Park Extension, New Delhi",
+    "preferredDate": "2026-11-20",
+    "preferredTime": "06:30 AM - 08:30 AM",
+    "paymentMethod": "pay_on_collection",
+    "status": "cancelled",
+    "specialInstructions": "Please ring bell twice",
+    "createdAt": "2026-11-17T17:48:57.553Z",
+    "updatedAt": "2026-11-17T17:50:58.860Z"
+  }
+]

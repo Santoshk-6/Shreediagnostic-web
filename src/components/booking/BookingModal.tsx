@@ -144,7 +144,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   };
 
   // STEP 2 -> STEP 3 (Submission Processing) -> STEP 4 (Thank You Summary)
-  const handleStartSubmission = (choice: "upi" | "pay_on_collection") => {
+  const handleStartSubmission = async (choice: "upi" | "pay_on_collection") => {
     if (isSubmitting) return; // prevent duplicate submissions
     setPaymentChoice(choice);
     setStep("processing");
@@ -153,7 +153,31 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
     const generatedId = "SHREE-" + Math.floor(100000 + Math.random() * 900000);
 
-    // Fire Web3Forms email notification (non-blocking — booking is confirmed regardless)
+    // 1. Submit to Next.js backend API (Validates slot capacity + creates Google Calendar appointment event)
+    try {
+      await fetch("/api/bookings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          id: generatedId,
+          patientName,
+          phone,
+          email,
+          itemName: selectedItemName,
+          itemPrice,
+          collectionType,
+          pincode,
+          address,
+          preferredDate,
+          preferredTime,
+          paymentMethod: choice,
+        }),
+      });
+    } catch (apiErr) {
+      console.warn("Backend booking API warning:", apiErr);
+    }
+
+    // 2. Fire Web3Forms email notification (independent, non-blocking)
     submitToWeb3Forms({
       subject: `New Booking Request – ${selectedItemName} [${generatedId}]`,
       from_name: patientName || "Website Visitor",
@@ -173,12 +197,12 @@ export const BookingModal: React.FC<BookingModalProps> = ({
       // Email failure is silent — booking flow is not interrupted
     });
 
-    // After 1.4s, generate ID and transition to summary (email is fire-and-forget)
+    // Complete processing transition to summary
     setTimeout(() => {
       setBookingId(generatedId);
       setStep("summary");
       setIsSubmitting(false);
-    }, 1400);
+    }, 1200);
   };
 
   if (!isModalOpen) return null;

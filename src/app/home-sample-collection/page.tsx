@@ -91,9 +91,34 @@ export default function HomeSampleCollectionPage() {
     setStep("payment");
   };
 
-  const handleConfirmPayment = (choice: "upi" | "pay_on_collection") => {
+  const handleConfirmPayment = async (choice: "upi" | "pay_on_collection") => {
     setPaymentChoice(choice);
     setStep("confirmation");
+
+    // Register booking in backend & trigger Google Calendar event creation
+    try {
+      await fetch("/api/bookings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          id: bookingId,
+          patientName: formData.patientName,
+          phone: formData.phone,
+          email: formData.email,
+          itemName: formData.selectedItem,
+          itemPrice: getSelectedItemPrice(),
+          collectionType: "home",
+          pincode: formData.pincode,
+          address: formData.address,
+          preferredDate: formData.date,
+          preferredTime: formData.timeSlot,
+          paymentMethod: choice,
+          specialInstructions: formData.message,
+        }),
+      });
+    } catch (err) {
+      console.warn("Home collection backend registration warning:", err);
+    }
   };
 
   const itemPrice = getSelectedItemPrice();
